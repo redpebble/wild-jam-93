@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ditd4e6dhw2xu"]
+
+[ext_resource type="PackedScene" uid="uid://b0nm6helf7s7a" path="res://scenes/camera/interactive_camera.tscn" id="1_4c8uy"]
+[ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
+[ext_resource type="PackedScene" uid="uid://03akdkaqum1" path="res://scenes/game_scene/map/network_edge.tscn" id="2_4c8uy"]
+[ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
+
+[node name="MapDisplay" type="Node2D" unique_id=2062216081]
+
+[node name="InteractiveCamera" parent="." unique_id=1816395751 instance=ExtResource("1_4c8uy")]
+
+[node name="NetworkMap" parent="." unique_id=587558093 node_paths=PackedStringArray("start_vertex") instance=ExtResource("1_li7a7")]
+position = Vector2(346, 252)
+start_vertex = NodePath("Vertices/NetworkVertex")
+metadata/_edit_lock_ = true
+
+[node name="NetworkEdge" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("2_4c8uy")]
+vertex_a = NodePath("../../Vertices/NetworkVertex")
+vertex_b = NodePath("../../Vertices/NetworkVertex2")
+
+[node name="NetworkEdge2" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=568205872 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("2_4c8uy")]
+vertex_a = NodePath("../../Vertices/NetworkVertex2")
+vertex_b = NodePath("../../Vertices/NetworkVertex3")
+
+[node name="NetworkEdge3" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="2" unique_id=105625954 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("2_4c8uy")]
+vertex_a = NodePath("../../Vertices/NetworkVertex4")
+vertex_b = NodePath("../../Vertices/NetworkVertex3")
+
+[node name="NetworkVertex" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("3_7huig")]
+position = Vector2(-213, 31)
+
+[node name="NetworkVertex2" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=545362612 instance=ExtResource("3_7huig")]
+position = Vector2(-71, 172)
+
+[node name="NetworkVertex3" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1828001340 instance=ExtResource("3_7huig")]
+position = Vector2(159, 88)
+
+[node name="NetworkVertex4" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
+position = Vector2(15, -107)
+
+[editable path="NetworkMap"]

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://byspbrtfwpg6n"]
 
-[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/ui/styles/button_normal.tres" id="1_cj7y0"]
+[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/button_normal.tres" id="1_cj7y0"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="1_figxo"]
-[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/ui/styles/button_pressed.tres" id="2_5i76y"]
+[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_5i76y"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
-[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/ui/crt_shader.gdshader" id="5_oidod"]
+[ext_resource type="PackedScene" uid="uid://ditd4e6dhw2xu" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]
 content_margin_left = 40.0
@@ -40,6 +40,25 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_yxhdb")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oidod"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr7j0"]
+content_margin_left = 20.0
+content_margin_top = 40.0
+content_margin_right = 20.0
+content_margin_bottom = 40.0
+bg_color = Color(0, 0, 0, 1)
+border_width_bottom = 10
+border_color = Color(0.3359375, 0.3359375, 0.3359375, 1)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_bottom_right = 50
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0l5no"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i7wxe"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="LabelSettings" id="LabelSettings_oidod"]
 font_size = 36
 outline_color = Color(1, 1, 1, 0.1764706)
@@ -50,19 +69,6 @@ stacked_outline_1/size = 8
 stacked_outline_1/color = Color(1, 1, 1, 0.06666667)
 stacked_outline_2/size = 14
 stacked_outline_2/color = Color(1, 1, 1, 0.0627451)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sxa0"]
-shader = ExtResource("5_oidod")
-shader_parameter/smearing = 0.10000000475
-shader_parameter/color_offset = -0.004999998607560001
-shader_parameter/sharpening = 0.574000027265
-shader_parameter/static_noise = 0.1270000060325
-shader_parameter/crack_center = Vector2(0.15, 0.85)
-shader_parameter/crack_intensity = 0.0
-shader_parameter/crack_size = 0.0
-shader_parameter/vertical_jitter = 0.0010000000475
-shader_parameter/scanline_opacity = 0.0250000011875
-shader_parameter/vignette_intensity = 0.150000007125
 
 [node name="Dashboard" type="Control" unique_id=60803867]
 layout_mode = 3
@@ -106,6 +112,14 @@ theme_override_constants/separation = 40
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fr7j0")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=1378439325]
+material = SubResource("ShaderMaterial_0l5no")
+layout_mode = 2
+texture = SubResource("ViewportTexture_i7wxe")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=414806147]
 layout_mode = 2
@@ -135,24 +149,11 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer4" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=684436841]
-custom_minimum_size = Vector2(0, 150)
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1392779007]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="PanelContainer5" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1716995711]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2085686328]
+size = Vector2i(750, 500)
 
-[node name="PanelContainer6" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1187925523]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="CrtShader" type="ColorRect" parent="." unique_id=2137426897]
-material = SubResource("ShaderMaterial_3sxa0")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="MapDisplay" parent="SubViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]
