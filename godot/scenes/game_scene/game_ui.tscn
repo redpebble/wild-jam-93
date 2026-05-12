@@ -64,12 +64,16 @@ position = Vector2(108, 136)
 position = Vector2(144, -155)
 
 [node name="NetworkEdge" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 instance=ExtResource("8_3re04")]
-node_path_a = NodePath("../../Nodes/NetworkNode")
-node_path_b = NodePath("../../Nodes/NetworkNode2")
+node_a = NodePath("../../Nodes/NetworkNode")
+node_b = NodePath("../../Nodes/NetworkNode2")
 
 [node name="NetworkEdge2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1855504302 instance=ExtResource("8_3re04")]
-node_path_a = NodePath("../../Nodes/NetworkNode")
-node_path_b = NodePath("../../Nodes/NetworkNode3")
+node_a = NodePath("../../Nodes/NetworkNode")
+node_b = NodePath("../../Nodes/NetworkNode3")
+
+[node name="NetworkEdge3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="2" unique_id=725085530 instance=ExtResource("8_3re04")]
+node_a = NodePath("../../Nodes/NetworkNode2")
+node_b = NodePath("../../Nodes/NetworkNode3")
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]
 script = ExtResource("12_gpor5")
