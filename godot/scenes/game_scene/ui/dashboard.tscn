@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://byspbrtfwpg6n"]
 
-[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/ui/styles/button_normal.tres" id="1_cj7y0"]
+[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/button_normal.tres" id="1_cj7y0"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="1_figxo"]
-[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/ui/styles/button_pressed.tres" id="2_5i76y"]
+[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_5i76y"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
-[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/ui/crt_shader.gdshader" id="5_oidod"]
+[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/crt_shader.gdshader" id="5_oidod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]
 content_margin_left = 40.0
