@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://03akdkaqum1"]
+
+[ext_resource type="Script" uid="uid://fc6xqx7dd1ey" path="res://scenes/game_scene/map/network_edge.gd" id="1_suwds"]
+
+[node name="NetworkEdge" type="Node2D" unique_id=89798225]
+script = ExtResource("1_suwds")

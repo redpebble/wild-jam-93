@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ctdaaw614pvqm"]
+
+[ext_resource type="Script" uid="uid://iw53tbd0al7a" path="res://scenes/game_scene/map/network_map.gd" id="1_yqn4w"]
+
+[node name="NetworkMap" type="Node2D" unique_id=587558093]
+script = ExtResource("1_yqn4w")
+
+[node name="Nodes" type="Node2D" parent="." unique_id=805443819]
+metadata/_edit_lock_ = true
+
+[node name="Edges" type="Node2D" parent="." unique_id=1297744968]
+metadata/_edit_lock_ = true

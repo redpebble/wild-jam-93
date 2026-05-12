@@ -5,6 +5,9 @@
 [ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_5i76y"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
 [ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/crt_shader.gdshader" id="5_oidod"]
+[ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="5_ygy1y"]
+[ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_node.tscn" id="6_fa8xj"]
+[ext_resource type="PackedScene" uid="uid://03akdkaqum1" path="res://scenes/game_scene/map/network_edge.tscn" id="7_m5vbi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]
 content_margin_left = 40.0
@@ -54,7 +57,7 @@ stacked_outline_2/color = Color(1, 1, 1, 0.0627451)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3sxa0"]
 shader = ExtResource("5_oidod")
 shader_parameter/smearing = 0.10000000475
-shader_parameter/color_offset = -0.004999998607560001
+shader_parameter/color_offset = -0.00499999860756
 shader_parameter/sharpening = 0.574000027265
 shader_parameter/static_noise = 0.1270000060325
 shader_parameter/crack_center = Vector2(0.15, 0.85)
@@ -72,6 +75,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_rh14k")
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=946525735]
 layout_mode = 1
@@ -81,11 +85,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_oidod")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1859446407]
 layout_mode = 2
 texture = ExtResource("4_pj371")
 expand_mode = 3
+metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=901001946]
 layout_mode = 2
@@ -93,59 +99,93 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1376319667]
 layout_mode = 2
 theme_override_constants/separation = 40
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1047580673]
 layout_mode = 2
 theme_override_constants/separation = 40
+metadata/_edit_lock_ = true
 
 [node name="MapPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1647062348]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="NetworkMap" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=587558093 instance=ExtResource("5_ygy1y")]
+position = Vector2(346, 252)
+metadata/_edit_lock_ = true
+
+[node name="NetworkNode" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("6_fa8xj")]
+position = Vector2(-215, -48)
+
+[node name="NetworkNode2" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1075788626 instance=ExtResource("6_fa8xj")]
+position = Vector2(144, 115)
+
+[node name="NetworkNode3" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1079854580 instance=ExtResource("6_fa8xj")]
+position = Vector2(144, -155)
+
+[node name="NetworkEdge" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 instance=ExtResource("7_m5vbi")]
+node_path_a = NodePath("../../Nodes/NetworkNode")
+node_path_b = NodePath("../../Nodes/NetworkNode2")
+
+[node name="NetworkEdge2" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1103543724 instance=ExtResource("7_m5vbi")]
+node_path_a = NodePath("../../Nodes/NetworkNode")
+node_path_b = NodePath("../../Nodes/NetworkNode3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=414806147]
 layout_mode = 2
 theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
 
 [node name="LocationNamePanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1950877887]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LocationNamePanel" unique_id=1306235711]
 layout_mode = 2
 text = "Location Name"
 label_settings = SubResource("LabelSettings_oidod")
+metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Travel"
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1882094780]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1506789247]
 layout_mode = 2
 size_flags_vertical = 3
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer4" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=684436841]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer5" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1716995711]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer6" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1187925523]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="CrtShader" type="ColorRect" parent="." unique_id=2137426897]
 material = SubResource("ShaderMaterial_3sxa0")
@@ -156,3 +196,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[editable path="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/NetworkMap"]
