@@ -2,36 +2,27 @@
 class_name NetworkEdge
 extends Node2D
 
-func path_is_invalid(path, other) -> bool:
-	if not Engine.is_editor_hint(): return false
-	if path == NodePath(): return false
-	var node = get_node(path)
-	if (node is NetworkVertex) and (path != other): return false
+func node_is_invalid(node, other) -> bool:
+	if node == null or node != other: return false
 	print("Invalid NetworkVertex")
 	return true
 
 func editor_redraw() -> void:
 	if Engine.is_editor_hint(): queue_redraw()
 
-@export var vertex_path_a: NodePath :
-	set(path):
-		if path_is_invalid(path, vertex_path_b): return
-		vertex_path_a = path
+@export var vertex_a: NetworkVertex = null :
+	set(node):
+		if node_is_invalid(node, vertex_b): return
+		vertex_a = node
 		editor_redraw()
 
-@export var vertex_path_b: NodePath :
-	set(path):
-		if path_is_invalid(path, vertex_path_a): return
-		vertex_path_b = path
+@export var vertex_b: NetworkVertex = null :
+	set(node):
+		if node_is_invalid(node, vertex_a): return
+		vertex_b = node
 		editor_redraw()
-
-@onready var vertex_a: NetworkVertex = get_node(vertex_path_a)
-@onready var vertex_b: NetworkVertex = get_node(vertex_path_b)
 
 func _draw() -> void:
-	if Engine.is_editor_hint():
-		vertex_a = get_node(vertex_path_a)
-		vertex_b = get_node(vertex_path_b)
 	if not (vertex_a and vertex_b): return
 	var pos_a = to_local(vertex_a.global_position)
 	var pos_b = to_local(vertex_b.global_position)

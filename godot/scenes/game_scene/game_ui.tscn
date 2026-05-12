@@ -55,7 +55,7 @@ position = Vector2(346, 252)
 metadata/_edit_lock_ = true
 
 [node name="NetworkVertex" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("7_7aihr")]
-position = Vector2(-163, 4)
+position = Vector2(-176, 17)
 
 [node name="NetworkVertex2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1402512383 instance=ExtResource("7_7aihr")]
 position = Vector2(123, 148)
@@ -63,13 +63,13 @@ position = Vector2(123, 148)
 [node name="NetworkVertex3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1110146789 instance=ExtResource("7_7aihr")]
 position = Vector2(175, -129)
 
-[node name="NetworkEdge" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 instance=ExtResource("8_3re04")]
-vertex_path_a = NodePath("../../Vertices/NetworkVertex")
-vertex_path_b = NodePath("../../Vertices/NetworkVertex2")
+[node name="NetworkEdge" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("8_3re04")]
+vertex_a = NodePath("../../Vertices/NetworkVertex")
+vertex_b = NodePath("../../Vertices/NetworkVertex2")
 
-[node name="NetworkEdge2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1855504302 instance=ExtResource("8_3re04")]
-vertex_path_a = NodePath("../../Vertices/NetworkVertex2")
-vertex_path_b = NodePath("../../Vertices/NetworkVertex3")
+[node name="NetworkEdge2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1855504302 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("8_3re04")]
+vertex_a = NodePath("../../Vertices/NetworkVertex2")
+vertex_b = NodePath("../../Vertices/NetworkVertex3")
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]
 script = ExtResource("12_gpor5")
