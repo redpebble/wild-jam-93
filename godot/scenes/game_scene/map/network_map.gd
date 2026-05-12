@@ -1,6 +1,8 @@
 class_name NetworkMap
 extends Node
 
+@onready var edges: Array[NetworkEdge] = $Edges.get_children().filter(func(n): return n is NetworkEdge)
+
 func _ready() -> void:
 	pass
 

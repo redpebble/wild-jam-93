@@ -55,25 +55,21 @@ position = Vector2(346, 252)
 metadata/_edit_lock_ = true
 
 [node name="NetworkNode" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("7_7aihr")]
-position = Vector2(-202, -50)
+position = Vector2(-166, -30)
 
 [node name="NetworkNode2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1402512383 instance=ExtResource("7_7aihr")]
-position = Vector2(108, 136)
+position = Vector2(123, 148)
 
 [node name="NetworkNode3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1110146789 instance=ExtResource("7_7aihr")]
-position = Vector2(144, -155)
+position = Vector2(139, -130)
 
 [node name="NetworkEdge" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 instance=ExtResource("8_3re04")]
-node_a = NodePath("../../Nodes/NetworkNode")
-node_b = NodePath("../../Nodes/NetworkNode2")
+node_path_a = NodePath("../../Nodes/NetworkNode")
+node_path_b = NodePath("../../Nodes/NetworkNode2")
 
 [node name="NetworkEdge2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1855504302 instance=ExtResource("8_3re04")]
-node_a = NodePath("../../Nodes/NetworkNode")
-node_b = NodePath("../../Nodes/NetworkNode3")
-
-[node name="NetworkEdge3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="2" unique_id=725085530 instance=ExtResource("8_3re04")]
-node_a = NodePath("../../Nodes/NetworkNode2")
-node_b = NodePath("../../Nodes/NetworkNode3")
+node_path_a = NodePath("../../Nodes/NetworkNode3")
+node_path_b = NodePath("../../Nodes/NetworkNode2")
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]
 script = ExtResource("12_gpor5")
