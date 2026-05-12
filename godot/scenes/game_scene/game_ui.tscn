@@ -69,15 +69,6 @@ position = Vector2(346, 252)
 start_vertex = NodePath("Vertices/NetworkVertex")
 metadata/_edit_lock_ = true
 
-[node name="NetworkVertex" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("7_7aihr")]
-position = Vector2(-142, 32)
-
-[node name="NetworkVertex2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1402512383 instance=ExtResource("7_7aihr")]
-position = Vector2(123, 148)
-
-[node name="NetworkVertex3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1110146789 instance=ExtResource("7_7aihr")]
-position = Vector2(175, -129)
-
 [node name="NetworkEdge" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("8_3re04")]
 vertex_a = NodePath("../../Vertices/NetworkVertex")
 vertex_b = NodePath("../../Vertices/NetworkVertex2")
@@ -86,7 +77,24 @@ vertex_b = NodePath("../../Vertices/NetworkVertex2")
 vertex_a = NodePath("../../Vertices/NetworkVertex2")
 vertex_b = NodePath("../../Vertices/NetworkVertex3")
 
+[node name="NetworkEdge3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="2" unique_id=583063579 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("8_3re04")]
+vertex_a = NodePath("../../Vertices/NetworkVertex4")
+vertex_b = NodePath("../../Vertices/NetworkVertex3")
+
+[node name="NetworkVertex" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("7_7aihr")]
+position = Vector2(-213, 31)
+
+[node name="NetworkVertex2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1402512383 instance=ExtResource("7_7aihr")]
+position = Vector2(-71, 172)
+
+[node name="NetworkVertex3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1110146789 instance=ExtResource("7_7aihr")]
+position = Vector2(159, 88)
+
+[node name="NetworkVertex4" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=914548210 instance=ExtResource("7_7aihr")]
+position = Vector2(15, -107)
+
 [node name="CrtShader" type="ColorRect" parent="ViewportContainer/ConfigurableSubViewport" unique_id=1155349337]
+visible = false
 material = SubResource("ShaderMaterial_3re04")
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,6 +102,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]
 script = ExtResource("12_gpor5")

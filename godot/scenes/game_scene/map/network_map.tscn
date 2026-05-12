@@ -5,8 +5,8 @@
 [node name="NetworkMap" type="Node2D" unique_id=587558093]
 script = ExtResource("1_yqn4w")
 
-[node name="Vertices" type="Node2D" parent="." unique_id=805443819]
+[node name="Edges" type="Node2D" parent="." unique_id=1297744968]
 metadata/_edit_lock_ = true
 
-[node name="Edges" type="Node2D" parent="." unique_id=1297744968]
+[node name="Vertices" type="Node2D" parent="." unique_id=805443819]
 metadata/_edit_lock_ = true

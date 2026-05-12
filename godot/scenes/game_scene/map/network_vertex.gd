@@ -7,10 +7,10 @@ extends Node2D
 		radius = val
 		queue_redraw()
 
-@export var color: Color = Color.WHITE :
-	set(val):
-		color = val
-		queue_redraw()
+var color: Color = Color.WHITE
+
+func editor_redraw() -> void:
+	if Engine.is_editor_hint(): queue_redraw()
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius, color, true, -1, true)
