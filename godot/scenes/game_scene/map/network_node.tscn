@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bvql2oicp8lhq"]
-
-[ext_resource type="Script" uid="uid://bsbb4md1lfdtk" path="res://scenes/game_scene/map/network_node.gd" id="1_a4thr"]
-
-[node name="NetworkNode" type="Node2D" unique_id=1569443178]
-script = ExtResource("1_a4thr")

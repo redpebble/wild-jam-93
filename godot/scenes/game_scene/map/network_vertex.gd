@@ -1,5 +1,5 @@
 @tool
-class_name NetworkNode
+class_name NetworkVertex
 extends Node2D
 
 @export var radius: float = 15.0 :

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byspbrtfwpg6n" path="res://scenes/game_scene/ui/dashboard.tscn" id="5_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="6_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://ba11po12cvait" path="res://scenes/windows/game_won_window.tscn" id="6_ukb12"]
-[ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_node.tscn" id="7_7aihr"]
+[ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="7_7aihr"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="7_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bx7s80d8smic4" path="res://scenes/windows/level_lost_window.tscn" id="7_i7m4m"]
 [ext_resource type="PackedScene" uid="uid://03akdkaqum1" path="res://scenes/game_scene/map/network_edge.tscn" id="8_3re04"]
@@ -54,22 +54,22 @@ metadata/_edit_lock_ = true
 position = Vector2(346, 252)
 metadata/_edit_lock_ = true
 
-[node name="NetworkNode" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("7_7aihr")]
-position = Vector2(-166, -30)
+[node name="NetworkVertex" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("7_7aihr")]
+position = Vector2(-163, 4)
 
-[node name="NetworkNode2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1402512383 instance=ExtResource("7_7aihr")]
+[node name="NetworkVertex2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=1402512383 instance=ExtResource("7_7aihr")]
 position = Vector2(123, 148)
 
-[node name="NetworkNode3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Nodes" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1110146789 instance=ExtResource("7_7aihr")]
-position = Vector2(139, -130)
+[node name="NetworkVertex3" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1110146789 instance=ExtResource("7_7aihr")]
+position = Vector2(175, -129)
 
 [node name="NetworkEdge" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 instance=ExtResource("8_3re04")]
-node_path_a = NodePath("../../Nodes/NetworkNode")
-node_path_b = NodePath("../../Nodes/NetworkNode2")
+vertex_path_a = NodePath("../../Vertices/NetworkVertex")
+vertex_path_b = NodePath("../../Vertices/NetworkVertex2")
 
 [node name="NetworkEdge2" parent="ViewportContainer/ConfigurableSubViewport/NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1855504302 instance=ExtResource("8_3re04")]
-node_path_a = NodePath("../../Nodes/NetworkNode3")
-node_path_b = NodePath("../../Nodes/NetworkNode2")
+vertex_path_a = NodePath("../../Vertices/NetworkVertex2")
+vertex_path_b = NodePath("../../Vertices/NetworkVertex3")
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]
 script = ExtResource("12_gpor5")
