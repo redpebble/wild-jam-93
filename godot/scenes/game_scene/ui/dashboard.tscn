@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="1_figxo"]
 [ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_5i76y"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
+[ext_resource type="Shader" uid="uid://b5ymvxiwwu48u" path="res://scenes/game_scene/ui/map_display_fx.gdshader" id="5_fa8xj"]
 [ext_resource type="PackedScene" uid="uid://ditd4e6dhw2xu" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]
@@ -41,11 +42,11 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_yxhdb")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oidod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr7j0"]
-content_margin_left = 20.0
-content_margin_top = 40.0
-content_margin_right = 20.0
-content_margin_bottom = 40.0
-bg_color = Color(0, 0, 0, 1)
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.002532959, 0.24128413, 0.32421875, 1)
 border_width_bottom = 10
 border_color = Color(0.3359375, 0.3359375, 0.3359375, 1)
 border_blend = true
@@ -54,10 +55,12 @@ corner_radius_bottom_right = 50
 corner_detail = 1
 anti_aliasing = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0l5no"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_i7wxe"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf6ts"]
+shader = ExtResource("5_fa8xj")
+shader_parameter/aspect_ratio = Vector2(7, 5)
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.365
+shader_parameter/outer_radius = 2.465
 
 [sub_resource type="LabelSettings" id="LabelSettings_oidod"]
 font_size = 36
@@ -114,12 +117,20 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fr7j0")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=1378439325]
-material = SubResource("ShaderMaterial_0l5no")
+[node name="MapContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=61518280]
+material = SubResource("ShaderMaterial_jf6ts")
 layout_mode = 2
-texture = SubResource("ViewportTexture_i7wxe")
-expand_mode = 1
-stretch_mode = 5
+stretch = true
+mouse_target = true
+
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer" unique_id=2085686328]
+transparent_bg = true
+handle_input_locally = false
+gui_embed_subwindows = true
+size = Vector2i(700, 500)
+render_target_update_mode = 4
+
+[node name="MapDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/SubViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=414806147]
 layout_mode = 2
@@ -152,8 +163,3 @@ size_flags_vertical = 3
 [node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1392779007]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=2085686328]
-size = Vector2i(750, 500)
-
-[node name="MapDisplay" parent="SubViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]

@@ -21,7 +21,7 @@ shader_parameter/crack_center = Vector2(0.15, 0.85)
 shader_parameter/crack_intensity = 0.0
 shader_parameter/crack_size = 0.0
 shader_parameter/vertical_jitter = 0.0010000000475
-shader_parameter/scanline_opacity = 0.0250000011875
+shader_parameter/scanline_opacity = 0.070000003325
 shader_parameter/vignette_intensity = 0.150000007125
 
 [node name="GameUI" type="Control" unique_id=672765824]
