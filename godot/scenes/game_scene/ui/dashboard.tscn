@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_5i76y"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
 [ext_resource type="Shader" uid="uid://b5ymvxiwwu48u" path="res://scenes/game_scene/ui/map_display_fx.gdshader" id="5_fa8xj"]
-[ext_resource type="PackedScene" uid="uid://ditd4e6dhw2xu" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
+[ext_resource type="PackedScene" uid="uid://dtartrcodq4mx" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]
 content_margin_left = 40.0
