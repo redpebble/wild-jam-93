@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://c6uvkb4855aiv"]
 
-[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/ui/styles/button_normal.tres" id="1_l6n1g"]
-[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/ui/styles/button_pressed.tres" id="2_7qmiu"]
+[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/button_normal.tres" id="1_l6n1g"]
+[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_7qmiu"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="3_osu2k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]

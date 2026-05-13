@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ditd4e6dhw2xu"]
+[gd_scene format=3 uid="uid://dtartrcodq4mx"]
 
 [ext_resource type="PackedScene" uid="uid://b0nm6helf7s7a" path="res://scenes/camera/interactive_camera.tscn" id="1_4c8uy"]
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
@@ -27,15 +27,15 @@ vertex_a = NodePath("../../Vertices/NetworkVertex4")
 vertex_b = NodePath("../../Vertices/NetworkVertex3")
 
 [node name="NetworkVertex" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("3_7huig")]
-position = Vector2(-213, 31)
+position = Vector2(-537, -264)
 
 [node name="NetworkVertex2" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=545362612 instance=ExtResource("3_7huig")]
-position = Vector2(-71, 172)
+position = Vector2(-402, -119)
 
 [node name="NetworkVertex3" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1828001340 instance=ExtResource("3_7huig")]
-position = Vector2(159, 88)
+position = Vector2(-172, -203)
 
 [node name="NetworkVertex4" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
-position = Vector2(15, -107)
+position = Vector2(-316, -398)
 
 [editable path="NetworkMap"]
