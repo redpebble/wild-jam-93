@@ -89,6 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_oidod")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1859446407]
@@ -115,6 +116,7 @@ theme_override_constants/separation = 40
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_fr7j0")
 
 [node name="MapContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=61518280]
