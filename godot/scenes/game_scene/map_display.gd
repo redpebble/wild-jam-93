@@ -4,12 +4,12 @@ extends Node2D
 @onready var network_map = $NetworkMap
 @onready var camera = $InteractiveCamera
 
-# TODO: Uncomment once start_vertex_changed signal is available
-#func _ready() -> void:
-	#network_map.start_vertex_changed.connect(_on_start_vertex_changed) 
-#
-#func _on_start_vertex_changed(_vertex : NetworkVertex) -> void:
-	#refocus_camera()
+ #TODO: Uncomment once start_vertex_changed signal is available
+func _ready() -> void:
+	network_map.start_vertex_changed.connect(_on_start_vertex_changed) 
+
+func _on_start_vertex_changed(_vertex : NetworkVertex) -> void:
+	refocus_camera()
 
 func refocus_camera() -> void:
 	camera.move_to(network_map.start_vertex.global_position)

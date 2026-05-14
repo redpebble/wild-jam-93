@@ -1,46 +1,14 @@
 [gd_scene format=3 uid="uid://byspbrtfwpg6n"]
 
-[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/button_normal.tres" id="1_cj7y0"]
-[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="1_figxo"]
-[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_5i76y"]
+[ext_resource type="Theme" uid="uid://c6uvkb4855aiv" path="res://scenes/game_scene/ui/themes/dashboard_theme.tres" id="1_fa8xj"]
+[ext_resource type="Shader" uid="uid://b5ymvxiwwu48u" path="res://scenes/game_scene/ui/map_display_fx.gdshader" id="4_fr7j0"]
 [ext_resource type="Script" uid="uid://bq8wa30uoko20" path="res://scenes/game_scene/ui/dashboard.gd" id="4_jf6ts"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
 [ext_resource type="PackedScene" uid="uid://dtartrcodq4mx" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
-[ext_resource type="Shader" uid="uid://df6x86oh073rd" path="res://scenes/game_scene/ui/misc_disp_fx.tres" id="6_jf6ts"]
 [ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/display_theme.tres" id="7_fa8xj"]
+[ext_resource type="LabelSettings" uid="uid://fb362rt6h0jk" path="res://scenes/game_scene/ui/label_settings/header.tres" id="8_0l5no"]
 [ext_resource type="Texture2D" uid="uid://c7tenbngm4bpy" path="res://assets/textures/shapes/circle.png" id="8_m5vbi"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxhdb"]
-content_margin_left = 40.0
-content_margin_top = 14.0
-content_margin_right = 40.0
-bg_color = Color(0, 0, 0, 1)
-border_width_bottom = 10
-border_color = Color(0.3359375, 0.3359375, 0.3359375, 1)
-border_blend = true
-corner_radius_top_left = 50
-corner_radius_bottom_right = 50
-corner_detail = 1
-anti_aliasing = false
-
-[sub_resource type="Theme" id="Theme_rh14k"]
-default_font = ExtResource("1_figxo")
-default_font_size = 0
-Button/colors/font_color = Color(0.8392157, 0.8392157, 0.8392157, 1)
-Button/colors/font_focus_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(1, 1, 1, 0.0627451)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/constants/outline_size = 12
-Button/font_sizes/font_size = 40
-Button/styles/disabled = ExtResource("1_cj7y0")
-Button/styles/focus = ExtResource("1_cj7y0")
-Button/styles/hover = ExtResource("1_cj7y0")
-Button/styles/normal = ExtResource("1_cj7y0")
-Button/styles/pressed = ExtResource("2_5i76y")
-Label/font_sizes/font_size = 40
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_yxhdb")
+[ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="9_i7wxe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oidod"]
 
@@ -59,29 +27,11 @@ corner_detail = 1
 anti_aliasing = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jf6ts"]
-shader = ExtResource("6_jf6ts")
+shader = ExtResource("4_fr7j0")
 shader_parameter/aspect_ratio = Vector2(7, 5)
 shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.365
 shader_parameter/outer_radius = 2.465
-
-[sub_resource type="LabelSettings" id="LabelSettings_oidod"]
-font_size = 36
-outline_color = Color(1, 1, 1, 0.1764706)
-stacked_outline_count = 3
-stacked_outline_0/size = 4
-stacked_outline_0/color = Color(1, 1, 1, 0.1882353)
-stacked_outline_1/size = 8
-stacked_outline_1/color = Color(1, 1, 1, 0.06666667)
-stacked_outline_2/size = 14
-stacked_outline_2/color = Color(1, 1, 1, 0.0627451)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fr7j0"]
-shader = ExtResource("6_jf6ts")
-shader_parameter/aspect_ratio = Vector2(7, 5)
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = -5.645
 
 [node name="Dashboard" type="Control" unique_id=60803867]
 layout_mode = 3
@@ -90,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_rh14k")
+theme = ExtResource("1_fa8xj")
 script = ExtResource("4_jf6ts")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=946525735]
@@ -172,12 +122,14 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 action_mode = 0
+keep_pressed_outside = true
 text = "+"
 
 [node name="ZoomOutButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=956776539]
 unique_name_in_owner = true
 layout_mode = 2
 action_mode = 0
+keep_pressed_outside = true
 text = "-"
 
 [node name="RefocusButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer/VBoxContainer" unique_id=763888096]
@@ -194,26 +146,28 @@ theme_override_colors/icon_disabled_color = Color(0.59375, 0.3841912, 0, 1)
 theme_override_constants/icon_max_width = 12
 theme_override_icons/icon = ExtResource("8_m5vbi")
 action_mode = 0
+keep_pressed_outside = true
 text = "Refocus"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=414806147]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="LocationNamePanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1950877887]
+[node name="LocationPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1950877887]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LocationNamePanel" unique_id=1306235711]
+[node name="LocationLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LocationPanel" unique_id=1306235711]
 layout_mode = 2
 text = "Location Name"
-label_settings = SubResource("LabelSettings_oidod")
+label_settings = ExtResource("8_0l5no")
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
+[node name="TravelButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 action_mode = 0
+keep_pressed_outside = true
 text = "Travel"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1882094780]
@@ -221,11 +175,65 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1506789247]
-material = SubResource("ShaderMaterial_fr7j0")
+[node name="CargoPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1506789247]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CargoPanel" unique_id=1400289834]
+layout_mode = 2
+text = "Bounty Remaining: $890,000"
+label_settings = ExtResource("9_i7wxe")
+
+[node name="ContractPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2043334989]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1392779007]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel" unique_id=1697288469]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer" unique_id=115277496]
+layout_mode = 2
+text = "Contracts"
+label_settings = ExtResource("8_0l5no")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer" unique_id=1713032114]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer" unique_id=149899006]
+layout_mode = 2
+follow_focus = true
+
+[node name="ContractList" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer" unique_id=415539833]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="ContractEntry" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList" unique_id=108729728]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry" unique_id=1876255990]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Destination" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry/VBoxContainer" unique_id=705782927]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mining Outpost Theta"
+label_settings = ExtResource("9_i7wxe")
+
+[node name="Details" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry/VBoxContainer" unique_id=1176815362]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "- Volatile cargo"
+label_settings = ExtResource("9_i7wxe")
+
+[node name="Reward" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry" unique_id=831260339]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "$1400"
+label_settings = ExtResource("9_i7wxe")
