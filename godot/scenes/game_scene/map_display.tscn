@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dtartrcodq4mx"]
 
 [ext_resource type="PackedScene" uid="uid://b0nm6helf7s7a" path="res://scenes/camera/interactive_camera.tscn" id="1_4c8uy"]
+[ext_resource type="Script" uid="uid://ddk5th5tdk3s1" path="res://scenes/game_scene/map_display.gd" id="1_7huig"]
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
 [ext_resource type="PackedScene" uid="uid://03akdkaqum1" path="res://scenes/game_scene/map/network_edge.tscn" id="2_4c8uy"]
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
 
 [node name="MapDisplay" type="Node2D" unique_id=2062216081]
+script = ExtResource("1_7huig")
 
 [node name="InteractiveCamera" parent="." unique_id=1816395751 instance=ExtResource("1_4c8uy")]
 

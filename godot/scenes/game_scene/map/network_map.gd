@@ -2,12 +2,15 @@
 class_name NetworkMap
 extends Node
 
+#signal start_vertex_changed(vertex: NetworkVertex) # TODO: Uncomment to allow camera snap
+
 var edge_list: Array[NetworkEdge] = []
 var vert_list: Array[NetworkVertex] = []
 
 @export var start_vertex: NetworkVertex :
 	set(vert):
 		start_vertex = vert
+		#start_vertex_changed.emit(start_vertex) # TODO: Uncomment to allow camera snap
 		color_start_adjacent()
 
 var selected_vert: NetworkVertex = null :
