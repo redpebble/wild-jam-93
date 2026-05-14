@@ -2,21 +2,21 @@
 class_name NetworkEdge
 extends Node2D
 
-func vert_is_invalid(vert, other) -> bool:
-	if vert == null or vert != other: return false
+func vert_is_invalid(vertex, other) -> bool:
+	if vertex == null or vertex != other: return false
 	print("Invalid NetworkVertex")
 	return true
 
 @export var vertex_a: NetworkVertex = null :
-	set(vert):
-		if vert_is_invalid(vert, vertex_b): return
-		vertex_a = vert
+	set(vertex):
+		if vert_is_invalid(vertex, vertex_b): return
+		vertex_a = vertex
 		editor_redraw()
 
 @export var vertex_b: NetworkVertex = null :
-	set(vert):
-		if vert_is_invalid(vert, vertex_a): return
-		vertex_b = vert
+	set(vertex):
+		if vert_is_invalid(vertex, vertex_a): return
+		vertex_b = vertex
 		editor_redraw()
 
 var color: Color = Color.WHITE
@@ -36,9 +36,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	editor_redraw()
 
-func has_vertex(vert) -> bool:
-	if vert == vertex_a or vert == vertex_b: return true
+func has_vertex(vertex) -> bool:
+	if vertex == vertex_a or vertex == vertex_b: return true
 	return false
 
-func has_vertices(vert1, vert2) -> bool:
-	return has_vertex(vert1) and has_vertex(vert2)
+func is_vertices(vertex1, vertex2) -> bool:
+	return (vertex1 == vertex_a and vertex2 == vertex_b) or (vertex1 == vertex_b and vertex2 == vertex_a)

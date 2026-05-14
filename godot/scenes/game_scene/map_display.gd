@@ -19,3 +19,11 @@ func zoom_camera_in() -> void:
 	
 func zoom_camera_out() -> void:
 	camera.zoom_by(-camera.zoom_increment * 2)
+
+
+func _on_travel_button_pressed() -> void:
+	if network_map.are_adjacent(network_map.start_vertex, network_map.selected_vertex):
+		print("adjacent")
+		network_map.set_start_selected()
+	else:
+		pass # TODO: handle "cannot travel there"

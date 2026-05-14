@@ -237,3 +237,5 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "$1400"
 label_settings = ExtResource("9_i7wxe")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TravelButton" to="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/SubViewport/MapDisplay" method="_on_travel_button_pressed"]
