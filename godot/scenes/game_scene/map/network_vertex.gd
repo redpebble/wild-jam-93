@@ -13,6 +13,8 @@ signal rclicked(vertex)
 		queue_redraw()
 @export var highlight_color : Color
 
+@export var highlight_color : Color
+
 var color: Color = Color.WHITE
 
 var selected: bool = false
