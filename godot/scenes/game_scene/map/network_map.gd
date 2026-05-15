@@ -52,6 +52,7 @@ func _ready() -> void:
 	for v in vertex_list:
 		v.lclicked.connect(_on_vertex_lclicked)
 	color_start_adjacent()
+	ContractManager.network_map = self
 
 func _process(_delta: float) -> void:
 	editor_redraw()

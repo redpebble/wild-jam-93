@@ -34,7 +34,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	mouse_entered.connect(set_hovered.bind(true))
 	mouse_exited.connect(set_hovered.bind(false))
-	ContractManager.add_location(self)
 
 func _process(_delta: float) -> void:
 	editor_redraw()
