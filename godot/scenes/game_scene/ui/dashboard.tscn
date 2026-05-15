@@ -106,6 +106,7 @@ descriptor = "Location"
 value = "Station 177C"
 
 [node name="TravelButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 action_mode = 0
@@ -140,5 +141,3 @@ header_text = "In-Progress Contracts"
 [node name="LocationContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1172378884 instance=ExtResource("8_m5vbi")]
 layout_mode = 2
 header_text = "Available Contracts"
-
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TravelButton" to="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/MapViewport/MapDisplay" method="_on_travel_button_pressed"]

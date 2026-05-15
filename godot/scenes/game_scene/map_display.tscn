@@ -19,7 +19,7 @@ shader_parameter/outer_radius = 1.42
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_24htp"]
 shader = ExtResource("7_4evev")
 shader_parameter/smearing = 0.0
-shader_parameter/color_offset = 1.6299399954733394e-09
+shader_parameter/color_offset = 1.6299399954733392e-09
 shader_parameter/sharpening = 0.2390000113525
 shader_parameter/static_noise = 0.0590000028025
 shader_parameter/crack_center = Vector2(0.15, 0.85)
