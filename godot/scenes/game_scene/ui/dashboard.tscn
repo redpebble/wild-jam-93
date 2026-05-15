@@ -5,10 +5,8 @@
 [ext_resource type="Script" uid="uid://bq8wa30uoko20" path="res://scenes/game_scene/ui/dashboard.gd" id="4_jf6ts"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
 [ext_resource type="PackedScene" uid="uid://dtartrcodq4mx" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
-[ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/display_theme.tres" id="7_fa8xj"]
-[ext_resource type="LabelSettings" uid="uid://fb362rt6h0jk" path="res://scenes/game_scene/ui/label_settings/header.tres" id="8_0l5no"]
-[ext_resource type="Texture2D" uid="uid://c7tenbngm4bpy" path="res://assets/textures/shapes/circle.png" id="8_m5vbi"]
-[ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="9_i7wxe"]
+[ext_resource type="PackedScene" uid="uid://c3xjmtgsep1l0" path="res://scenes/game_scene/ui/info_panel/info_panel.tscn" id="6_jf6ts"]
+[ext_resource type="PackedScene" uid="uid://h8jycyx61kgq" path="res://scenes/game_scene/ui/contract_panel/contract_panel.tscn" id="8_m5vbi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oidod"]
 
@@ -17,7 +15,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.002532959, 0.24128413, 0.32421875, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_bottom = 10
 border_color = Color(0.3359375, 0.3359375, 0.3359375, 1)
 border_blend = true
@@ -28,7 +26,7 @@ anti_aliasing = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jf6ts"]
 shader = ExtResource("4_fr7j0")
-shader_parameter/aspect_ratio = Vector2(7, 5)
+shader_parameter/aspect_ratio = Vector2(7, 5.42)
 shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.365
 shader_parameter/outer_radius = 2.465
@@ -60,21 +58,21 @@ expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=901001946]
 layout_mode = 2
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1376319667]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 30
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1047580673]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 30
 
 [node name="MapPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1647062348]
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(700, 500)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
@@ -86,85 +84,29 @@ layout_mode = 2
 stretch = true
 mouse_target = true
 
-[node name="SubViewport" type="SubViewport" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer" unique_id=2085686328]
+[node name="MapViewport" type="SubViewport" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer" unique_id=2085686328]
 transparent_bg = true
 handle_input_locally = false
 physics_object_picking = true
 gui_embed_subwindows = true
-size = Vector2i(700, 500)
+size = Vector2i(700, 542)
 render_target_update_mode = 4
 
-[node name="MapDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/SubViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]
+[node name="MapDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/MapViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]
 unique_name_in_owner = true
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=389951662]
-layout_mode = 2
-mouse_filter = 2
-theme = ExtResource("7_fa8xj")
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer" unique_id=175183161]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer/VBoxContainer" unique_id=1769358838]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-
-[node name="ZoomInButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1764640476]
-unique_name_in_owner = true
-layout_mode = 2
-action_mode = 0
-keep_pressed_outside = true
-text = "+"
-
-[node name="ZoomOutButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=956776539]
-unique_name_in_owner = true
-layout_mode = 2
-action_mode = 0
-keep_pressed_outside = true
-text = "-"
-
-[node name="RefocusButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MarginContainer/VBoxContainer" unique_id=763888096]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_colors/icon_normal_color = Color(1, 0.64705884, 0, 1)
-theme_override_colors/icon_focus_color = Color(1, 0.64705884, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.64705884, 0, 1)
-theme_override_colors/icon_hover_color = Color(1, 0.64705884, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 0.64705884, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0.59375, 0.3841912, 0, 1)
-theme_override_constants/icon_max_width = 12
-theme_override_icons/icon = ExtResource("8_m5vbi")
-action_mode = 0
-keep_pressed_outside = true
-text = "Refocus"
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=414806147]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="LocationPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1950877887]
-custom_minimum_size = Vector2(0, 120)
+[node name="InfoPanel" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=850055861 instance=ExtResource("6_jf6ts")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LocationLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/LocationPanel" unique_id=1306235711]
-layout_mode = 2
-text = "Location Name"
-label_settings = ExtResource("8_0l5no")
+descriptor = "Location"
+value = "Station 177C"
 
 [node name="TravelButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 action_mode = 0
 keep_pressed_outside = true
@@ -175,67 +117,28 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="CargoPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1506789247]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CargoPanel" unique_id=1400289834]
-layout_mode = 2
-text = "Bounty Remaining: $890,000"
-label_settings = ExtResource("9_i7wxe")
-
-[node name="ContractPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2043334989]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel" unique_id=1697288469]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=702416547]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Header" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer" unique_id=115277496]
+[node name="DebtPanel" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1363687823 instance=ExtResource("6_jf6ts")]
 layout_mode = 2
-text = "Contracts"
-label_settings = ExtResource("8_0l5no")
+descriptor = "Debt"
+value = "890000"
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer" unique_id=1713032114]
+[node name="InfoPanel" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 0
+size_flags_horizontal = 1
+descriptor = "Day"
+value = "50"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer" unique_id=149899006]
+[node name="PlayerContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1744448250 instance=ExtResource("8_m5vbi")]
 layout_mode = 2
-follow_focus = true
+header_text = "In-Progress Contracts"
 
-[node name="ContractList" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer" unique_id=415539833]
+[node name="LocationContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1172378884 instance=ExtResource("8_m5vbi")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
+header_text = "Available Contracts"
 
-[node name="ContractEntry" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList" unique_id=108729728]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry" unique_id=1876255990]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="Destination" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry/VBoxContainer" unique_id=705782927]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Mining Outpost Theta"
-label_settings = ExtResource("9_i7wxe")
-
-[node name="Details" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry/VBoxContainer" unique_id=1176815362]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "- Volatile cargo"
-label_settings = ExtResource("9_i7wxe")
-
-[node name="Reward" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContractPanel/VBoxContainer/MarginContainer/ScrollContainer/ContractList/ContractEntry" unique_id=831260339]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "$1400"
-label_settings = ExtResource("9_i7wxe")
-
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TravelButton" to="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/SubViewport/MapDisplay" method="_on_travel_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/TravelButton" to="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/MapViewport/MapDisplay" method="_on_travel_button_pressed"]

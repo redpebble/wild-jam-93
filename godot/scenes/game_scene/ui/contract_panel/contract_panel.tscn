@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://h8jycyx61kgq"]
+
+[ext_resource type="Theme" uid="uid://c6uvkb4855aiv" path="res://scenes/game_scene/ui/themes/dashboard_theme.tres" id="1_d7mv1"]
+[ext_resource type="Theme" uid="uid://cvait15kjabjj" path="res://scenes/game_scene/ui/themes/display_theme.tres" id="1_yxcqw"]
+[ext_resource type="LabelSettings" uid="uid://fb362rt6h0jk" path="res://scenes/game_scene/ui/label_settings/header.tres" id="2_2edb1"]
+[ext_resource type="Script" uid="uid://iq7kgn51bstj" path="res://scenes/game_scene/ui/contract_panel/contract_panel.gd" id="2_l7e16"]
+[ext_resource type="Script" uid="uid://dldk3mmuaww6v" path="res://scenes/game_scene/ui/contract_panel/contract_list.gd" id="4_l7e16"]
+[ext_resource type="PackedScene" uid="uid://uliove6dy53" path="res://scenes/game_scene/ui/contract_panel/contract_entry.tscn" id="4_mmghb"]
+
+[node name="ContractPanel" type="PanelContainer" unique_id=1744448250]
+offset_right = 544.0
+offset_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_d7mv1")
+script = ExtResource("2_l7e16")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1537845608]
+layout_mode = 2
+theme = ExtResource("1_yxcqw")
+theme_override_constants/separation = 20
+
+[node name="Header" type="Label" parent="VBoxContainer" unique_id=1469243059]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Header"
+label_settings = ExtResource("2_2edb1")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=221923550]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer" unique_id=1348817016]
+layout_mode = 2
+follow_focus = true
+
+[node name="ContractList" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer" unique_id=1965946940]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+script = ExtResource("4_l7e16")
+contract_entry_scene = ExtResource("4_mmghb")

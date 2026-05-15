@@ -11,7 +11,7 @@ var zoom_out_max : float = 0.4
 var zoom_percent : float = 0.5 : set = set_zoom_percent
 
 var move_tween : Tween = null
-var move_duration : float = 0.5
+var move_duration : float = 0.6
 
 
 func _process(delta: float) -> void:
@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func move_to(new_position : Vector2) -> void:
 	cancel_move()
 	move_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	move_tween.tween_property(self, "global_position", new_position, 0.5)
+	move_tween.tween_property(self, "global_position", new_position, move_duration)
 
 func cancel_move() -> void:
 	if move_tween: move_tween.kill()
@@ -41,6 +41,7 @@ func reset_drag_vector():
 func poll_drag_inputs(event : InputEvent) -> void:
 	# START/END DRAG
 	if event is InputEventMouseButton:
+		
 		drag_enabled = event.is_pressed()
 		if event.is_pressed() and not event.is_echo():
 			cancel_move()

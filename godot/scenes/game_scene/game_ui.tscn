@@ -7,22 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ba11po12cvait" path="res://scenes/windows/game_won_window.tscn" id="6_ukb12"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="7_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bx7s80d8smic4" path="res://scenes/windows/level_lost_window.tscn" id="7_i7m4m"]
-[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/crt_shader.gdshader" id="9_7aihr"]
 [ext_resource type="Script" uid="uid://bnhmjy582mlax" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://bmcttnpvsi36l" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3re04"]
-shader = ExtResource("9_7aihr")
-shader_parameter/smearing = 0.10000000475
-shader_parameter/color_offset = -0.00499999860756
-shader_parameter/sharpening = 0.574000027265
-shader_parameter/static_noise = 0.1270000060325
-shader_parameter/crack_center = Vector2(0.15, 0.85)
-shader_parameter/crack_intensity = 0.0
-shader_parameter/crack_size = 0.0
-shader_parameter/vertical_jitter = 0.0010000000475
-shader_parameter/scanline_opacity = 0.070000003325
-shader_parameter/vignette_intensity = 0.150000007125
 
 [node name="GameUI" type="Control" unique_id=672765824]
 layout_mode = 3
@@ -59,16 +45,6 @@ render_target_update_mode = 4
 script = ExtResource("11_ulq3g")
 
 [node name="Dashboard" parent="ViewportContainer/ConfigurableSubViewport" unique_id=60803867 instance=ExtResource("5_bqcs8")]
-metadata/_edit_lock_ = true
-
-[node name="CrtShader" type="ColorRect" parent="ViewportContainer/ConfigurableSubViewport" unique_id=1155349337]
-material = SubResource("ShaderMaterial_3re04")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]

@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://c6uvkb4855aiv"]
 
 [ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/button_normal.tres" id="1_l6n1g"]
+[ext_resource type="StyleBox" uid="uid://cj28ahplex5ta" path="res://scenes/game_scene/ui/styles/button_disabled.tres" id="1_lwy5b"]
 [ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/button_pressed.tres" id="2_7qmiu"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="3_osu2k"]
 
@@ -18,21 +19,43 @@ corner_radius_bottom_right = 50
 corner_detail = 1
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvfds"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+corner_detail = 1
+shadow_color = Color(1, 1, 1, 0.28235295)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwy5b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 4
+border_width_right = 3
+border_width_bottom = 4
+border_blend = true
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
 [resource]
 default_font = ExtResource("3_osu2k")
-default_font_size = 0
 Button/colors/font_color = Color(0.8392157, 0.8392157, 0.8392157, 1)
 Button/colors/font_focus_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(1, 1, 1, 0.0627451)
+Button/colors/font_outline_color = Color(1, 1, 1, 0.05490196)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 12
 Button/font_sizes/font_size = 40
-Button/styles/disabled = ExtResource("1_l6n1g")
+Button/styles/disabled = ExtResource("1_lwy5b")
 Button/styles/focus = ExtResource("1_l6n1g")
 Button/styles/hover = ExtResource("1_l6n1g")
 Button/styles/normal = ExtResource("1_l6n1g")
 Button/styles/pressed = ExtResource("2_7qmiu")
 Label/font_sizes/font_size = 40
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_yxhdb")
+VScrollBar/constants/padding_left = 14
+VScrollBar/constants/padding_right = 4
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_gvfds")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_gvfds")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_lwy5b")

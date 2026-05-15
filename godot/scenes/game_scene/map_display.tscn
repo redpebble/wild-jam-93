@@ -5,6 +5,29 @@
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
 [ext_resource type="PackedScene" uid="uid://03akdkaqum1" path="res://scenes/game_scene/map/network_edge.tscn" id="2_4c8uy"]
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
+[ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_controls/map_controls.tscn" id="6_0v10e"]
+[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/crt_shader.gdshader" id="7_4evev"]
+[ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/vignette.gdshader" id="7_24htp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6csd5"]
+shader = ExtResource("7_24htp")
+shader_parameter/color = Color(0.002299998, 0.173075, 0.23, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.245
+shader_parameter/outer_radius = 1.42
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24htp"]
+shader = ExtResource("7_4evev")
+shader_parameter/smearing = 0.0
+shader_parameter/color_offset = 1.6299399954733394e-09
+shader_parameter/sharpening = 0.2390000113525
+shader_parameter/static_noise = 0.0590000028025
+shader_parameter/crack_center = Vector2(0.15, 0.85)
+shader_parameter/crack_intensity = 0.0
+shader_parameter/crack_size = 0.0
+shader_parameter/vertical_jitter = 0.0
+shader_parameter/scanline_opacity = 0.050000002375
+shader_parameter/vignette_intensity = 0.10000000475
 
 [node name="MapDisplay" type="Node2D" unique_id=2062216081]
 script = ExtResource("1_7huig")
@@ -39,5 +62,32 @@ position = Vector2(-172, -203)
 
 [node name="NetworkVertex4" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
 position = Vector2(-316, -398)
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=302390962]
+
+[node name="Vignette" type="ColorRect" parent="Overlay" unique_id=1328709202]
+material = SubResource("ShaderMaterial_6csd5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MapControls" parent="Overlay" unique_id=534068729 instance=ExtResource("6_0v10e")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CRT" type="ColorRect" parent="Overlay" unique_id=1723688187]
+material = SubResource("ShaderMaterial_24htp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [editable path="NetworkMap"]

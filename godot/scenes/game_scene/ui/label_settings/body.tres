@@ -1,7 +1,7 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://b5x6yy2yys6gy"]
 
 [resource]
-font_size = 24
+font_size = 22
 outline_color = Color(1, 1, 1, 0.1764706)
 stacked_outline_count = 3
 stacked_outline_0/size = 4
