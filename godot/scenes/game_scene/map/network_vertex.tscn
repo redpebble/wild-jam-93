@@ -6,9 +6,10 @@
 
 [node name="NetworkVertex" type="Area2D" unique_id=1948642077]
 script = ExtResource("1_dabh7")
+highlight_color = Color(0.19215687, 0.9843137, 0.9843137, 0.5254902)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788645757]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_dabh7")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

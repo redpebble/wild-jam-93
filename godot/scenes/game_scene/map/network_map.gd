@@ -18,7 +18,6 @@ var vertex_list: Array[NetworkVertex] = []
 	set(vertex):
 		selected_vertex = vertex
 		var adjacency = are_adjacent(start_vertex, selected_vertex)
-		print(adjacency)
 		selected_vertex_changed.emit(selected_vertex, adjacency)
 		for v in vertex_list:
 			v.selected = (v == vertex)
