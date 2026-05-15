@@ -53,15 +53,19 @@ vertex_b = NodePath("../../Vertices/NetworkVertex3")
 
 [node name="NetworkVertex" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("3_7huig")]
 position = Vector2(-537, -264)
+location_name = "Elaris IV"
 
 [node name="NetworkVertex2" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=545362612 instance=ExtResource("3_7huig")]
 position = Vector2(-402, -119)
+location_name = "Stationary Hill"
 
 [node name="NetworkVertex3" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1828001340 instance=ExtResource("3_7huig")]
 position = Vector2(-172, -203)
+location_name = "Timey Wimey"
 
 [node name="NetworkVertex4" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
 position = Vector2(-316, -398)
+location_name = "Santa Cruz"
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=302390962]
 

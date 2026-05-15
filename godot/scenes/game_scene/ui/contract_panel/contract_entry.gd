@@ -17,10 +17,17 @@ func set_in_progress(state : bool) -> void:
 	in_progress = state
 	cancel.visible = in_progress
 	accept.visible = not in_progress
+	cancel.pressed.connect(_on_cancel_pressed)
+	accept.pressed.connect(_on_accept_pressed)
 
-@warning_ignore("unused_parameter") # TODO: Remove when data is implemented
-func match_data(data) -> void:
-	#destination.text = data.destination
+func match_data(data : ContractData) -> void:
+	destination.text = data.destination
+	reward.text = str(data.reward)
+	#size.text = data.size # TODO: Account for this in some way
 	#details.text = data.details
-	#reward.text = data.reward
+
+func _on_cancel_pressed() -> void:
+	pass
+
+func _on_accept_pressed() -> void:
 	pass

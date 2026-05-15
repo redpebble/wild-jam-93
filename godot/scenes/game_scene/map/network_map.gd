@@ -3,7 +3,7 @@ class_name NetworkMap
 extends Node
 
 signal start_vertex_changed(vertex: NetworkVertex)
-signal selected_vertex_changed(vertex : NetworkVertex, adjacency : bool)
+signal selected_vertex_changed(vertex : NetworkVertex, adjacent : bool)
 
 var edge_list: Array[NetworkEdge] = []
 var vertex_list: Array[NetworkVertex] = []
@@ -17,8 +17,8 @@ var vertex_list: Array[NetworkVertex] = []
 @onready var selected_vertex: NetworkVertex = start_vertex :
 	set(vertex):
 		selected_vertex = vertex
-		var adjacency = are_adjacent(start_vertex, selected_vertex)
-		selected_vertex_changed.emit(selected_vertex, adjacency)
+		var adjacent = are_adjacent(start_vertex, selected_vertex)
+		selected_vertex_changed.emit(selected_vertex, adjacent)
 		for v in vertex_list:
 			v.selected = (v == vertex)
 			v.queue_redraw()

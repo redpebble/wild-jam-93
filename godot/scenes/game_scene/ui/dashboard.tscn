@@ -135,9 +135,11 @@ descriptor = "Day"
 value = "50"
 
 [node name="PlayerContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1744448250 instance=ExtResource("8_m5vbi")]
+unique_name_in_owner = true
 layout_mode = 2
 header_text = "In-Progress Contracts"
 
 [node name="LocationContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1172378884 instance=ExtResource("8_m5vbi")]
+unique_name_in_owner = true
 layout_mode = 2
 header_text = "Available Contracts"

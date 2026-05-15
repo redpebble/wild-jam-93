@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dq1ytklgxd3fw"]
+
+[ext_resource type="Script" uid="uid://30aa7sl85sh1" path="res://scenes/autoload/contract_manager.gd" id="1_j1ejw"]
+
+[node name="ContractManager" type="Node" unique_id=1217312443]
+script = ExtResource("1_j1ejw")

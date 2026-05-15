@@ -18,8 +18,8 @@ func _ready() -> void:
 func _on_start_vertex_changed(_vertex : NetworkVertex) -> void:
 	refocus_camera()
 
-func _on_selected_vertex_changed(vertex : NetworkVertex, adjacency : bool) -> void:
-	selected_vertex_changed.emit(vertex, adjacency)
+func _on_selected_vertex_changed(vertex : NetworkVertex, adjacent : bool) -> void:
+	selected_vertex_changed.emit(vertex, adjacent)
 
 func refocus_camera() -> void:
 	camera.move_to(network_map.start_vertex.global_position)

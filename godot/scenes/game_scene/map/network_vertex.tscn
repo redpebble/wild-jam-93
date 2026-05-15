@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bsbb4md1lfdtk" path="res://scenes/game_scene/map/network_vertex.gd" id="1_dabh7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dabh7"]
+radius = 24.0
 
 [node name="NetworkVertex" type="Area2D" unique_id=1948642077]
 script = ExtResource("1_dabh7")
-highlight_color = Color(0.19215687, 0.9843137, 0.9843137, 0.5254902)
+highlight_color = Color(1, 0.9843137, 0.9843137, 0.48235294)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788645757]
-scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_dabh7")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
