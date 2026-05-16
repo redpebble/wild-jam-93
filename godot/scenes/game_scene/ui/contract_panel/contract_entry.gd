@@ -39,12 +39,13 @@ func match_data(data : ContractData) -> void:
 
 func _on_cancel_pressed() -> void:
 	cancelled.emit()
-	show_message("Cancelled", Color.CRIMSON)
+	show_message("CANCELLED", Color.CRIMSON)
 
 func _on_accept_pressed() -> void:
 	accepted.emit()
-	show_message("Cancelled", Color("31fbfb"))
+	show_message("ACCEPTED", Color("31fbfb"))
 
 func show_message(_text : String, color := Color.WHITE) -> void:
 	message.text = _text
 	message_container.modulate = color
+	message_container.show()

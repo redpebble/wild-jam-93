@@ -75,6 +75,7 @@ text = "ACCEPT
 
 [node name="MessageContainer" type="PanelContainer" parent="." unique_id=1444144441]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rgod8")
 
