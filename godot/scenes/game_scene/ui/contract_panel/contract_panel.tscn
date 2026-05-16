@@ -32,6 +32,7 @@ theme_override_constants/margin_left = 0
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer" unique_id=1348817016]
 layout_mode = 2
 follow_focus = true
+vertical_scroll_mode = 2
 
 [node name="ContractList" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer" unique_id=1965946940]
 unique_name_in_owner = true

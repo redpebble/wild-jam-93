@@ -1,6 +1,9 @@
 extends Node
 
+signal contract_accepted
+
 var map_contracts : Dictionary[NetworkVertex, Array] = {}
+var active_contracts : Array[ContractData] = []
 var network_map : NetworkMap = null :
 	set(_network_map):
 		network_map = _network_map
@@ -30,6 +33,7 @@ func assign_contracts(vertex : NetworkVertex, max_count : int) -> void:
 
 func generate_contract(vertex : NetworkVertex, destination_vertex : NetworkVertex) -> ContractData:
 	var data = ContractData.new()
+	data.origin = vertex
 	data.destination = destination_vertex
 	# TODO: Make distance based on edge count
 	var distance = destination_vertex.global_position.distance_to(vertex.global_position)
@@ -39,3 +43,11 @@ func generate_contract(vertex : NetworkVertex, destination_vertex : NetworkVerte
 
 func get_location_contracts(vertex : NetworkVertex) -> Array:
 	return map_contracts[vertex]
+
+func accept_contract(contract : ContractData) -> void:
+	map_contracts[contract.origin].erase(contract)
+	active_contracts.append(contract)
+	contract_accepted.emit(contract)
+
+func cancel_contract(contract : ContractData) -> void:
+	active_contracts.erase(contract)

@@ -24,6 +24,12 @@ func _on_selected_vertex_changed(vertex : NetworkVertex, adjacent : bool) -> voi
 func refocus_camera() -> void:
 	camera.move_to(network_map.start_vertex.global_position)
 
+func move_camera_to_vertex(vertex : NetworkVertex) -> void:
+	camera.move_to(vertex.global_position)
+
+func move_camera_to_position(pos : Vector2) -> void:
+	camera.move_to(pos)
+
 func zoom_camera_in() -> void:
 	camera.zoom_by(camera.zoom_increment * 2)
 	

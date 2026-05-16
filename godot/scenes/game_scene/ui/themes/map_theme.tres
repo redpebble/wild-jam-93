@@ -3,6 +3,24 @@
 [ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital_button_highlight.tres" id="1_0w4yx"]
 [ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital_button_normal.tres" id="1_m3hjc"]
 [ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital_button_pressed.tres" id="3_5dy3x"]
+[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="4_xs3dx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs3dx"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.63529414)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 0.039215688)
+shadow_size = 14
 
 [resource]
 Button/font_sizes/font_size = 20
@@ -11,3 +29,5 @@ Button/styles/hover = ExtResource("1_0w4yx")
 Button/styles/hover_pressed = ExtResource("3_5dy3x")
 Button/styles/normal = ExtResource("1_m3hjc")
 Button/styles/pressed = ExtResource("3_5dy3x")
+Label/fonts/font = ExtResource("4_xs3dx")
+Label/styles/normal = SubResource("StyleBoxFlat_xs3dx")

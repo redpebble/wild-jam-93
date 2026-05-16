@@ -3,6 +3,8 @@ extends PanelContainer
 
 signal cancelled
 signal accepted
+signal show_destination_button_down(vertex : NetworkVertex)
+signal show_destination_button_up()
 
 @export var in_progress : bool = false : set = set_in_progress
 
@@ -13,6 +15,7 @@ signal accepted
 # INTERFACE
 @onready var cancel: Button = %Cancel
 @onready var accept: Button = %Accept
+@onready var show_destination: Button = %ShowDestination
 
 # DATA FIELDS
 @onready var destination: Label = %Destination
@@ -28,11 +31,14 @@ func set_in_progress(state : bool) -> void:
 	accept.visible = not in_progress
 	cancel.pressed.connect(_on_cancel_pressed)
 	accept.pressed.connect(_on_accept_pressed)
+	show_destination.button_down.connect(_on_show_destination_button_down)
+	show_destination.button_up.connect(_on_show_destination_button_up)
 
 func set_disabled(state : bool) -> void:
 	disabled = state
 	cancel.disabled = disabled
 	accept.disabled = disabled
+	modulate.a = 0.5 if disabled else 1.0
 
 func set_data(_data : ContractData) -> void:
 	data = _data
@@ -42,18 +48,25 @@ func set_data(_data : ContractData) -> void:
 
 func _on_cancel_pressed() -> void:
 	cancelled.emit()
-	show_message("CANCELLED", Color.CRIMSON)
+	await show_message("CANCELLED", Color.CRIMSON)
+	delete_entry()
 
 func _on_accept_pressed() -> void:
 	accepted.emit()
 	await show_message("ACCEPTED", Color("31fbfb"))
 	delete_entry()
 
+func _on_show_destination_button_down() -> void:
+	show_destination_button_down.emit(data.destination)
+	
+func _on_show_destination_button_up() -> void:
+	show_destination_button_up.emit()
+
 func show_message(_text : String, color := Color.WHITE) -> void:
 	message.text = _text
 	message_container.modulate = color
 	message_container.show()
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.3).timeout
 
 func delete_entry() -> void:
 	custom_minimum_size.y = size.y

@@ -1,15 +1,35 @@
 [gd_scene format=3 uid="uid://bvql2oicp8lhq"]
 
 [ext_resource type="Script" uid="uid://bsbb4md1lfdtk" path="res://scenes/game_scene/map/network_vertex.gd" id="1_dabh7"]
+[ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/map_theme.tres" id="2_tkvcb"]
+[ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="3_tkvcb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dabh7"]
 radius = 24.0
 
 [node name="NetworkVertex" type="Area2D" unique_id=1948642077]
 script = ExtResource("1_dabh7")
-highlight_color = Color(1, 0.9843137, 0.9843137, 0.48235294)
+highlight_color = Color(1, 0.98, 0.98, 0.48235294)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788645757]
 shape = SubResource("CircleShape2D_dabh7")
+
+[node name="LocationLabel" type="Label" parent="." unique_id=397817465]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -60.0
+offset_right = 48.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tkvcb")
+text = "NAME"
+label_settings = ExtResource("3_tkvcb")
+horizontal_alignment = 1
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

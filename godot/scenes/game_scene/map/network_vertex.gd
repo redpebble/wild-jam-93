@@ -5,11 +5,14 @@ extends Area2D
 signal lclicked(vertex)
 signal rclicked(vertex)
 
+
+@onready var location_label: Label = %LocationLabel
+
 @export var location_name : String = ""
 @export var radius: float = 15.0 :
 	set(val):
 		radius = val
-		$CollisionShape2D.shape.radius = radius * 1.6
+		$CollisionShape2D.shape.radius = radius * 1.5
 		queue_redraw()
 @export var highlight_color : Color
 
@@ -34,12 +37,15 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	mouse_entered.connect(set_hovered.bind(true))
 	mouse_exited.connect(set_hovered.bind(false))
+	location_label.text = location_name
+	location_label.hide()
 
 func _process(_delta: float) -> void:
 	editor_redraw()
 
 func set_hovered(state : bool) -> void:
 	hovered = state
+	location_label.visible = hovered
 	queue_redraw()
 
 

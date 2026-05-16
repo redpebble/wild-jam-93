@@ -1,6 +1,9 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://fb362rt6h0jk"]
 
+[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="1_j21vs"]
+
 [resource]
+font = ExtResource("1_j21vs")
 font_size = 34
 outline_color = Color(1, 1, 1, 0.1764706)
 stacked_outline_count = 3
