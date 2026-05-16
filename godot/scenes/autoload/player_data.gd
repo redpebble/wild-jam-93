@@ -6,8 +6,9 @@ signal debt_updated(debt)
 signal game_won
 signal game_lost
 
-const starting_moves : int = 10 # TESTING
+const starting_moves : int = 10
 const starting_debt : int = 100000
+const contract_limit: int = 5
 
 var state_updated: bool = false
 var moves_remaining: int = starting_moves

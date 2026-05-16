@@ -142,55 +142,55 @@ vertex_b = NodePath("../../Vertices/Venus")
 metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
 [node name="Earth" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("3_7huig")]
-position = Vector2(-641, -127)
+position = Vector2(-346, -251)
 location_name = "Earth"
 
 [node name="Luna" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=545362612 instance=ExtResource("3_7huig")]
-position = Vector2(-617, -207)
+position = Vector2(-322, -331)
 location_name = "Luna Spaceport"
 
 [node name="Sol" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1828001340 instance=ExtResource("3_7huig")]
-position = Vector2(-960, -253)
+position = Vector2(-665, -377)
 location_name = "Solar Depot"
 
 [node name="Venus" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
-position = Vector2(-756, -436)
+position = Vector2(-461, -560)
 location_name = "Venus"
 
 [node name="Mars" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="4" unique_id=1948642077 instance=ExtResource("3_7huig")]
-position = Vector2(-432, -324)
+position = Vector2(-137, -448)
 location_name = "Mars"
 
 [node name="Io" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="5" unique_id=1584561393 instance=ExtResource("3_7huig")]
-position = Vector2(-266, -48)
+position = Vector2(29, -172)
 location_name = "Io"
 
 [node name="Europa" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="6" unique_id=537821182 instance=ExtResource("3_7huig")]
-position = Vector2(-283, -141)
+position = Vector2(12, -265)
 location_name = "Europa"
 
 [node name="Callisto" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="7" unique_id=227881516 instance=ExtResource("3_7huig")]
-position = Vector2(-186, -100)
+position = Vector2(109, -224)
 location_name = "Callisto"
 
 [node name="Ganymede" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="8" unique_id=208019305 instance=ExtResource("3_7huig")]
-position = Vector2(-203, -192)
+position = Vector2(92, -316)
 location_name = "Ganymede"
 
 [node name="Pluto" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="9" unique_id=672592959 instance=ExtResource("3_7huig")]
-position = Vector2(243, 63)
+position = Vector2(538, -61)
 location_name = "Pluton Outpost"
 
 [node name="Mercury" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="10" unique_id=1014199812 instance=ExtResource("3_7huig")]
-position = Vector2(-907, -140)
+position = Vector2(-612, -264)
 location_name = "Mercury Mines"
 
 [node name="Ceres" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="11" unique_id=1477516714 instance=ExtResource("3_7huig")]
-position = Vector2(-348, -488)
+position = Vector2(-53, -612)
 location_name = "Ceres Collective"
 
 [node name="Titan" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="12" unique_id=1594092108 instance=ExtResource("3_7huig")]
-position = Vector2(45, -362)
+position = Vector2(340, -486)
 location_name = "Titan"
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=302390962]

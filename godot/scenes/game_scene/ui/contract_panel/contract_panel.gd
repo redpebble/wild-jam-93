@@ -51,7 +51,7 @@ func poll_for_completion(vertex : NetworkVertex) -> void:
 # SIGNALS ----------------------------------------------------------------------
 func _on_contract_cancelled(contract : ContractData) -> void:
 	available_contracts.erase(contract)
-	ContractManager.cancel_contract(contract)
+	ContractManager.remove_contract(contract)
 
 func _on_contract_accepted(contract : ContractData) -> void:
 	available_contracts.erase(contract)

@@ -52,6 +52,7 @@ func _on_cancel_pressed() -> void:
 	delete_entry()
 
 func _on_accept_pressed() -> void:
+	if ContractManager.active_contracts.size() >= PlayerData.contract_limit: return
 	accepted.emit()
 	await show_message("ACCEPTED", Color("31fbfb"))
 	delete_entry()
@@ -59,6 +60,7 @@ func _on_accept_pressed() -> void:
 func complete() -> void:
 	PlayerData.reduce_debt(data.reward)
 	await show_message("COMPLETE", Color("green"))
+	ContractManager.remove_contract(data)
 	delete_entry()
 
 func _on_show_destination_button_down() -> void:
