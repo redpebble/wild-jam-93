@@ -24,14 +24,18 @@ func _on_travel_button_pressed() -> void:
 	map_display.network_map.set_start_selected()
 	PlayerData.moves_remaining -= 1
 	reset_travel_button()
+	update_location_contracts(map_display.network_map.start_vertex)
 
 ## Control travel button's disabled state and update the location contract list
 func _on_selected_vertex_changed(vertex : NetworkVertex, adjacent : bool) -> void:
 	travel_button.disabled = not adjacent
+	update_location_contracts(vertex)
+	location_display.value = vertex.location_name
+
+func update_location_contracts(vertex : NetworkVertex) -> void:
 	var start_vertex_selected : bool = (map_display.network_map.start_vertex == vertex)
 	var contracts = ContractManager.get_location_contracts(vertex)
 	location_contracts.repopulate_list(contracts, false, not start_vertex_selected)
-	location_display.value = vertex.location_name
 
 func reset_travel_button() -> void:
 	travel_button.disabled = true
