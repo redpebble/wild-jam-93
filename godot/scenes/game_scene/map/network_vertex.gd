@@ -6,7 +6,7 @@ signal lclicked(vertex)
 signal rclicked(vertex)
 
 
-@onready var location_label: Label = %LocationLabel
+@onready var name_label: Label = %NameLabel
 
 @export var location_name : String = ""
 @export var radius: float = 15.0 :
@@ -37,15 +37,15 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	mouse_entered.connect(set_hovered.bind(true))
 	mouse_exited.connect(set_hovered.bind(false))
-	location_label.text = location_name
-	location_label.hide()
+	name_label.text = location_name
+	name_label.hide()
 
 func _process(_delta: float) -> void:
 	editor_redraw()
 
 func set_hovered(state : bool) -> void:
 	hovered = state
-	location_label.visible = hovered
+	name_label.visible = hovered
 	queue_redraw()
 
 

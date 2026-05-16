@@ -11,6 +11,7 @@ extends Control
 
 var camera_recall_position := Vector2.ZERO
 
+
 func _ready() -> void:
 	ContractManager.contract_accepted.connect(_on_contract_manager_contract_accepted)
 	travel_button.pressed.connect(_on_travel_button_pressed)
@@ -31,7 +32,9 @@ func _on_travel_button_pressed() -> void:
 	map_display.network_map.set_start_selected()
 	PlayerData.moves_remaining -= 1
 	reset_travel_button()
-	update_location_contracts(map_display.network_map.start_vertex)
+	var start_vertex = map_display.network_map.start_vertex
+	update_location_contracts(start_vertex)
+	player_contracts.poll_for_completion(start_vertex)
 
 ## Control travel button's disabled state and update the location contract list
 func _on_selected_vertex_changed(vertex : NetworkVertex, adjacent : bool) -> void:
@@ -48,7 +51,7 @@ func reset_travel_button() -> void:
 	travel_button.disabled = true
 
 func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
-	if vertex:
+	if vertex != null:
 		camera_recall_position = map_display.camera.global_position
 		map_display.move_camera_to_vertex(vertex)
 	else:

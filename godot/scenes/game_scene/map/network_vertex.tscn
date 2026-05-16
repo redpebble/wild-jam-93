@@ -14,7 +14,7 @@ highlight_color = Color(1, 0.98, 0.98, 0.48235294)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788645757]
 shape = SubResource("CircleShape2D_dabh7")
 
-[node name="LocationLabel" type="Label" parent="." unique_id=397817465]
+[node name="NameLabel" type="Label" parent="." unique_id=397817465]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5

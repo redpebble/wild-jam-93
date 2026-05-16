@@ -11,7 +11,7 @@ signal contract_show_destination_button_up()
 @onready var contract_list : VBoxContainer = %ContractList
 
 var contract_entry_scene : PackedScene = preload("uid://uliove6dy53")
-var available_contracts : Array[ContractData] = []
+var available_contracts : Array[ContractData] = [] # NOT redundant; lets the UI animate
 
 func set_header_text(text : String) -> void:
 	header_text = text
@@ -36,8 +36,16 @@ func add_contract_entry(data : ContractData, in_progress : bool, disabled := fal
 	c.show_destination_button_up.connect(_on_contract_show_destination_button_up)
 
 func clear_list() -> void:
+	available_contracts.clear()
 	for i in contract_list.get_children():
 		i.queue_free()
+
+func poll_for_completion(vertex : NetworkVertex) -> void:
+	for c : ContractEntry in contract_list.get_children():
+		var contract = c.data
+		if contract.destination.location_name == vertex.location_name:
+			c.complete()
+			available_contracts.erase(contract)
 
 
 # SIGNALS ----------------------------------------------------------------------

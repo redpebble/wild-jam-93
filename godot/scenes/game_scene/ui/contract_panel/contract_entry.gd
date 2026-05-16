@@ -48,12 +48,16 @@ func set_data(_data : ContractData) -> void:
 
 func _on_cancel_pressed() -> void:
 	cancelled.emit()
-	await show_message("CANCELLED", Color.CRIMSON)
+	await show_message("CANCELLED", Color("crimson"))
 	delete_entry()
 
 func _on_accept_pressed() -> void:
 	accepted.emit()
 	await show_message("ACCEPTED", Color("31fbfb"))
+	delete_entry()
+
+func complete() -> void:
+	await show_message("COMPLETE", Color("green"))
 	delete_entry()
 
 func _on_show_destination_button_down() -> void:
@@ -62,7 +66,7 @@ func _on_show_destination_button_down() -> void:
 func _on_show_destination_button_up() -> void:
 	show_destination_button_up.emit()
 
-func show_message(_text : String, color := Color.WHITE) -> void:
+func show_message(_text : String, color := Color("white")) -> void:
 	message.text = _text
 	message_container.modulate = color
 	message_container.show()
