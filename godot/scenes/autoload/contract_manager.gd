@@ -1,6 +1,7 @@
 extends Node
 
 signal contract_accepted
+signal contract_completed
 
 var map_contracts : Dictionary[NetworkVertex, Array] = {}
 var active_contracts : Array[ContractData] = []
@@ -51,3 +52,7 @@ func accept_contract(contract : ContractData) -> void:
 
 func cancel_contract(contract : ContractData) -> void:
 	active_contracts.erase(contract)
+
+func complete_contract(contract : ContractData) -> void:
+	active_contracts.erase(contract)
+	contract_completed.emit(contract)

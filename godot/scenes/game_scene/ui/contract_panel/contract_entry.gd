@@ -57,7 +57,7 @@ func _on_accept_pressed() -> void:
 	delete_entry()
 
 func complete() -> void:
-	await show_message("COMPLETE", Color("green"))
+	await show_message("COMPLETE", Color("4fff4dff"))
 	delete_entry()
 
 func _on_show_destination_button_down() -> void:
@@ -70,7 +70,7 @@ func show_message(_text : String, color := Color("white")) -> void:
 	message.text = _text
 	message_container.modulate = color
 	message_container.show()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.5).timeout
 
 func delete_entry() -> void:
 	custom_minimum_size.y = size.y

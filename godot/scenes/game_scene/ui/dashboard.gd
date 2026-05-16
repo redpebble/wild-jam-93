@@ -13,20 +13,12 @@ var camera_recall_position := Vector2.ZERO
 
 
 func _ready() -> void:
-	ContractManager.contract_accepted.connect(_on_contract_manager_contract_accepted)
-	travel_button.pressed.connect(_on_travel_button_pressed)
-	map_display.selected_vertex_changed.connect(_on_selected_vertex_changed)
-	reset_travel_button()
-	_on_selected_vertex_changed(map_display.network_map.selected_vertex, false)
-
-	day_display.value = str(PlayerData.starting_moves)
-	debt_display.value = str(PlayerData.starting_debt)
-	PlayerData.moves_updated.connect(_on_moves_updated)
-	PlayerData.debt_updated.connect(_on_debt_updated)
-	location_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
-	location_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
-	player_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
-	player_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
+	connect_signals()
+	# Reinitialize map stuff to sync camera
+	map_display.network_map.start_vertex = map_display.network_map.start_vertex
+	map_display.network_map.selected_vertex = map_display.network_map.selected_vertex
+	day_display.value = str(PlayerData.moves_remaining)
+	debt_display.value = str(PlayerData.debt_remaining)
 
 func _on_travel_button_pressed() -> void:
 	map_display.network_map.set_start_selected()
@@ -57,11 +49,31 @@ func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 	else:
 		map_display.move_camera_to_position(camera_recall_position)
 
+func connect_signals() -> void:
+	ContractManager.contract_accepted.connect(_on_contract_manager_contract_accepted)
+	ContractManager.contract_completed.connect(_on_contract_manager_contract_completed)
+	
+	travel_button.pressed.connect(_on_travel_button_pressed)
+	map_display.selected_vertex_changed.connect(_on_selected_vertex_changed)
+	PlayerData.moves_updated.connect(_on_moves_updated)
+	PlayerData.debt_updated.connect(_on_debt_updated)
+	# Camera control signals
+	location_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
+	location_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
+	player_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
+	player_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
+
+# UI SIGNALS -------------------------------------------------------------------
 func _on_moves_updated(moves) -> void:
 	day_display.value = str(moves)
 
 func _on_debt_updated(debt) -> void:
 	debt_display.value = str(debt)
 
+
+# MANAGER SIGNALS --------------------------------------------------------------
 func _on_contract_manager_contract_accepted(contract : ContractData) -> void:
 	player_contracts.add_contract_entry(contract, true, false)
+
+func _on_contract_manager_contract_completed(contract : ContractData) -> void:
+	PlayerData.debt_remaining -= contract.reward
