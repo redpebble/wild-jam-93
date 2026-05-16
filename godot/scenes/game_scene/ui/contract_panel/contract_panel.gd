@@ -23,7 +23,7 @@ func add_contract_entry(data : ContractData, in_progress := false, disabled := f
 	var c : ContractEntry = contract_entry_scene.instantiate()
 	contract_list.call_deferred_thread_group("add_child", c)
 	await c.ready
-	c.match_data(data)
+	c.data = data
 	c.in_progress = in_progress
 	c.disabled = disabled
 

@@ -19,16 +19,16 @@ offset_bottom = 31.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bxvh3")
 script = ExtResource("1_llaxq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1817032107]
+[node name="DataContainer" type="HBoxContainer" parent="." unique_id=1817032107]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=521173834]
+[node name="VBoxContainer" type="VBoxContainer" parent="DataContainer" unique_id=521173834]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Destination" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=629613821]
+[node name="Destination" type="Label" parent="DataContainer/VBoxContainer" unique_id=629613821]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -37,24 +37,24 @@ text = "Mining Outpost Theta"
 label_settings = ExtResource("1_5ptnb")
 autowrap_mode = 2
 
-[node name="Details" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1469188884]
+[node name="Details" type="Label" parent="DataContainer/VBoxContainer" unique_id=1469188884]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1000 cu. ft."
 label_settings = ExtResource("3_i1su0")
 
-[node name="Reward" type="Label" parent="HBoxContainer" unique_id=172179979]
+[node name="Reward" type="Label" parent="DataContainer" unique_id=172179979]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "$140000"
 label_settings = ExtResource("1_5ptnb")
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=59451297]
+[node name="CenterContainer" type="CenterContainer" parent="DataContainer" unique_id=59451297]
 layout_mode = 2
 
-[node name="Cancel" type="Button" parent="HBoxContainer/CenterContainer" unique_id=1666912746]
+[node name="Cancel" type="Button" parent="DataContainer/CenterContainer" unique_id=1666912746]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -63,7 +63,7 @@ size_flags_vertical = 4
 theme_override_styles/normal = ExtResource("2_llaxq")
 text = "CANCEL"
 
-[node name="Accept" type="Button" parent="HBoxContainer/CenterContainer" unique_id=1291650212]
+[node name="Accept" type="Button" parent="DataContainer/CenterContainer" unique_id=1291650212]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

@@ -4,6 +4,7 @@ var map_contracts : Dictionary[NetworkVertex, Array] = {}
 var network_map : NetworkMap = null :
 	set(_network_map):
 		network_map = _network_map
+		map_contracts.clear()
 		for i : NetworkVertex in network_map.vertex_list:
 			add_location(i)
 		for i : NetworkVertex in network_map.vertex_list:
@@ -29,12 +30,11 @@ func assign_contracts(vertex : NetworkVertex, max_count : int) -> void:
 
 func generate_contract(vertex : NetworkVertex, destination_vertex : NetworkVertex) -> ContractData:
 	var data = ContractData.new()
-	var destination_name = destination_vertex.location_name
-	data.destination = destination_name
+	data.destination = destination_vertex
 	# TODO: Make distance based on edge count
-	var distance = destination_vertex.global_position.distance_squared_to(vertex.global_position)
+	var distance = destination_vertex.global_position.distance_to(vertex.global_position)
 	data.size = randi_range(1, 4) * 100
-	data.reward = data.size * round(distance / 10000) # just messing 
+	data.reward = data.size * round(distance / 10) # just messing 
 	return data
 
 func get_location_contracts(vertex : NetworkVertex) -> Array:
