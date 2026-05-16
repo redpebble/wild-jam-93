@@ -77,5 +77,6 @@ func _on_game_lost() -> void:
 	game_lost()
 
 func _ready():
+	PlayerData.reset()
 	PlayerData.game_won.connect(_on_game_won)
 	PlayerData.game_lost.connect(_on_game_lost)

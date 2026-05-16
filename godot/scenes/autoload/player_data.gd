@@ -28,3 +28,7 @@ func checkGameEnd() -> void:
         game_won.emit()
     elif moves_remaining <= 0:
         game_lost.emit()
+
+func reset() -> void:
+    moves_remaining = starting_moves
+    debt_remaining = starting_debt
