@@ -70,9 +70,13 @@ func game_won() -> void:
 	_load_win_screen_or_ending()
 
 
-func _on_level_game_lost() -> void:
+func _on_game_won() -> void:
+	game_won()
+
+func _on_game_lost() -> void:
 	game_lost()
 
-
-func _on_level_game_won() -> void:
-	game_won()
+func _ready():
+	PlayerData.reset()
+	PlayerData.game_won.connect(_on_game_won)
+	PlayerData.game_lost.connect(_on_game_lost)

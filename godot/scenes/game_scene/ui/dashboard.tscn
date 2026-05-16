@@ -123,12 +123,14 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="DebtPanel" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1363687823 instance=ExtResource("6_jf6ts")]
+[node name="DebtDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1363687823 instance=ExtResource("6_jf6ts")]
+unique_name_in_owner = true
 layout_mode = 2
 descriptor = "Debt"
 value = "890000"
 
-[node name="InfoPanel" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
+[node name="DayDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 1
