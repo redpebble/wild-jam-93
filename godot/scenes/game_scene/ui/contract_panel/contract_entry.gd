@@ -1,7 +1,13 @@
 class_name ContractEntry
 extends PanelContainer
 
+signal cancelled
+signal accepted
+
 @export var in_progress : bool = false : set = set_in_progress
+
+@onready var message_container: PanelContainer = %MessageContainer
+@onready var message: Label = %Message
 
 # INTERFACE
 @onready var cancel: Button = %Cancel
@@ -12,6 +18,7 @@ extends PanelContainer
 @onready var details: Label = %Details
 @onready var reward: Label = %Reward
 
+var disabled : bool = false : set = set_disabled
 
 func set_in_progress(state : bool) -> void:
 	in_progress = state
@@ -20,14 +27,24 @@ func set_in_progress(state : bool) -> void:
 	cancel.pressed.connect(_on_cancel_pressed)
 	accept.pressed.connect(_on_accept_pressed)
 
+func set_disabled(state : bool) -> void:
+	disabled = state
+	cancel.disabled = disabled
+	accept.disabled = disabled
+
 func match_data(data : ContractData) -> void:
 	destination.text = data.destination
-	reward.text = str(data.reward)
-	#size.text = data.size # TODO: Account for this in some way
-	#details.text = data.details
+	reward.text = "$" + str(data.reward)
+	details.text = str(data.size) + " cu. ft."
 
 func _on_cancel_pressed() -> void:
-	pass
+	cancelled.emit()
+	show_message("Cancelled", Color.CRIMSON)
 
 func _on_accept_pressed() -> void:
-	pass
+	accepted.emit()
+	show_message("Cancelled", Color("31fbfb"))
+
+func show_message(_text : String, color := Color.WHITE) -> void:
+	message.text = _text
+	message_container.modulate = color

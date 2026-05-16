@@ -19,8 +19,9 @@ func _on_travel_button_pressed() -> void:
 ## Control travel button's disabled state and update the location contract list
 func _on_selected_vertex_changed(vertex : NetworkVertex, adjacent : bool) -> void:
 	travel_button.disabled = not adjacent
-	#print(ContractManager.get_location_contracts(vertex))
-	location_contracts.populate_list(ContractManager.get_location_contracts(vertex))
+	var start_vertex_selected : bool = (map_display.network_map.start_vertex == vertex)
+	var contracts = ContractManager.get_location_contracts(vertex)
+	location_contracts.repopulate_list(contracts, false, not start_vertex_selected)
 	location_display.value = vertex.location_name
 
 func reset_travel_button() -> void:

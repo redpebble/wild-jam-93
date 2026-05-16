@@ -3,8 +3,15 @@
 [ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="1_5ptnb"]
 [ext_resource type="Script" uid="uid://fb6espqct8li" path="res://scenes/game_scene/ui/contract_panel/contract_entry.gd" id="1_llaxq"]
 [ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital_button_normal.tres" id="2_llaxq"]
+[ext_resource type="LabelSettings" uid="uid://xmyotoekwbpp" path="res://scenes/game_scene/ui/label_settings/tiny.tres" id="3_i1su0"]
+[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital_button_highlight.tres" id="5_px5hd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxvh3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgod8"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
 
 [node name="ContractEntry" type="PanelContainer" unique_id=1004963286]
 offset_right = 442.0
@@ -32,11 +39,10 @@ autowrap_mode = 2
 
 [node name="Details" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1469188884]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-text = "- Volatile cargo"
-label_settings = ExtResource("1_5ptnb")
+text = "1000 cu. ft."
+label_settings = ExtResource("3_i1su0")
 
 [node name="Reward" type="Label" parent="HBoxContainer" unique_id=172179979]
 unique_name_in_owner = true
@@ -50,6 +56,7 @@ layout_mode = 2
 
 [node name="Cancel" type="Button" parent="HBoxContainer/CenterContainer" unique_id=1666912746]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -65,3 +72,20 @@ size_flags_vertical = 4
 theme_override_styles/normal = ExtResource("2_llaxq")
 text = "ACCEPT
 "
+
+[node name="MessageContainer" type="PanelContainer" parent="." unique_id=1444144441]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgod8")
+
+[node name="MessageBorder" type="PanelContainer" parent="MessageContainer" unique_id=676360699]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_px5hd")
+
+[node name="Message" type="Label" parent="MessageContainer/MessageBorder" unique_id=1260265586]
+unique_name_in_owner = true
+layout_mode = 2
+text = "State Message"
+label_settings = ExtResource("1_5ptnb")
+horizontal_alignment = 1
+vertical_alignment = 1
