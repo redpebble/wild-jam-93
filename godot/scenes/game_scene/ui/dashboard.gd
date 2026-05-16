@@ -20,7 +20,7 @@ func _ready() -> void:
 	_on_selected_vertex_changed(map_display.network_map.selected_vertex, false)
 
 	day_display.value = str(PlayerData.starting_moves)
-	debt_display.value = str(PlayerData.starting_debt)
+	set_debt_display(PlayerData.starting_debt)
 	PlayerData.moves_updated.connect(_on_moves_updated)
 	PlayerData.debt_updated.connect(_on_debt_updated)
 	location_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
@@ -57,11 +57,14 @@ func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 	else:
 		map_display.move_camera_to_position(camera_recall_position)
 
+func set_debt_display(debt) -> void:
+	debt_display.value = "$$"+str(debt)
+
 func _on_moves_updated(moves) -> void:
 	day_display.value = str(moves)
 
 func _on_debt_updated(debt) -> void:
-	debt_display.value = str(debt)
+	set_debt_display(debt)
 
 func _on_contract_manager_contract_accepted(contract : ContractData) -> void:
 	player_contracts.add_contract_entry(contract, true, false)
