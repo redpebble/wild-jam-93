@@ -53,16 +53,16 @@ func show_message(_text : String, color := Color.WHITE) -> void:
 	message.text = _text
 	message_container.modulate = color
 	message_container.show()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.25).timeout
 
 func delete_entry() -> void:
 	custom_minimum_size.y = size.y
 	data_container.hide()
 	var t = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	t.tween_property(self, "modulate:a", 0, 0.3)
+	t.tween_property(self, "modulate:a", 0, 0.4)
 	await t.finished
-	message_container.hide()
-	t.stop()
-	t.tween_property(self, "custom_minimum_size:y", 0, 0.3)
-	await t.finished
+	#message_container.hide()
+	#t = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	#t.tween_property(self, "custom_minimum_size:y", 0, 0.3)
+	#await t.finished
 	queue_free()
