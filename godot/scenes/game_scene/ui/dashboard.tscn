@@ -104,7 +104,7 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 layout_mode = 2
 descriptor = "Location"
-value = "Station 177C"
+value = "XXXXXXXXXX"
 
 [node name="TravelButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
 unique_name_in_owner = true
@@ -127,15 +127,15 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 layout_mode = 2
 descriptor = "Debt"
-value = "890000"
+value = "00000000"
 
 [node name="DayDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 1
-descriptor = "Day"
-value = "50"
+descriptor = "Days"
+value = "00"
 
 [node name="PlayerContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1744448250 instance=ExtResource("8_m5vbi")]
 unique_name_in_owner = true

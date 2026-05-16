@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func _on_travel_button_pressed() -> void:
 	map_display.network_map.set_start_selected()
-	PlayerData.moves_remaining -= 1
+	PlayerData.take_move()
 	reset_travel_button()
 	var start_vertex = map_display.network_map.start_vertex
 	update_location_contracts(start_vertex)
