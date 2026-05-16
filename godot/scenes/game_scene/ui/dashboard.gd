@@ -28,6 +28,10 @@ func _ready() -> void:
 	player_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
 	player_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
 
+func _input(event):
+	if event.is_action_pressed("travel") and not travel_button.disabled:
+		_on_travel_button_pressed()
+
 func _on_travel_button_pressed() -> void:
 	map_display.network_map.set_start_selected()
 	PlayerData.take_move()
