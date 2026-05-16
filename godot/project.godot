@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wild Jam #93"
-run/main_scene="res://scenes/opening/opening.tscn"
+run/main_scene="uid://clxs5gwisal5m"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 

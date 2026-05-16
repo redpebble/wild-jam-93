@@ -16,7 +16,7 @@ title_visible = false
 visible = false
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="0" unique_id=617407155]
-text = "You failed to clear your debt with The Syndicate in time, and they do not give second chances...
+text = "You failed to clear your debt with the Syndicate in time, and they do not give second chances...
 
 Game Over"
 

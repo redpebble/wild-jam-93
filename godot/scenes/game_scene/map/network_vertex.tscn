@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="3_tkvcb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dabh7"]
-radius = 24.0
+radius = 22.5
 
 [node name="NetworkVertex" type="Area2D" unique_id=1948642077]
 script = ExtResource("1_dabh7")
@@ -28,7 +28,6 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_tkvcb")
-text = "NAME"
 label_settings = ExtResource("3_tkvcb")
 horizontal_alignment = 1
 
