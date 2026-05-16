@@ -16,7 +16,9 @@ title_visible = false
 visible = false
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="0" unique_id=617407155]
-text = "You won!"
+text = "Congratulations!
+
+You cleared your debt before time ran out, and avoided the wrath of The Syndicate."
 
 [node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" parent_id_path=PackedInt32Array(1413292752) index="0" unique_id=1371114575]
 vertical = false
