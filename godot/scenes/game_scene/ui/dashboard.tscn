@@ -100,7 +100,8 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="InfoPanel" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=850055861 instance=ExtResource("6_jf6ts")]
+[node name="LocationDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=850055861 instance=ExtResource("6_jf6ts")]
+unique_name_in_owner = true
 layout_mode = 2
 descriptor = "Location"
 value = "Station 177C"

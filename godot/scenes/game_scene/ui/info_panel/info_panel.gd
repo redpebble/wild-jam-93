@@ -1,4 +1,5 @@
 @tool
+class_name InfoPanel
 extends PanelContainer
 
 @export var descriptor : String = "Descriptor" : set = set_descriptor
