@@ -22,9 +22,10 @@ var open_window : Node
 var _ignore_first_cancel : bool = false
 
 func get_main_menu_scene_path() -> String:
-	if main_menu_scene_path.is_empty():
-		return AppConfig.main_menu_scene_path
-	return main_menu_scene_path
+	return ""
+	# if main_menu_scene_path.is_empty():
+	# 	return AppConfig.main_menu_scene_path
+	# return main_menu_scene_path
 
 func close_window() -> void:
 	if open_window != null:
