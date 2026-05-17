@@ -8,7 +8,6 @@ extends Control
 
 @onready var day_display: InfoPanel = %DayDisplay
 @onready var debt_display: InfoPanel = %DebtDisplay
-@onready var cargo_display: InfoPanel = %CargoSpace
 
 var camera_recall_position := Vector2.ZERO
 
@@ -18,6 +17,8 @@ func _ready() -> void:
 	# Reinitialize map stuff to sync camera
 	map_display.network_map.start_vertex = map_display.network_map.start_vertex
 	map_display.network_map.selected_vertex = map_display.network_map.selected_vertex
+	# Initialize labels
+	location_display.value = map_display.network_map.start_vertex.location_name
 	day_display.value = str(PlayerData.moves_remaining)
 	debt_display.value = str(PlayerData.debt_remaining)
 
@@ -31,13 +32,15 @@ func _on_travel_button_pressed() -> void:
 	reset_travel_button()
 	var start_vertex = map_display.network_map.start_vertex
 	update_location_contracts(start_vertex)
+	location_display.value = start_vertex.location_name
 	player_contracts.poll_for_completion(start_vertex)
 
 ## Control travel button's disabled state and update the location contract list
 func _on_selected_vertex_changed(vertex : NetworkVertex, adjacent : bool) -> void:
 	travel_button.disabled = not adjacent
 	update_location_contracts(vertex)
-	location_display.value = vertex.location_name
+	#location_display.value = vertex.location_name # Set when travelling instead
+	location_contracts.set_detail_text(vertex.location_name)
 
 func update_location_contracts(vertex : NetworkVertex) -> void:
 	var start_vertex_selected : bool = (map_display.network_map.start_vertex == vertex)
@@ -89,4 +92,4 @@ func _on_contract_manager_contract_completed(contract : ContractData) -> void:
 
 func _on_contract_manager_active_contracts_modified() -> void:
 	location_contracts.refresh_list_disabled_state()
-	cargo_display.value = str(ContractManager.get_total_active_space_used())
+	#cargo_display.value = str(ContractManager.get_total_active_space_used())

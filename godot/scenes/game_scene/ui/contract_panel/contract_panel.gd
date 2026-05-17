@@ -8,6 +8,7 @@ signal contract_show_destination_button_up()
 @export var header_text : String = "Header" : set = set_header_text
 
 @onready var header : Label = %Header
+@onready var details: Label = %Details
 @onready var contract_list : VBoxContainer = %ContractList
 
 var contract_entry_scene : PackedScene = preload("uid://uliove6dy53")
@@ -17,6 +18,9 @@ var available_contracts : Array[ContractData] = [] # NOT redundant; lets the UI 
 func set_header_text(text : String) -> void:
 	header_text = text
 	%Header.text = header_text
+
+func set_detail_text(text : String) -> void:
+	details.text = text
 
 func repopulate_list(contracts : Array, in_progress : bool, disabled := false) -> void:
 	clear_list()

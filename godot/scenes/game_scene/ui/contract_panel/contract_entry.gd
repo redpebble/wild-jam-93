@@ -39,7 +39,7 @@ func set_disabled(state : bool) -> void:
 	disabled = state
 	cancel.disabled = disabled
 	accept.disabled = disabled
-	modulate.a = 0.5 if disabled else 1.0
+	data_container.modulate.a = 0.5 if disabled else 1.0
 
 func set_data(_data : ContractData) -> void:
 	data = _data

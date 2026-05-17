@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cvait15kjabjj" path="res://scenes/game_scene/ui/themes/display_theme.tres" id="1_yxcqw"]
 [ext_resource type="LabelSettings" uid="uid://fb362rt6h0jk" path="res://scenes/game_scene/ui/label_settings/header.tres" id="2_2edb1"]
 [ext_resource type="Script" uid="uid://iq7kgn51bstj" path="res://scenes/game_scene/ui/contract_panel/contract_panel.gd" id="2_l7e16"]
+[ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="5_l7e16"]
 
 [node name="ContractPanel" type="PanelContainer" unique_id=1744448250]
 offset_right = 544.0
@@ -18,11 +19,22 @@ layout_mode = 2
 theme = ExtResource("1_yxcqw")
 theme_override_constants/separation = 20
 
-[node name="Header" type="Label" parent="VBoxContainer" unique_id=1469243059]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=244251560]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1469243059]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Header"
 label_settings = ExtResource("2_2edb1")
+
+[node name="Details" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=739264371]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "Details"
+label_settings = ExtResource("5_l7e16")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=221923550]
 layout_mode = 2
