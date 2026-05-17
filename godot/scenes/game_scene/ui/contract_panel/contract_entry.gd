@@ -44,7 +44,7 @@ func set_disabled(state : bool) -> void:
 func set_data(_data : ContractData) -> void:
 	data = _data
 	destination.text = data.get_destination_name()
-	reward.text = "$$" + str(data.reward)
+	reward.text = "$$ " + str(data.reward)
 	details.text = str(data.size) + " cu. ft."
 
 func _on_cancel_pressed() -> void:

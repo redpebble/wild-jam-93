@@ -40,7 +40,7 @@ func generate_contract(vertex : NetworkVertex, destination_vertex : NetworkVerte
 	# TODO: Make distance based on edge count
 	var distance = destination_vertex.global_position.distance_to(vertex.global_position)
 	data.size = randi_range(1, 4) * 100
-	data.reward = data.size * round(distance / 10) # just messing 
+	data.reward = data.size * round(distance * 0.05) # just messing 
 	return data
 
 func get_location_contracts(vertex : NetworkVertex) -> Array:

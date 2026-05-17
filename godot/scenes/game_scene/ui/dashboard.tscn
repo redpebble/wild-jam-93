@@ -131,7 +131,7 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("7_jf6ts")
 descriptor = "Debt"
 value = "000000"
-value_prefix = "$$"
+value_prefix = "$$ "
 label_settings = ExtResource("8_jf6ts")
 
 [node name="DayDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
