@@ -109,7 +109,7 @@ func _on_contract_manager_contract_accepted(contract : ContractData) -> void:
 	player_contracts.add_contract_entry(contract, true, false)
 
 func _on_contract_manager_contract_completed(contract : ContractData) -> void:
-	PlayerData.debt_remaining -= contract.reward
+	PlayerData.reduce_debt(contract.reward)
 
 func _on_contract_manager_active_contracts_modified() -> void:
 	location_contracts.refresh_list_disabled_state()

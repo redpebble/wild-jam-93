@@ -58,7 +58,6 @@ func _on_accept_pressed() -> void:
 	delete_entry()
 
 func complete() -> void:
-	PlayerData.reduce_debt(data.reward)
 	await show_message("COMPLETE", Color("green"))
 	ContractManager.remove_contract(data)
 	delete_entry()
