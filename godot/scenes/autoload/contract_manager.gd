@@ -15,6 +15,8 @@ var network_map : NetworkMap = null :
 		for i : NetworkVertex in network_map.vertex_list:
 			assign_contracts(i, 3)
 
+func reset_active_contracts() -> void:
+	active_contracts.clear()
 
 func add_location(vertex : NetworkVertex) -> void:
 	map_contracts[vertex] = []

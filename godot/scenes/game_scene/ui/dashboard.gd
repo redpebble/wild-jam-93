@@ -13,6 +13,8 @@ var camera_recall_position := Vector2.ZERO
 
 
 func _ready() -> void:
+	PlayerData.reset()
+	ContractManager.reset_active_contracts()
 	connect_signals()
 	# Reinitialize map stuff to sync camera
 	map_display.network_map.start_vertex = map_display.network_map.start_vertex
