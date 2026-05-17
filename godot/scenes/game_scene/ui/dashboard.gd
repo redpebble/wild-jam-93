@@ -21,6 +21,7 @@ func _ready() -> void:
 	location_display.value = map_display.network_map.start_vertex.location_name
 	day_display.value = str(PlayerData.moves_remaining)
 	debt_display.value = str(PlayerData.debt_remaining)
+	update_cargo_details()
 
 func _input(event):
 	if event.is_action_pressed("travel") and not travel_button.disabled:
@@ -60,6 +61,12 @@ func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 func set_debt_display(debt) -> void:
 	debt_display.value = str(debt)
 
+func update_cargo_details() -> void:
+	var space_used : String = str(ContractManager.get_total_active_space_used())
+	var total_space : String = str(PlayerData.starting_space)
+	var cargo_space_details : String = space_used + " / " + total_space
+	player_contracts.set_detail_text(cargo_space_details)
+
 func connect_signals() -> void:
 	ContractManager.active_contracts_modified.connect(_on_contract_manager_active_contracts_modified)
 	ContractManager.contract_accepted.connect(_on_contract_manager_contract_accepted)
@@ -92,4 +99,4 @@ func _on_contract_manager_contract_completed(contract : ContractData) -> void:
 
 func _on_contract_manager_active_contracts_modified() -> void:
 	location_contracts.refresh_list_disabled_state()
-	#cargo_display.value = str(ContractManager.get_total_active_space_used())
+	update_cargo_details()
