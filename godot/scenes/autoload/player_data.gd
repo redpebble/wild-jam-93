@@ -8,7 +8,7 @@ signal game_lost
 
 const starting_moves : int = 10
 const starting_debt : int = 70000
-const starting_space : int = 2000
+const starting_space : int = 1000
 const contract_limit: int = 5
 
 var state_updated: bool = false

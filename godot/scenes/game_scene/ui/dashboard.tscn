@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byspbrtfwpg6n"]
 
 [ext_resource type="Theme" uid="uid://c6uvkb4855aiv" path="res://scenes/game_scene/ui/themes/dashboard_theme.tres" id="1_fa8xj"]
-[ext_resource type="Shader" uid="uid://b5ymvxiwwu48u" path="res://scenes/game_scene/ui/map_display_fx.gdshader" id="4_fr7j0"]
+[ext_resource type="Shader" uid="uid://b5ymvxiwwu48u" path="res://scenes/game_scene/ui/shaders/map_display_fx.gdshader" id="4_fr7j0"]
 [ext_resource type="Script" uid="uid://bq8wa30uoko20" path="res://scenes/game_scene/ui/dashboard.gd" id="4_jf6ts"]
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
 [ext_resource type="PackedScene" uid="uid://dtartrcodq4mx" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]

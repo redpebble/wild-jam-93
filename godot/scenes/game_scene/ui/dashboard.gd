@@ -70,7 +70,7 @@ func set_debt_display(debt : int) -> void:
 func update_cargo_details() -> void:
 	var space_used : String = str(ContractManager.get_total_active_space_used())
 	var total_space : String = str(PlayerData.starting_space)
-	var cargo_space_details : String = space_used + " / " + total_space
+	var cargo_space_details : String = space_used + " / " + total_space + " cu. ft."
 	player_contracts.set_detail_text(cargo_space_details)
 
 func update_location_contracts(vertex : NetworkVertex) -> void:

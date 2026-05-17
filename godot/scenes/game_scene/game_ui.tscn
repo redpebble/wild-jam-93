@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://wm2nmhcpk5qp" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_3re04"]
+[ext_resource type="AudioStream" uid="uid://dy6335vs6k0df" path="res://assets/audio/music/navigator_loop.wav" id="4_8qp3c"]
 [ext_resource type="PackedScene" uid="uid://byspbrtfwpg6n" path="res://scenes/game_scene/ui/dashboard.tscn" id="5_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://ba11po12cvait" path="res://scenes/windows/game_won_window.tscn" id="6_ukb12"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="7_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bx7s80d8smic4" path="res://scenes/windows/level_lost_window.tscn" id="7_i7m4m"]
+[ext_resource type="Script" uid="uid://bll85ag2um7hl" path="res://scenes/game_scene/tutorial_manager.gd" id="10_onvsj"]
 [ext_resource type="Script" uid="uid://bnhmjy582mlax" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://bmcttnpvsi36l" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 
@@ -25,6 +27,7 @@ pause_menu_packed = ExtResource("2_7aihr")
 focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=448547113 instance=ExtResource("3_3re04")]
+stream = ExtResource("4_8qp3c")
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1836092927]
 layout_mode = 1
@@ -54,3 +57,7 @@ script = ExtResource("12_gpor5")
 script = ExtResource("7_bqcs8")
 game_won_scene = ExtResource("6_ukb12")
 game_lost_scene = ExtResource("7_i7m4m")
+
+[node name="TutorialManager" type="Node" parent="." unique_id=273665099]
+script = ExtResource("10_onvsj")
+auto_open = true

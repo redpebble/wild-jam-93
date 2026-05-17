@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
 [ext_resource type="Script" uid="uid://fc6xqx7dd1ey" path="res://scenes/game_scene/map/network_edge.gd" id="4_24htp"]
 [ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_controls/map_controls.tscn" id="6_0v10e"]
-[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/crt_shader.gdshader" id="7_4evev"]
-[ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/vignette.gdshader" id="7_24htp"]
+[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/shaders/crt_shader.gdshader" id="7_4evev"]
+[ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/shaders/vignette.gdshader" id="7_24htp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6csd5"]
 shader = ExtResource("7_24htp")
