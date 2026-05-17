@@ -20,9 +20,13 @@ func _ready() -> void:
 	day_display.value = str(PlayerData.moves_remaining)
 	debt_display.value = str(PlayerData.debt_remaining)
 
+func _input(event):
+	if event.is_action_pressed("travel") and not travel_button.disabled:
+		_on_travel_button_pressed()
+
 func _on_travel_button_pressed() -> void:
 	map_display.network_map.set_start_selected()
-	PlayerData.moves_remaining -= 1
+	PlayerData.take_move()
 	reset_travel_button()
 	var start_vertex = map_display.network_map.start_vertex
 	update_location_contracts(start_vertex)
@@ -49,6 +53,9 @@ func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 	else:
 		map_display.move_camera_to_position(camera_recall_position)
 
+func set_debt_display(debt) -> void:
+	debt_display.value = "$$"+str(debt)
+
 func connect_signals() -> void:
 	ContractManager.contract_accepted.connect(_on_contract_manager_contract_accepted)
 	ContractManager.contract_completed.connect(_on_contract_manager_contract_completed)
@@ -68,7 +75,7 @@ func _on_moves_updated(moves) -> void:
 	day_display.value = str(moves)
 
 func _on_debt_updated(debt) -> void:
-	debt_display.value = str(debt)
+	set_debt_display(debt)
 
 
 # MANAGER SIGNALS --------------------------------------------------------------

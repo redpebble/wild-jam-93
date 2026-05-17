@@ -30,6 +30,7 @@ text = "Exit"
 
 [node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1" unique_id=265365820]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Main Menu"

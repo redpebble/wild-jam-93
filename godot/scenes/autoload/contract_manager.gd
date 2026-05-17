@@ -50,7 +50,7 @@ func accept_contract(contract : ContractData) -> void:
 	active_contracts.append(contract)
 	contract_accepted.emit(contract)
 
-func cancel_contract(contract : ContractData) -> void:
+func remove_contract(contract : ContractData) -> void:
 	active_contracts.erase(contract)
 
 func complete_contract(contract : ContractData) -> void:

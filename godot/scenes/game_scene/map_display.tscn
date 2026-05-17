@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b0nm6helf7s7a" path="res://scenes/camera/interactive_camera.tscn" id="1_4c8uy"]
 [ext_resource type="Script" uid="uid://ddk5th5tdk3s1" path="res://scenes/game_scene/map_display.gd" id="1_7huig"]
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
-[ext_resource type="PackedScene" uid="uid://03akdkaqum1" path="res://scenes/game_scene/map/network_edge.tscn" id="2_4c8uy"]
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
+[ext_resource type="Script" uid="uid://fc6xqx7dd1ey" path="res://scenes/game_scene/map/network_edge.gd" id="4_24htp"]
 [ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_controls/map_controls.tscn" id="6_0v10e"]
 [ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/crt_shader.gdshader" id="7_4evev"]
 [ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/vignette.gdshader" id="7_24htp"]
@@ -36,36 +36,162 @@ script = ExtResource("1_7huig")
 
 [node name="NetworkMap" parent="." unique_id=587558093 node_paths=PackedStringArray("start_vertex") instance=ExtResource("1_li7a7")]
 position = Vector2(346, 252)
-start_vertex = NodePath("Vertices/NetworkVertex")
+start_vertex = NodePath("Vertices/Earth")
 metadata/_edit_lock_ = true
 
-[node name="NetworkEdge" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=89798225 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("2_4c8uy")]
-vertex_a = NodePath("../../Vertices/NetworkVertex")
-vertex_b = NodePath("../../Vertices/NetworkVertex2")
+[node name="Earth-Luna" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="0" unique_id=1492811905 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Earth")
+vertex_b = NodePath("../../Vertices/Luna")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
-[node name="NetworkEdge2" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=568205872 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("2_4c8uy")]
-vertex_a = NodePath("../../Vertices/NetworkVertex2")
-vertex_b = NodePath("../../Vertices/NetworkVertex3")
+[node name="Luna-Sol" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="1" unique_id=1453424314 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Luna")
+vertex_b = NodePath("../../Vertices/Sol")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
-[node name="NetworkEdge3" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="2" unique_id=105625954 node_paths=PackedStringArray("vertex_a", "vertex_b") instance=ExtResource("2_4c8uy")]
-vertex_a = NodePath("../../Vertices/NetworkVertex4")
-vertex_b = NodePath("../../Vertices/NetworkVertex3")
+[node name="Luna-Venus" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="2" unique_id=642733261 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Luna")
+vertex_b = NodePath("../../Vertices/Venus")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
-[node name="NetworkVertex" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("3_7huig")]
-position = Vector2(-537, -264)
-location_name = "Elaris IV"
+[node name="Luna-Mars" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="3" unique_id=1183895236 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Luna")
+vertex_b = NodePath("../../Vertices/Mars")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
-[node name="NetworkVertex2" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=545362612 instance=ExtResource("3_7huig")]
-position = Vector2(-402, -119)
-location_name = "Stationary Hill"
+[node name="Mars-Ceres" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="4" unique_id=1413098390 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Mars")
+vertex_b = NodePath("../../Vertices/Ceres")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
-[node name="NetworkVertex3" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1828001340 instance=ExtResource("3_7huig")]
-position = Vector2(-172, -203)
-location_name = "Timey Wimey"
+[node name="Mars-Ganymede" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="5" unique_id=661814338 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Mars")
+vertex_b = NodePath("../../Vertices/Ganymede")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
 
-[node name="NetworkVertex4" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
-position = Vector2(-316, -398)
-location_name = "Santa Cruz"
+[node name="Ganymede-Europa" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="6" unique_id=618535996 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Ganymede")
+vertex_b = NodePath("../../Vertices/Europa")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Ganymede-Ceres" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="7" unique_id=1185140388 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Ganymede")
+vertex_b = NodePath("../../Vertices/Ceres")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Ganymede-Titan" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="8" unique_id=916610218 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Ganymede")
+vertex_b = NodePath("../../Vertices/Titan")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Ganymede-Callisto" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="9" unique_id=1050957106 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Ganymede")
+vertex_b = NodePath("../../Vertices/Callisto")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Ganymede-Io" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="10" unique_id=1647417565 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Ganymede")
+vertex_b = NodePath("../../Vertices/Io")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Europa-Callisto" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="11" unique_id=1201710786 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Europa")
+vertex_b = NodePath("../../Vertices/Callisto")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Europa-Io" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="12" unique_id=1071362773 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Europa")
+vertex_b = NodePath("../../Vertices/Io")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Callisto-Io" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="13" unique_id=668963394 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Callisto")
+vertex_b = NodePath("../../Vertices/Io")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Titan-Pluto" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="14" unique_id=1308851164 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Titan")
+vertex_b = NodePath("../../Vertices/Pluto")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Sol-Mercury" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="15" unique_id=266121188 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Sol")
+vertex_b = NodePath("../../Vertices/Mercury")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Sol-Venus" type="Node2D" parent="NetworkMap/Edges" parent_id_path=PackedInt32Array(587558093, 1297744968) index="16" unique_id=1258682051 node_paths=PackedStringArray("vertex_a", "vertex_b")]
+script = ExtResource("4_24htp")
+vertex_a = NodePath("../../Vertices/Sol")
+vertex_b = NodePath("../../Vertices/Venus")
+metadata/_custom_type_script = "uid://fc6xqx7dd1ey"
+
+[node name="Earth" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="0" unique_id=1569443178 instance=ExtResource("3_7huig")]
+position = Vector2(-346, -251)
+location_name = "Earth"
+
+[node name="Luna" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="1" unique_id=545362612 instance=ExtResource("3_7huig")]
+position = Vector2(-322, -331)
+location_name = "Luna Spaceport"
+
+[node name="Sol" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="2" unique_id=1828001340 instance=ExtResource("3_7huig")]
+position = Vector2(-665, -377)
+location_name = "Solar Depot"
+
+[node name="Venus" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="3" unique_id=800978846 instance=ExtResource("3_7huig")]
+position = Vector2(-461, -560)
+location_name = "Venus"
+
+[node name="Mars" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="4" unique_id=1948642077 instance=ExtResource("3_7huig")]
+position = Vector2(-137, -448)
+location_name = "Mars"
+
+[node name="Io" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="5" unique_id=1584561393 instance=ExtResource("3_7huig")]
+position = Vector2(29, -172)
+location_name = "Io"
+
+[node name="Europa" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="6" unique_id=537821182 instance=ExtResource("3_7huig")]
+position = Vector2(12, -265)
+location_name = "Europa"
+
+[node name="Callisto" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="7" unique_id=227881516 instance=ExtResource("3_7huig")]
+position = Vector2(109, -224)
+location_name = "Callisto"
+
+[node name="Ganymede" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="8" unique_id=208019305 instance=ExtResource("3_7huig")]
+position = Vector2(92, -316)
+location_name = "Ganymede"
+
+[node name="Pluto" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="9" unique_id=672592959 instance=ExtResource("3_7huig")]
+position = Vector2(538, -61)
+location_name = "Pluton Outpost"
+
+[node name="Mercury" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="10" unique_id=1014199812 instance=ExtResource("3_7huig")]
+position = Vector2(-612, -264)
+location_name = "Mercury Mines"
+
+[node name="Ceres" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="11" unique_id=1477516714 instance=ExtResource("3_7huig")]
+position = Vector2(-53, -612)
+location_name = "Ceres Collective"
+
+[node name="Titan" parent="NetworkMap/Vertices" parent_id_path=PackedInt32Array(587558093, 805443819) index="12" unique_id=1594092108 instance=ExtResource("3_7huig")]
+position = Vector2(340, -486)
+location_name = "Titan"
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=302390962]
 

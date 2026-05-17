@@ -43,7 +43,7 @@ func set_disabled(state : bool) -> void:
 func set_data(_data : ContractData) -> void:
 	data = _data
 	destination.text = data.get_destination_name()
-	reward.text = "$" + str(data.reward)
+	reward.text = "$$" + str(data.reward)
 	details.text = str(data.size) + " cu. ft."
 
 func _on_cancel_pressed() -> void:
@@ -52,12 +52,15 @@ func _on_cancel_pressed() -> void:
 	delete_entry()
 
 func _on_accept_pressed() -> void:
+	if ContractManager.active_contracts.size() >= PlayerData.contract_limit: return
 	accepted.emit()
 	await show_message("ACCEPTED", Color("31fbfb"))
 	delete_entry()
 
 func complete() -> void:
-	await show_message("COMPLETE", Color("4fff4dff"))
+	PlayerData.reduce_debt(data.reward)
+	await show_message("COMPLETE", Color("green"))
+	ContractManager.remove_contract(data)
 	delete_entry()
 
 func _on_show_destination_button_down() -> void:

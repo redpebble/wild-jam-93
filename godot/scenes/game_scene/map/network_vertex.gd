@@ -8,7 +8,12 @@ signal rclicked(vertex)
 
 @onready var name_label: Label = %NameLabel
 
-@export var location_name : String = ""
+@export var location_name : String :
+	set(val):
+		location_name = val
+		if Engine.is_editor_hint():
+			%NameLabel.text = val
+
 @export var radius: float = 15.0 :
 	set(val):
 		radius = val

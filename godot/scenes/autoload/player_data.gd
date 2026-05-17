@@ -6,29 +6,38 @@ signal debt_updated(debt)
 signal game_won
 signal game_lost
 
-const starting_moves : int = 3 # TESTING
-const starting_debt : int = 69420
+const starting_moves : int = 10
+const starting_debt : int = 100
+const contract_limit: int = 5
 
-var moves_remaining : int = starting_moves :
-	set(n):
-		moves_remaining = n
-		moves_updated.emit(n)
-		checkGameEnd()
-
-var debt_remaining : int = starting_debt :
-	set(n):
-		debt_remaining = n
-		debt_updated.emit(n)
-		checkGameEnd()
+var state_updated: bool = false
+var moves_remaining: int = starting_moves
+var debt_remaining: int = starting_debt
 
 var active_contracts : Array[ContractData] = []
 
-func checkGameEnd() -> void:
+func take_move(n = 1) -> void:
+	moves_remaining -= n
+	moves_updated.emit(moves_remaining)
+	if not state_updated:
+		call_deferred("check_end_state")
+	state_updated = true
+
+func reduce_debt(amount) -> void:
+	debt_remaining -= amount
+	debt_updated.emit(debt_remaining)
+	if not state_updated:
+		call_deferred("check_end_state")
+	state_updated = true
+
+func check_end_state() -> void:
+	state_updated = false
 	if debt_remaining <= 0:
 		game_won.emit()
 	elif moves_remaining <= 0:
 		game_lost.emit()
 
 func reset() -> void:
+	state_updated = false
 	moves_remaining = starting_moves
 	debt_remaining = starting_debt
