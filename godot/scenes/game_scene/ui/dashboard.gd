@@ -8,6 +8,7 @@ extends Control
 
 @onready var day_display: InfoPanel = %DayDisplay
 @onready var debt_display: InfoPanel = %DebtDisplay
+@onready var cargo_display: InfoPanel = %CargoSpace
 
 var camera_recall_position := Vector2.ZERO
 
@@ -54,21 +55,22 @@ func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 		map_display.move_camera_to_position(camera_recall_position)
 
 func set_debt_display(debt) -> void:
-	debt_display.value = "$$"+str(debt)
+	debt_display.value = str(debt)
 
 func connect_signals() -> void:
+	ContractManager.active_contracts_modified.connect(_on_contract_manager_active_contracts_modified)
 	ContractManager.contract_accepted.connect(_on_contract_manager_contract_accepted)
 	ContractManager.contract_completed.connect(_on_contract_manager_contract_completed)
-	
-	travel_button.pressed.connect(_on_travel_button_pressed)
-	map_display.selected_vertex_changed.connect(_on_selected_vertex_changed)
 	PlayerData.moves_updated.connect(_on_moves_updated)
 	PlayerData.debt_updated.connect(_on_debt_updated)
+	travel_button.pressed.connect(_on_travel_button_pressed)
+	map_display.selected_vertex_changed.connect(_on_selected_vertex_changed)
 	# Camera control signals
 	location_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
 	location_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
 	player_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
 	player_contracts.contract_show_destination_button_up.connect(set_temporary_camera_vertex)
+
 
 # UI SIGNALS -------------------------------------------------------------------
 func _on_moves_updated(moves) -> void:
@@ -84,3 +86,7 @@ func _on_contract_manager_contract_accepted(contract : ContractData) -> void:
 
 func _on_contract_manager_contract_completed(contract : ContractData) -> void:
 	PlayerData.debt_remaining -= contract.reward
+
+func _on_contract_manager_active_contracts_modified() -> void:
+	location_contracts.refresh_list_disabled_state()
+	cargo_display.value = str(ContractManager.get_total_active_space_used())

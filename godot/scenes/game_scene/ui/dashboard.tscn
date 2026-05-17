@@ -145,6 +145,14 @@ unique_name_in_owner = true
 layout_mode = 2
 header_text = "In-Progress Contracts"
 
+[node name="CargoSpace" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1115846143 instance=ExtResource("6_jf6ts")]
+unique_name_in_owner = true
+layout_mode = 2
+descriptor = "Cargo Space"
+value = "Value"
+value_suffix = " cu. ft."
+label_settings = ExtResource("8_jf6ts")
+
 [node name="LocationContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1172378884 instance=ExtResource("8_m5vbi")]
 unique_name_in_owner = true
 layout_mode = 2

@@ -8,6 +8,7 @@ signal game_lost
 
 const starting_moves : int = 10
 const starting_debt : int = 100
+const starting_space : int = 400
 const contract_limit: int = 5
 
 var state_updated: bool = false
@@ -41,3 +42,6 @@ func reset() -> void:
 	state_updated = false
 	moves_remaining = starting_moves
 	debt_remaining = starting_debt
+
+func get_remaining_space() -> int:
+	return starting_space - ContractManager.get_total_active_space_used()

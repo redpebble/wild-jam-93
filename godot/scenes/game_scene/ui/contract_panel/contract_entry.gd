@@ -23,6 +23,7 @@ signal show_destination_button_up()
 @onready var reward: Label = %Reward
 
 var disabled : bool = false : set = set_disabled
+var handled : bool = false # true after a message is shown
 var data : ContractData = null : set = set_data
 
 func set_in_progress(state : bool) -> void:
@@ -52,7 +53,7 @@ func _on_cancel_pressed() -> void:
 	delete_entry()
 
 func _on_accept_pressed() -> void:
-	if ContractManager.active_contracts.size() >= PlayerData.contract_limit: return
+	#if ContractManager.active_contracts.size() >= PlayerData.contract_limit: return 
 	accepted.emit()
 	await show_message("ACCEPTED", Color("31fbfb"))
 	delete_entry()
@@ -70,6 +71,7 @@ func _on_show_destination_button_up() -> void:
 	show_destination_button_up.emit()
 
 func show_message(_text : String, color := Color("white")) -> void:
+	handled = true
 	message.text = _text
 	message_container.modulate = color
 	message_container.show()
