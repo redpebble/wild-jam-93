@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
 [ext_resource type="Script" uid="uid://fc6xqx7dd1ey" path="res://scenes/game_scene/map/network_edge.gd" id="4_24htp"]
-[ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_controls/map_controls.tscn" id="6_0v10e"]
+[ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_stuff/map_controls.tscn" id="6_0v10e"]
+[ext_resource type="PackedScene" uid="uid://bsfahm2x7lyj7" path="res://scenes/game_scene/ui/map_stuff/location_label.tscn" id="6_6csd5"]
 [ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/shaders/crt_shader.gdshader" id="7_4evev"]
 [ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/shaders/vignette.gdshader" id="7_24htp"]
 
@@ -18,16 +19,14 @@ shader_parameter/outer_radius = 1.42
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_24htp"]
 shader = ExtResource("7_4evev")
-shader_parameter/smearing = 0.0
-shader_parameter/color_offset = 1.6299399954733392e-09
-shader_parameter/sharpening = 0.2390000113525
-shader_parameter/static_noise = 0.0590000028025
-shader_parameter/crack_center = Vector2(0.15, 0.85)
-shader_parameter/crack_intensity = 0.0
-shader_parameter/crack_size = 0.0
-shader_parameter/vertical_jitter = 0.0
-shader_parameter/scanline_opacity = 0.050000002375
-shader_parameter/vignette_intensity = 0.10000000475
+shader_parameter/scanline_color = Color(0, 0, 0, 1)
+shader_parameter/flicker_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines_count = 2.05
+shader_parameter/scanlines_intensity = 0.165
+shader_parameter/flicker_speed = 10.0
+shader_parameter/flicker_intensity = 0.02000000095
+shader_parameter/color_offset = 0.31
+shader_parameter/blur = 0.0
 
 [node name="MapDisplay" type="Node2D" unique_id=2062216081]
 script = ExtResource("1_7huig")
@@ -203,6 +202,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="LocationLabel" parent="Overlay" unique_id=790729705 instance=ExtResource("6_6csd5")]
+unique_name_in_owner = true
 
 [node name="MapControls" parent="Overlay" unique_id=534068729 instance=ExtResource("6_0v10e")]
 anchors_preset = 15

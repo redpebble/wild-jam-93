@@ -73,3 +73,11 @@ func get_zoom_target() -> Vector2:
 
 func update_zoom(delta : float) -> void:
 	zoom = lerp(zoom, get_zoom_target(), zoom_speed * delta)
+
+# Checks if the current zoom is about equal to the target zoom
+func is_zooming() -> bool:
+	return not zoom.is_equal_approx(get_zoom_target())
+
+func get_zoom_scale() -> float:
+	return inverse_lerp(zoom_out_max, zoom_in_max, zoom.x)
+	

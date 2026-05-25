@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bsfahm2x7lyj7"]
+
+[ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/map_theme.tres" id="1_5066n"]
+[ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="2_qbe4w"]
+[ext_resource type="Script" uid="uid://ro7p7n0bws0a" path="res://scenes/game_scene/ui/map_stuff/location_label.gd" id="3_jiy5c"]
+
+[node name="LocationLabel" type="Node2D" unique_id=1119697744]
+script = ExtResource("3_jiy5c")
+
+[node name="Label" type="Label" parent="." unique_id=790729705]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -54.0
+offset_right = 50.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5066n")
+label_settings = ExtResource("2_qbe4w")
+horizontal_alignment = 1

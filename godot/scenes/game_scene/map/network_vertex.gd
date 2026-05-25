@@ -4,15 +4,11 @@ extends Area2D
 
 signal lclicked(vertex)
 signal rclicked(vertex)
-
-
-@onready var name_label: Label = %NameLabel
+signal highlight_state_changed(state)
 
 @export var location_name : String :
 	set(val):
 		location_name = val
-		if Engine.is_editor_hint():
-			%NameLabel.text = val
 
 @export var radius: float = 15.0 :
 	set(val):
@@ -24,14 +20,14 @@ signal rclicked(vertex)
 var color: Color = Color.WHITE
 
 var selected: bool = false
-var hovered: bool  = false : set = set_hovered
-
+var highlighted: bool  = false : set = set_highlighted
+var highlight_override: bool = false : set = set_highlight_override
 
 func editor_redraw() -> void:
 	if Engine.is_editor_hint(): queue_redraw()
 
 func _draw() -> void:
-	if hovered:
+	if highlighted or highlight_override:
 		var collision_r = $CollisionShape2D.shape.radius
 		draw_circle(Vector2.ZERO, collision_r, highlight_color, true, -1, true)
 	if selected:
@@ -40,19 +36,20 @@ func _draw() -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
-	mouse_entered.connect(set_hovered.bind(true))
-	mouse_exited.connect(set_hovered.bind(false))
-	name_label.text = location_name
-	name_label.hide()
+	mouse_entered.connect(set_highlighted.bind(true))
+	mouse_exited.connect(set_highlighted.bind(false))
 
 func _process(_delta: float) -> void:
 	editor_redraw()
 
-func set_hovered(state : bool) -> void:
-	hovered = state
-	name_label.visible = hovered
+func set_highlighted(state : bool) -> void:
+	highlighted = state
+	highlight_state_changed.emit(state)
 	queue_redraw()
 
+func set_highlight_override(state: bool) -> void:
+	highlight_override = state
+	queue_redraw()
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not (event is InputEventMouseButton and event.is_pressed()): return

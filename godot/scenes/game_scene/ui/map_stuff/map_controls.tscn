@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://73gedtqicwms"]
 
 [ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/map_theme.tres" id="1_c44h0"]
-[ext_resource type="Script" uid="uid://b0p0smixw40bh" path="res://scenes/game_scene/ui/map_controls/map_controls.gd" id="2_1ydok"]
+[ext_resource type="Script" uid="uid://b0p0smixw40bh" path="res://scenes/game_scene/ui/map_stuff/map_controls.gd" id="2_1ydok"]
 [ext_resource type="Texture2D" uid="uid://c7tenbngm4bpy" path="res://assets/textures/shapes/circle.png" id="2_3dsuy"]
 [ext_resource type="Texture2D" uid="uid://d20gmbpd4bo08" path="res://assets/textures/shapes/plus_icon.png" id="3_1ydok"]
 [ext_resource type="Texture2D" uid="uid://b46fc3elgwuxd" path="res://assets/textures/shapes/minus_icon.png" id="4_cglf8"]

@@ -49,8 +49,10 @@ func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 	if vertex != null:
 		camera_recall_position = map_display.camera.global_position
 		map_display.move_camera_to_vertex(vertex)
+		map_display.network_map.highlighted_vertex = vertex
 	else:
 		map_display.move_camera_to_position(camera_recall_position)
+		map_display.network_map.highlighted_vertex = vertex
 
 func map_move_to_selection() -> void:
 	map_display.network_map.set_start_selected()

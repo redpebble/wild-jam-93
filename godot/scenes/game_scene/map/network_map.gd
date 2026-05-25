@@ -3,7 +3,8 @@ class_name NetworkMap
 extends Node
 
 signal start_vertex_changed(vertex: NetworkVertex)
-signal selected_vertex_changed(vertex : NetworkVertex, adjacent : bool)
+signal selected_vertex_changed(vertex: NetworkVertex, adjacent: bool)
+signal highlighted_vertex_changed(vertex: NetworkVertex)
 
 var edge_list: Array[NetworkEdge] = []
 var vertex_list: Array[NetworkVertex] = []
@@ -22,6 +23,15 @@ var vertex_list: Array[NetworkVertex] = []
 		for v in vertex_list:
 			v.selected = (v == vertex)
 			v.queue_redraw()
+
+var highlighted_vertex : NetworkVertex = null :
+	set(vertex):
+		if highlighted_vertex != null and highlighted_vertex != vertex:
+			highlighted_vertex.highlight_override = false # reset old override
+		highlighted_vertex = vertex
+		if highlighted_vertex:
+			highlighted_vertex.highlight_override = true # new override
+		highlighted_vertex_changed.emit(vertex)
 
 
 func init_lists() -> void:
@@ -51,6 +61,7 @@ func _ready() -> void:
 	init_lists()
 	for v in vertex_list:
 		v.lclicked.connect(_on_vertex_lclicked)
+		v.highlight_state_changed.connect(_on_vertex_highlight_state_changed.bind(v))
 	color_start_adjacent()
 	if not Engine.is_editor_hint():
 		ContractManager.network_map = self
@@ -66,5 +77,13 @@ func are_adjacent(vertex1, vertex2) -> bool:
 		if edge.is_vertices(vertex1, vertex2): return true
 	return false
 
+
+# SIGNALS ----------------------------------------------------------------------
 func _on_vertex_lclicked(vertex) -> void:
 	selected_vertex = vertex
+
+func _on_vertex_highlight_state_changed(highlighted: bool, vertex: NetworkVertex) -> void:
+	if highlighted == true:
+		highlighted_vertex = vertex
+	else:
+		highlighted_vertex = null
