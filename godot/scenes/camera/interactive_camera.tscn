@@ -4,3 +4,27 @@
 
 [node name="InteractiveCamera" type="Camera2D" unique_id=1816395751]
 script = ExtResource("1_1k6tt")
+
+[node name="ZoomMarker" type="Node2D" parent="." unique_id=34826639]
+
+[node name="Visualizer" type="ColorRect" parent="ZoomMarker" unique_id=1180708684]
+visible = false
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0, 0.671875, 1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=791349855]
+
+[node name="MouseProxy" type="Node2D" parent="CanvasLayer" unique_id=783301675]
+unique_name_in_owner = true
+editor_description = "Must be on separate canvas to remain relative to screen position."
+z_index = 1
+
+[node name="Visualizer" type="ColorRect" parent="CanvasLayer/MouseProxy" unique_id=473938204]
+visible = false
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0

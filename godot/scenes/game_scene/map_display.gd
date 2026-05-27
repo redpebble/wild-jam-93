@@ -20,7 +20,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if camera.is_zooming():
-		print(camera.get_zoom_scale())
 		location_label.set_offset_scale(camera.get_zoom_scale())
 
 # CAMERA CONTROL ---------------------------------------------------------------
@@ -34,10 +33,10 @@ func move_camera_to_position(pos : Vector2) -> void:
 	camera.move_to(pos)
 
 func zoom_camera_in() -> void:
-	camera.zoom_by(camera.zoom_increment * 2)
+	camera.zoom_percent += camera.zoom_increment * 2
 
 func zoom_camera_out() -> void:
-	camera.zoom_by(-camera.zoom_increment * 2)
+	camera.zoom_percent -= camera.zoom_increment * 2
 
 
 # SIGNALS ----------------------------------------------------------------------
