@@ -74,25 +74,24 @@ func poll_zoom_inputs(event : InputEvent) -> void:
 	elif event.is_action_pressed("zoom_out"):
 		zoom_by(-zoom_increment, true)
 
-var projected_zoom_mouse_pos := Vector2.ZERO
-
 func zoom_by(amount : float, toward_mouse := false) -> void:
 	zoom_percent += amount
-	cancel_zoom()
-	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	zoom_tween.tween_method(update_zoom, zoom, get_zoom_target(), 0.6)
 	if toward_mouse:
 		maintain_mouse_zoom_position = true
 		zoom_marker.global_position = get_global_mouse_position()
 		mouse_proxy.position = mouse_proxy.get_global_mouse_position()
+	cancel_zoom()
+	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	zoom_tween.tween_method(update_zoom, zoom, get_zoom_target(), 0.6)
 
 func update_zoom(new_zoom : Vector2) -> void:
 	zoom = new_zoom
 	if maintain_mouse_zoom_position:
 		# move toward mouse if not moving in other ways
-		var zoom_start_posiiton = zoom_marker.get_global_transform_with_canvas().origin
-		var displacement = zoom_start_posiiton - mouse_proxy.global_position
-		global_position += displacement
+		var zoom_start_position = zoom_marker.get_global_transform_with_canvas().origin
+		var displacement = zoom_start_position - mouse_proxy.global_position
+		# makeup for displacement with respect to zoom
+		global_position += displacement / zoom
 	if is_moving() or drag_enabled:
 		maintain_mouse_zoom_position = false
 
