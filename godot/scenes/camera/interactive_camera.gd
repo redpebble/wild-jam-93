@@ -70,17 +70,17 @@ func poll_drag_inputs(event : InputEvent) -> void:
 # ZOOMING ------------------------------------------------------------------------------------------
 func poll_zoom_inputs(event : InputEvent) -> void:
 	if event.is_action_pressed("zoom_in"):
-		zoom_by(zoom_increment)
+		zoom_by(zoom_increment, true)
 	elif event.is_action_pressed("zoom_out"):
-		zoom_by(-zoom_increment)
+		zoom_by(-zoom_increment, true)
 
 var projected_zoom_mouse_pos := Vector2.ZERO
 
-func zoom_by(amount : float, toward_mouse := true) -> void:
+func zoom_by(amount : float, toward_mouse := false) -> void:
 	zoom_percent += amount
 	cancel_zoom()
 	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	zoom_tween.tween_method(update_zoom, zoom, get_zoom_target(), 0.8)
+	zoom_tween.tween_method(update_zoom, zoom, get_zoom_target(), 0.6)
 	if toward_mouse:
 		maintain_mouse_zoom_position = true
 		zoom_marker.global_position = get_global_mouse_position()

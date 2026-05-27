@@ -33,10 +33,10 @@ func move_camera_to_position(pos : Vector2) -> void:
 	camera.move_to(pos)
 
 func zoom_camera_in() -> void:
-	camera.zoom_percent += camera.zoom_increment * 2
+	camera.zoom_by(camera.zoom_increment * 2)
 
 func zoom_camera_out() -> void:
-	camera.zoom_percent -= camera.zoom_increment * 2
+	camera.zoom_by(-camera.zoom_increment * 2)
 
 
 # SIGNALS ----------------------------------------------------------------------
