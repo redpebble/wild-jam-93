@@ -42,23 +42,19 @@ func add_contract_entry(data : ContractData, in_progress : bool, disabled := fal
 	c.show_destination_button_up.connect(_on_contract_show_destination_button_up)
 	return c
 
-func refresh_entry_disabled_state(entry : ContractEntry, override := false) -> void:
-	if override == true:
-		entry.disabled = override
-	else:
-		var is_location_entry := not entry.in_progress
-		var not_enough_space := entry.data.size > PlayerData.get_remaining_space()
-		if is_location_entry and not_enough_space:
-			entry.disabled = true
-		else:
-			entry.disabled = false
+func refresh_entry_disabled_state(entry : ContractEntry, force_disabled := false) -> void:
+	if not entry.in_progress:
+		entry.beyond_capacity = entry.data.size > PlayerData.get_remaining_space()
+		entry.disabled = entry.beyond_capacity
+	if force_disabled:
+		entry.disabled = true
 
-func refresh_list_disabled_state() -> void:
+func refresh_list_disabled_state(force_disabled := false) -> void:
 	for entry in contract_list.get_children():
-		# skip entries that are displaying a message
+		# skip entries that are displaying a message on their way to deletion
 		if entry.handled:
 			continue
-		refresh_entry_disabled_state(entry)
+		refresh_entry_disabled_state(entry, force_disabled)
 
 func clear_list() -> void:
 	available_contracts.clear()

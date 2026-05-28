@@ -58,6 +58,10 @@ func map_move_to_selection() -> void:
 	map_display.network_map.set_start_selected()
 	PlayerData.take_move()
 
+func is_start_vertex_selected() -> bool:
+	return map_display.network_map.start_vertex \
+		== map_display.network_map.selected_vertex
+
 
 # UI CONTROL -------------------------------------------------------------------
 func reset_travel_button() -> void:
@@ -113,6 +117,8 @@ func _on_contract_manager_contract_accepted(contract : ContractData) -> void:
 func _on_contract_manager_contract_completed(contract : ContractData) -> void:
 	PlayerData.reduce_debt(contract.reward)
 
+## When active contracts change, refresh the location contracts list
 func _on_contract_manager_active_contracts_modified() -> void:
-	location_contracts.refresh_list_disabled_state()
+	var force_disabled = not is_start_vertex_selected()
+	location_contracts.refresh_list_disabled_state(force_disabled)
 	update_cargo_details()
