@@ -112,8 +112,6 @@ value = "XXXXXXXXXX"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-action_mode = 0
-keep_pressed_outside = true
 text = "Travel"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1882094780]
