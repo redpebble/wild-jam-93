@@ -26,6 +26,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
+theme_override_constants/separation = 14
 
 [node name="ZoomInButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=345997769]
 unique_name_in_owner = true

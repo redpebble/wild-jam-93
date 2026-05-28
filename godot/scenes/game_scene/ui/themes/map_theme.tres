@@ -4,6 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital_button_normal.tres" id="1_m3hjc"]
 [ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital_button_pressed.tres" id="3_5dy3x"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="4_xs3dx"]
+[ext_resource type="Texture2D" uid="uid://58kvguxmb7dp" path="res://scenes/game_scene/ui/styles/map_styles/v_slider_grabber.tres" id="5_8w20t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs3dx"]
 content_margin_left = 10.0
@@ -22,23 +23,46 @@ corner_radius_bottom_left = 10
 shadow_color = Color(1, 1, 1, 0.039215688)
 shadow_size = 14
 
+[sub_resource type="Gradient" id="Gradient_8w20t"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.66, 0.66, 0.66, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8u3l"]
+gradient = SubResource("Gradient_8w20t")
+width = 26
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_u8u3l"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xlnkv"]
+gradient = SubResource("Gradient_u8u3l")
+width = 26
+height = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w20t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8u3l"]
-bg_color = Color(0.13333334, 0.65882355, 0.65882355, 1)
+bg_color = Color(0.132, 0.66, 0.66, 0)
+border_width_left = 2
 border_width_top = 2
+border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-expand_margin_left = 2.0
-expand_margin_right = 2.0
+border_color = Color(0.13333334, 0.65882355, 0.65882355, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 13.0
+expand_margin_top = 10.0
+expand_margin_right = 13.0
+expand_margin_bottom = 10.0
 
 [resource]
 Button/font_sizes/font_size = 20
@@ -49,6 +73,9 @@ Button/styles/normal = ExtResource("1_m3hjc")
 Button/styles/pressed = ExtResource("3_5dy3x")
 Label/fonts/font = ExtResource("4_xs3dx")
 Label/styles/normal = SubResource("StyleBoxFlat_xs3dx")
+VSlider/icons/grabber = ExtResource("5_8w20t")
+VSlider/icons/grabber_disabled = SubResource("GradientTexture2D_u8u3l")
+VSlider/icons/grabber_highlight = SubResource("GradientTexture2D_xlnkv")
 VSlider/styles/grabber_area = SubResource("StyleBoxFlat_8w20t")
-VSlider/styles/grabber_area_highlight = null
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_8w20t")
 VSlider/styles/slider = SubResource("StyleBoxFlat_u8u3l")

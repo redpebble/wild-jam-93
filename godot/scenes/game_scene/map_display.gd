@@ -4,7 +4,7 @@ extends Node2D
 signal selected_vertex_changed(vertex : NetworkVertex, adjacent : bool)
 
 @onready var network_map : NetworkMap = $NetworkMap
-@onready var camera = $InteractiveCamera
+@onready var camera : InteractiveCamera = $InteractiveCamera
 @onready var map_controls = $Overlay/MapControls
 @onready var location_label: LocationLabel = %LocationLabel
 
@@ -34,6 +34,7 @@ func move_camera_to_position(pos : Vector2) -> void:
 	camera.move_to(pos)
 
 func set_camera_zoom_percent(percent : float) -> void:
+	camera.set_zoom_toward_mouse(false)
 	camera.zoom_percent = percent
 
 

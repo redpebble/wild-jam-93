@@ -29,6 +29,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if drag_enabled:
 		global_position -= drag_vector
+	if is_moving() or drag_enabled:
+			set_zoom_toward_mouse(false)
 
 func _unhandled_input(event: InputEvent) -> void:
 	poll_drag_inputs(event)
@@ -83,13 +85,10 @@ func update_zoom(new_zoom : Vector2) -> void:
 	zoom = new_zoom
 	zoom_scale_changed.emit(get_zoom_scale())
 	if zoom_toward_mouse:
-		# move toward mouse if not moving in other ways
 		var zoom_start_position = zoom_marker.get_global_transform_with_canvas().origin
 		var displacement = zoom_start_position - mouse_proxy.global_position
-		# makeup for displacement with respect to zoom <--- important factor
+		# makeup for displacement with respect to zoom amount
 		global_position += displacement / zoom
-		if is_moving() or drag_enabled:
-			set_zoom_toward_mouse(false)
 
 func set_zoom_toward_mouse(state : bool) -> void:
 	zoom_toward_mouse = state
