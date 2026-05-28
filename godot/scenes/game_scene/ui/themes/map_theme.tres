@@ -22,6 +22,24 @@ corner_radius_bottom_left = 10
 shadow_color = Color(1, 1, 1, 0.039215688)
 shadow_size = 14
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w20t"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8u3l"]
+bg_color = Color(0.13333334, 0.65882355, 0.65882355, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
 [resource]
 Button/font_sizes/font_size = 20
 Button/styles/focus = ExtResource("1_0w4yx")
@@ -31,3 +49,6 @@ Button/styles/normal = ExtResource("1_m3hjc")
 Button/styles/pressed = ExtResource("3_5dy3x")
 Label/fonts/font = ExtResource("4_xs3dx")
 Label/styles/normal = SubResource("StyleBoxFlat_xs3dx")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_8w20t")
+VSlider/styles/grabber_area_highlight = null
+VSlider/styles/slider = SubResource("StyleBoxFlat_u8u3l")

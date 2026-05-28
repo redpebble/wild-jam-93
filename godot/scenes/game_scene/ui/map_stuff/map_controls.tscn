@@ -37,6 +37,14 @@ icon = ExtResource("3_1ydok")
 icon_alignment = 1
 expand_icon = true
 
+[node name="ZoomSlider" type="VSlider" parent="VBoxContainer/VBoxContainer" unique_id=552680832]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.01
+
 [node name="ZoomOutButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1239654552]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)

@@ -1,6 +1,8 @@
 class_name InteractiveCamera
 extends Camera2D
 
+signal zoom_scale_changed
+
 var drag_enabled : bool = false
 var drag_vector := Vector2.ZERO
 
@@ -10,7 +12,7 @@ var zoom_in_max : float = 2.0
 var zoom_out_max : float = 0.4
 var zoom_percent : float = 0.5 : set = set_zoom_percent
 
-var maintain_mouse_zoom_position : bool = false
+var zoom_toward_mouse : bool = false : set = set_zoom_toward_mouse
 var zoom_tween : Tween = null
 var move_tween : Tween = null
 var move_duration : float = 0.6
@@ -20,6 +22,7 @@ var move_duration : float = 0.6
 
 
 func _ready() -> void:
+	zoom_percent = zoom_percent
 	zoom_marker.top_level = true
 	mouse_proxy.top_level = false
 
@@ -69,35 +72,38 @@ func poll_drag_inputs(event : InputEvent) -> void:
 
 # ZOOMING ------------------------------------------------------------------------------------------
 func poll_zoom_inputs(event : InputEvent) -> void:
-	if event.is_action_pressed("zoom_in"):
-		zoom_by(zoom_increment, true)
-	elif event.is_action_pressed("zoom_out"):
-		zoom_by(-zoom_increment, true)
-
-func zoom_by(amount : float, toward_mouse := false) -> void:
-	zoom_percent += amount
-	if toward_mouse:
-		maintain_mouse_zoom_position = true
-		zoom_marker.global_position = get_global_mouse_position()
-		mouse_proxy.position = mouse_proxy.get_global_mouse_position()
-	cancel_zoom()
-	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	zoom_tween.tween_method(update_zoom, zoom, get_zoom_target(), 0.6)
+	var zoom_direction = event.get_action_strength("zoom_in") - event.get_action_strength("zoom_out")
+	if zoom_direction:
+		var prev_zoom = zoom_percent
+		zoom_percent += zoom_increment * zoom_direction
+		if zoom_percent != prev_zoom:
+			set_zoom_toward_mouse(true)
 
 func update_zoom(new_zoom : Vector2) -> void:
 	zoom = new_zoom
-	if maintain_mouse_zoom_position:
+	zoom_scale_changed.emit(get_zoom_scale())
+	if zoom_toward_mouse:
 		# move toward mouse if not moving in other ways
 		var zoom_start_position = zoom_marker.get_global_transform_with_canvas().origin
 		var displacement = zoom_start_position - mouse_proxy.global_position
-		# makeup for displacement with respect to zoom
+		# makeup for displacement with respect to zoom <--- important factor
 		global_position += displacement / zoom
-	if is_moving() or drag_enabled:
-		maintain_mouse_zoom_position = false
+		if is_moving() or drag_enabled:
+			set_zoom_toward_mouse(false)
+
+func set_zoom_toward_mouse(state : bool) -> void:
+	zoom_toward_mouse = state
+	if zoom_toward_mouse:
+		zoom_marker.global_position = get_global_mouse_position()
+		mouse_proxy.position = mouse_proxy.get_global_mouse_position()
 
 func set_zoom_percent(value : float) -> void:
 	value = clamp(value, 0.0, 1.0)
 	zoom_percent = value
+	# Start zoom tween
+	cancel_zoom()
+	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	zoom_tween.tween_method(update_zoom, zoom, get_zoom_target(), 0.6)
 
 func cancel_zoom() -> void:
 	if zoom_tween: zoom_tween.kill()

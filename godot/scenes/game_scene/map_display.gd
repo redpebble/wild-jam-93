@@ -14,13 +14,14 @@ func _ready() -> void:
 	network_map.start_vertex_changed.connect(_on_start_vertex_changed)
 	network_map.selected_vertex_changed.connect(_on_selected_vertex_changed)
 	network_map.highlighted_vertex_changed.connect(_on_highlighted_vertex_changed)
-	map_controls.zoom_in_pressed.connect(zoom_camera_in)
-	map_controls.zoom_out_pressed.connect(zoom_camera_out)
 	map_controls.refocus_pressed.connect(refocus_camera)
+	map_controls.zoom_slider_value_changed.connect(set_camera_zoom_percent)
+	camera.zoom_scale_changed.connect(_on_camera_zoom_scale_changed)
 
 func _process(_delta: float) -> void:
 	if camera.is_zooming():
 		location_label.set_offset_scale(camera.get_zoom_scale())
+
 
 # CAMERA CONTROL ---------------------------------------------------------------
 func refocus_camera() -> void:
@@ -32,11 +33,8 @@ func move_camera_to_vertex(vertex : NetworkVertex) -> void:
 func move_camera_to_position(pos : Vector2) -> void:
 	camera.move_to(pos)
 
-func zoom_camera_in() -> void:
-	camera.zoom_by(camera.zoom_increment * 2)
-
-func zoom_camera_out() -> void:
-	camera.zoom_by(-camera.zoom_increment * 2)
+func set_camera_zoom_percent(percent : float) -> void:
+	camera.zoom_percent = percent
 
 
 # SIGNALS ----------------------------------------------------------------------
@@ -51,3 +49,6 @@ func _on_highlighted_vertex_changed(vertex : NetworkVertex) -> void:
 
 func _on_travel_button_pressed() -> void:
 	network_map.set_start_selected()
+
+func _on_camera_zoom_scale_changed(value : float) -> void:
+	map_controls.silent_set_zoom_slider_value(value)
