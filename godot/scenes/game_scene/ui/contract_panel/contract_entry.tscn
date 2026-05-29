@@ -2,11 +2,11 @@
 
 [ext_resource type="LabelSettings" uid="uid://b5x6yy2yys6gy" path="res://scenes/game_scene/ui/label_settings/body.tres" id="1_5ptnb"]
 [ext_resource type="Script" uid="uid://fb6espqct8li" path="res://scenes/game_scene/ui/contract_panel/contract_entry.gd" id="1_llaxq"]
-[ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital_button_normal.tres" id="2_llaxq"]
+[ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital/digital_button_normal.tres" id="2_llaxq"]
 [ext_resource type="Theme" uid="uid://cvait15kjabjj" path="res://scenes/game_scene/ui/themes/display_theme.tres" id="2_m7in2"]
 [ext_resource type="LabelSettings" uid="uid://xmyotoekwbpp" path="res://scenes/game_scene/ui/label_settings/tiny.tres" id="3_i1su0"]
 [ext_resource type="Texture2D" uid="uid://c7tenbngm4bpy" path="res://assets/textures/shapes/circle.png" id="3_rgopn"]
-[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital_button_highlight.tres" id="5_px5hd"]
+[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital/digital_button_highlight.tres" id="5_px5hd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxvh3"]
 

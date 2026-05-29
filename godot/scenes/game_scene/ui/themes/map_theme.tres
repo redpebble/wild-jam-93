@@ -1,10 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://b7hp5ceautjmo"]
 
-[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital_button_highlight.tres" id="1_0w4yx"]
-[ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital_button_normal.tres" id="1_m3hjc"]
-[ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital_button_pressed.tres" id="3_5dy3x"]
+[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital/digital_button_highlight.tres" id="1_0w4yx"]
+[ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital/digital_button_normal.tres" id="1_m3hjc"]
+[ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital/digital_button_pressed.tres" id="3_5dy3x"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="4_xs3dx"]
-[ext_resource type="Texture2D" uid="uid://58kvguxmb7dp" path="res://scenes/game_scene/ui/styles/map_styles/v_slider_grabber.tres" id="5_8w20t"]
+[ext_resource type="Texture2D" uid="uid://58kvguxmb7dp" path="res://scenes/game_scene/ui/styles/map_controls/v_slider_grabber.tres" id="5_8w20t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs3dx"]
 content_margin_left = 10.0

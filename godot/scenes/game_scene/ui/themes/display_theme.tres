@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://cvait15kjabjj"]
 
-[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital_button_highlight.tres" id="1_0w4yx"]
-[ext_resource type="StyleBox" uid="uid://1i2vmvxe6s6p" path="res://scenes/game_scene/ui/styles/digital_button_disabled.tres" id="1_5dy3x"]
-[ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital_button_normal.tres" id="1_m3hjc"]
-[ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital_button_pressed.tres" id="3_5dy3x"]
+[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital/digital_button_highlight.tres" id="1_0w4yx"]
+[ext_resource type="StyleBox" uid="uid://1i2vmvxe6s6p" path="res://scenes/game_scene/ui/styles/digital/digital_button_disabled.tres" id="1_5dy3x"]
+[ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital/digital_button_normal.tres" id="1_m3hjc"]
+[ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital/digital_button_pressed.tres" id="3_5dy3x"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_0w4yx"]
 color = Color(0.7, 0.7, 0.7, 1)

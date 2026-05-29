@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bym6v1dm3cy3c" path="res://assets/textures/brushed_metal.jpg" id="4_pj371"]
 [ext_resource type="PackedScene" uid="uid://dtartrcodq4mx" path="res://scenes/game_scene/map_display.tscn" id="5_lmmc3"]
 [ext_resource type="PackedScene" uid="uid://c3xjmtgsep1l0" path="res://scenes/game_scene/ui/info_panel/info_panel.tscn" id="6_jf6ts"]
-[ext_resource type="StyleBox" uid="uid://biidggqmemm52" path="res://scenes/game_scene/ui/styles/panel_container/angular_thin_margin.tres" id="7_jf6ts"]
+[ext_resource type="StyleBox" uid="uid://biidggqmemm52" path="res://scenes/game_scene/ui/styles/dashboard/panel_container/angular_thin_margin.tres" id="7_jf6ts"]
 [ext_resource type="LabelSettings" uid="uid://xmyotoekwbpp" path="res://scenes/game_scene/ui/label_settings/tiny.tres" id="8_jf6ts"]
 [ext_resource type="PackedScene" uid="uid://h8jycyx61kgq" path="res://scenes/game_scene/ui/contract_panel/contract_panel.tscn" id="8_m5vbi"]
+[ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/shaders/vignette.gdshader" id="10_fr7j0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oidod"]
 
@@ -32,6 +33,13 @@ shader_parameter/aspect_ratio = Vector2(7, 5.42)
 shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.365
 shader_parameter/outer_radius = 2.465
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0l5no"]
+shader = ExtResource("10_fr7j0")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.39
+shader_parameter/outer_radius = 2.63
 
 [node name="Dashboard" type="Control" unique_id=60803867]
 layout_mode = 3
@@ -151,3 +159,14 @@ header_text = "Cargo Hold"
 unique_name_in_owner = true
 layout_mode = 2
 header_text = "Contracts"
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=688017819]
+
+[node name="Vignette" type="ColorRect" parent="Overlay" unique_id=167252739]
+material = SubResource("ShaderMaterial_0l5no")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

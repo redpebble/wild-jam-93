@@ -1,14 +1,45 @@
 [gd_scene format=3 uid="uid://conoq2gmylqvr"]
 
+[ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/map_theme.tres" id="1_7j6ce"]
 [ext_resource type="Script" uid="uid://u3hoafvcejmm" path="res://scenes/menus/main_menu/main_menu.gd" id="2_x31ro"]
 [ext_resource type="PackedScene" uid="uid://mhk7ai1jtttm" path="res://scenes/windows/main_menu_options_window.tscn" id="3_0jpat"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="4_627ab"]
 [ext_resource type="PackedScene" uid="uid://dnaejbfe1nvn1" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_m0ubd"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="5_7j6ce"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_627ab"]
+[ext_resource type="Script" uid="uid://b8m4b12rlp2s0" path="res://scenes/menus/main_menu/title_parallax.gd" id="5_q0yg5"]
+[ext_resource type="LabelSettings" uid="uid://bt4wc3ujqwd2g" path="res://scenes/game_scene/ui/label_settings/title.tres" id="5_qwqm5"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="6_qwqm5"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="7_q0yg5"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="8_88r3n"]
+[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="13_88r3n"]
+
+[sub_resource type="Gradient" id="Gradient_q0yg5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_88r3n"]
+gradient = SubResource("Gradient_q0yg5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwqm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0yg5"]
+
+[sub_resource type="Curve" id="Curve_q0yg5"]
+_data = [Vector2(0, 0), 0.0, 2.4938183, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_dc6ug"]
+font = ExtResource("13_88r3n")
+font_size = 80
+outline_color = Color(1, 1, 1, 0.1764706)
+stacked_outline_count = 3
+stacked_outline_0/size = 4
+stacked_outline_0/color = Color(1, 1, 1, 0.1882353)
+stacked_outline_1/size = 8
+stacked_outline_1/color = Color(1, 1, 1, 0.06666667)
+stacked_outline_2/size = 4
+stacked_outline_2/color = Color(1, 1, 1, 0.02745098)
 
 [node name="MainMenu" type="Control" unique_id=1058120615]
 layout_mode = 3
@@ -17,7 +48,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7j6ce")
 script = ExtResource("2_x31ro")
+game_scene_path = "uid://clxs5gwisal5m"
 options_packed_scene = ExtResource("3_0jpat")
 credits_packed_scene = ExtResource("4_m0ubd")
 
@@ -27,14 +60,14 @@ script = ExtResource("4_627ab")
 [node name="BackgroundMusicPlayer" parent="." unique_id=1141822549 instance=ExtResource("5_7j6ce")]
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1940176448]
+z_index = -100
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
+texture = SubResource("GradientTexture2D_88r3n")
 
 [node name="MenuContainer" type="MarginContainer" parent="." unique_id=396616752]
 unique_name_in_owner = true
@@ -46,8 +79,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleMargin" type="MarginContainer" parent="MenuContainer" unique_id=2112060331]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 150
 
 [node name="TitleContainer" type="Control" parent="MenuContainer/TitleMargin" unique_id=556427956]
 layout_mode = 2
@@ -59,36 +93,21 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 48
-text = "Wild Jam #93"
+rotation = -0.00014817876
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qwqm5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q0yg5")
+text = "Debt Race
+2  0  7  1"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_qwqm5")
-
-[node name="SubTitleMargin" type="MarginContainer" parent="MenuContainer" unique_id=1510335937]
-layout_mode = 2
-theme_override_constants/margin_top = 92
-
-[node name="SubTitleContainer" type="Control" parent="MenuContainer/SubTitleMargin" unique_id=930520368]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="SubTitleLabel" type="Label" parent="MenuContainer/SubTitleMargin/SubTitleContainer" unique_id=1037003361]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 34.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
-text = "Subtitle"
-horizontal_alignment = 1
-vertical_alignment = 1
+auto_update = false
 
 [node name="MenuButtonsMargin" type="MarginContainer" parent="MenuContainer" unique_id=210553886]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_top = 136
+theme_override_constants/margin_top = 280
 theme_override_constants/margin_bottom = 8
 
 [node name="MenuButtonsContainer" type="Control" parent="MenuContainer/MenuButtonsMargin" unique_id=116448484]
@@ -139,6 +158,7 @@ text = "Options"
 
 [node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=301223169]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Credits"
 
@@ -148,12 +168,14 @@ layout_mode = 2
 text = "Exit"
 
 [node name="VersionMargin" type="MarginContainer" parent="." unique_id=1732528471]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.0019459937
 mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -205,6 +227,43 @@ offset_bottom = 80.0
 ui_cancel_closes = false
 text = "Really exit the game?"
 title_visible = false
+
+[node name="Title" type="Node2D" parent="." unique_id=623827015]
+script = ExtResource("5_q0yg5")
+falloff = SubResource("Curve_q0yg5")
+
+[node name="Original" type="Node2D" parent="Title" unique_id=942853812]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+position = Vector2(640, 256)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Title/Original" unique_id=176958207]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Title/Original/VBoxContainer" unique_id=1628180229]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "DEBT RACE"
+label_settings = ExtResource("5_qwqm5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Title/Original/VBoxContainer" unique_id=921261099]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "2  0  7  1"
+label_settings = SubResource("LabelSettings_dc6ug")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
