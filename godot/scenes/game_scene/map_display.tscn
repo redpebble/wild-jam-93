@@ -4,11 +4,20 @@
 [ext_resource type="Script" uid="uid://ddk5th5tdk3s1" path="res://scenes/game_scene/map_display.gd" id="1_7huig"]
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
+[ext_resource type="Script" path="res://scenes/game_scene/ui/map_stuff/grid_effect.gd" id="3_wr28i"]
 [ext_resource type="Script" uid="uid://fc6xqx7dd1ey" path="res://scenes/game_scene/map/network_edge.gd" id="4_24htp"]
 [ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_stuff/map_controls.tscn" id="6_0v10e"]
+[ext_resource type="Texture2D" path="res://assets/textures/map/grid.png" id="6_5lsv4"]
 [ext_resource type="PackedScene" uid="uid://bsfahm2x7lyj7" path="res://scenes/game_scene/ui/map_stuff/location_label.tscn" id="6_6csd5"]
 [ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/shaders/crt_shader.gdshader" id="7_4evev"]
 [ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/shaders/vignette.gdshader" id="7_24htp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lsv4"]
+shader = ExtResource("7_24htp")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.5
+shader_parameter/outer_radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6csd5"]
 shader = ExtResource("7_24htp")
@@ -30,6 +39,26 @@ shader_parameter/blur = 0.0
 
 [node name="MapDisplay" type="Node2D" unique_id=2062216081]
 script = ExtResource("1_7huig")
+
+[node name="GridEffect" type="ColorRect" parent="." unique_id=1761634996]
+material = SubResource("ShaderMaterial_5lsv4")
+offset_left = -659.4917
+offset_top = -596.0
+offset_right = 1351.5269
+offset_bottom = 475.0
+mouse_filter = 2
+script = ExtResource("3_wr28i")
+
+[node name="GridSprite" type="Sprite2D" parent="GridEffect" unique_id=2018574728]
+modulate = Color(1, 1, 1, 0.05)
+z_index = -10
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(1005.5093, 535.5)
+texture = ExtResource("6_5lsv4")
+region_enabled = true
+region_rect = Rect2(0, 0, 2011.0186, 1071)
+metadata/_edit_lock_ = true
 
 [node name="InteractiveCamera" parent="." unique_id=1816395751 instance=ExtResource("1_4c8uy")]
 
