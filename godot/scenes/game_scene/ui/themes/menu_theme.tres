@@ -1,0 +1,109 @@
+[gd_resource type="Theme" format=3 uid="uid://bdoi1ks2ps8iu"]
+
+[ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital/digital_button_highlight.tres" id="1_3ak3k"]
+[ext_resource type="FontFile" uid="uid://c6pvyo16n8kmp" path="res://assets/fonts/Oxanium/static/Oxanium-Regular.ttf" id="1_r8jmb"]
+[ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital/digital_button_pressed.tres" id="2_r8jmb"]
+[ext_resource type="StyleBox" uid="uid://c8nnc2n86kq4e" path="res://scenes/game_scene/ui/styles/map_controls/v_scroll_grabber_area.tres" id="4_7who3"]
+[ext_resource type="StyleBox" uid="uid://crob1qnvsv61" path="res://scenes/game_scene/ui/styles/map_controls/v_scroll_grabber_slider.tres" id="5_ur4cn"]
+[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="6_gesxp"]
+[ext_resource type="Texture2D" uid="uid://58kvguxmb7dp" path="res://scenes/game_scene/ui/styles/map_controls/v_slider_grabber.tres" id="7_wrpcx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ak3k"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+bg_color = Color(0.132, 0.66, 0.66, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.132, 0.66, 0.66, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 0.011764706)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs3dx"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.7411765)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 0.039215688)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5cbx"]
+bg_color = Color(0.132, 0.66, 0.66, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.13333334, 0.65882355, 0.65882355, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kimow"]
+bg_color = Color(0.13333334, 0.65882355, 0.65882355, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="Gradient" id="Gradient_8w20t"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.66, 0.66, 0.66, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8u3l"]
+gradient = SubResource("Gradient_8w20t")
+width = 26
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_u8u3l"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xlnkv"]
+gradient = SubResource("Gradient_u8u3l")
+width = 26
+height = 4
+
+[resource]
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_r8jmb")
+Button/styles/focus = ExtResource("1_3ak3k")
+Button/styles/hover = ExtResource("1_3ak3k")
+Button/styles/hover_pressed = ExtResource("2_r8jmb")
+Button/styles/normal = SubResource("StyleBoxFlat_3ak3k")
+Button/styles/pressed = ExtResource("2_r8jmb")
+Label/fonts/font = ExtResource("6_gesxp")
+Label/styles/normal = SubResource("StyleBoxFlat_xs3dx")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/fonts/font = ExtResource("6_gesxp")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_y5cbx")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_kimow")
+VSlider/icons/grabber = ExtResource("7_wrpcx")
+VSlider/icons/grabber_disabled = SubResource("GradientTexture2D_u8u3l")
+VSlider/icons/grabber_highlight = SubResource("GradientTexture2D_xlnkv")
+VSlider/styles/grabber_area = ExtResource("4_7who3")
+VSlider/styles/grabber_area_highlight = ExtResource("4_7who3")
+VSlider/styles/slider = ExtResource("5_ur4cn")

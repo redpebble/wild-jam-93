@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dpviqiq126m5q"]
+
+[ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/shaders/crt_shader.gdshader" id="1_6kejk"]
+
+[resource]
+shader = ExtResource("1_6kejk")
+shader_parameter/scanline_color = Color(0, 0, 0, 1)
+shader_parameter/flicker_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines_count = 1.075
+shader_parameter/scanlines_intensity = 0.1
+shader_parameter/flicker_speed = 30.0
+shader_parameter/flicker_intensity = 0.0
+shader_parameter/color_offset = 1.5
+shader_parameter/blur = 0.5

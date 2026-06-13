@@ -16,7 +16,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource("2_00o4m")
 options_menu_scene = ExtResource("3_mdvg7")
-main_menu_scene_path = ""
+main_menu_scene_path = "uid://conoq2gmylqvr"
 restart_confirmation_node_path = NodePath("RestartConfirmation")
 main_menu_confirmation_node_path = NodePath("MainMenuConfirmation")
 exit_confirmation_node_path = NodePath("ExitConfirmation")
@@ -41,13 +41,11 @@ text = "Restart"
 
 [node name="OptionsButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="2" unique_id=1774519262]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Options"
 
 [node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" parent_id_path=PackedInt32Array(1371114575) index="3" unique_id=2034982936]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Main Menu"
 

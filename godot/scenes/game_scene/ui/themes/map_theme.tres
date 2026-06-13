@@ -3,8 +3,10 @@
 [ext_resource type="StyleBox" uid="uid://bl17v6txrsy4s" path="res://scenes/game_scene/ui/styles/digital/digital_button_highlight.tres" id="1_0w4yx"]
 [ext_resource type="StyleBox" uid="uid://ctwtr3cx1jks6" path="res://scenes/game_scene/ui/styles/digital/digital_button_normal.tres" id="1_m3hjc"]
 [ext_resource type="StyleBox" uid="uid://nkwmdqtxm7ve" path="res://scenes/game_scene/ui/styles/digital/digital_button_pressed.tres" id="3_5dy3x"]
+[ext_resource type="StyleBox" uid="uid://c8nnc2n86kq4e" path="res://scenes/game_scene/ui/styles/map_controls/v_scroll_grabber_area.tres" id="4_xlnkv"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="4_xs3dx"]
 [ext_resource type="Texture2D" uid="uid://58kvguxmb7dp" path="res://scenes/game_scene/ui/styles/map_controls/v_slider_grabber.tres" id="5_8w20t"]
+[ext_resource type="StyleBox" uid="uid://crob1qnvsv61" path="res://scenes/game_scene/ui/styles/map_controls/v_scroll_grabber_slider.tres" id="5_exfvj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs3dx"]
 content_margin_left = 10.0
@@ -41,29 +43,6 @@ gradient = SubResource("Gradient_u8u3l")
 width = 26
 height = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w20t"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8u3l"]
-bg_color = Color(0.132, 0.66, 0.66, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.13333334, 0.65882355, 0.65882355, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 13.0
-expand_margin_top = 10.0
-expand_margin_right = 13.0
-expand_margin_bottom = 10.0
-
 [resource]
 Button/font_sizes/font_size = 20
 Button/styles/focus = ExtResource("1_0w4yx")
@@ -71,11 +50,14 @@ Button/styles/hover = ExtResource("1_0w4yx")
 Button/styles/hover_pressed = ExtResource("3_5dy3x")
 Button/styles/normal = ExtResource("1_m3hjc")
 Button/styles/pressed = ExtResource("3_5dy3x")
+HSlider/styles/grabber_area = ExtResource("4_xlnkv")
+HSlider/styles/grabber_area_highlight = ExtResource("5_exfvj")
+HSlider/styles/slider = ExtResource("5_exfvj")
 Label/fonts/font = ExtResource("4_xs3dx")
 Label/styles/normal = SubResource("StyleBoxFlat_xs3dx")
 VSlider/icons/grabber = ExtResource("5_8w20t")
 VSlider/icons/grabber_disabled = SubResource("GradientTexture2D_u8u3l")
 VSlider/icons/grabber_highlight = SubResource("GradientTexture2D_xlnkv")
-VSlider/styles/grabber_area = SubResource("StyleBoxFlat_8w20t")
-VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_8w20t")
-VSlider/styles/slider = SubResource("StyleBoxFlat_u8u3l")
+VSlider/styles/grabber_area = ExtResource("4_xlnkv")
+VSlider/styles/grabber_area_highlight = ExtResource("4_xlnkv")
+VSlider/styles/slider = ExtResource("5_exfvj")

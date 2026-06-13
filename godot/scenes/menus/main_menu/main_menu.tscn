@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://conoq2gmylqvr"]
 
-[ext_resource type="Theme" uid="uid://b7hp5ceautjmo" path="res://scenes/game_scene/ui/themes/map_theme.tres" id="1_7j6ce"]
+[ext_resource type="Theme" uid="uid://bdoi1ks2ps8iu" path="res://scenes/game_scene/ui/themes/menu_theme.tres" id="1_88r3n"]
 [ext_resource type="Script" uid="uid://u3hoafvcejmm" path="res://scenes/menus/main_menu/main_menu.gd" id="2_x31ro"]
 [ext_resource type="PackedScene" uid="uid://mhk7ai1jtttm" path="res://scenes/windows/main_menu_options_window.tscn" id="3_0jpat"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="4_627ab"]
@@ -12,7 +12,8 @@
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="6_qwqm5"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="7_q0yg5"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="8_88r3n"]
-[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="13_88r3n"]
+[ext_resource type="FontFile" uid="uid://cmehbrd8aqb81" path="res://assets/fonts/Syncopate/Syncopate-Bold.ttf" id="13_88r3n"]
+[ext_resource type="Material" uid="uid://dpviqiq126m5q" path="res://materials/crt_heavy.tres" id="14_dc6ug"]
 
 [sub_resource type="Gradient" id="Gradient_q0yg5"]
 offsets = PackedFloat32Array(0)
@@ -21,17 +22,13 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_88r3n"]
 gradient = SubResource("Gradient_q0yg5")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwqm5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0yg5"]
-
 [sub_resource type="Curve" id="Curve_q0yg5"]
 _data = [Vector2(0, 0), 0.0, 2.4938183, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_dc6ug"]
 font = ExtResource("13_88r3n")
-font_size = 80
+font_size = 100
 outline_color = Color(1, 1, 1, 0.1764706)
 stacked_outline_count = 3
 stacked_outline_0/size = 4
@@ -41,6 +38,10 @@ stacked_outline_1/color = Color(1, 1, 1, 0.06666667)
 stacked_outline_2/size = 4
 stacked_outline_2/color = Color(1, 1, 1, 0.02745098)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwqm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0yg5"]
+
 [node name="MainMenu" type="Control" unique_id=1058120615]
 layout_mode = 3
 anchors_preset = 15
@@ -48,7 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7j6ce")
+theme = ExtResource("1_88r3n")
 script = ExtResource("2_x31ro")
 game_scene_path = "uid://clxs5gwisal5m"
 options_packed_scene = ExtResource("3_0jpat")
@@ -60,7 +61,7 @@ script = ExtResource("4_627ab")
 [node name="BackgroundMusicPlayer" parent="." unique_id=1141822549 instance=ExtResource("5_7j6ce")]
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1940176448]
-z_index = -100
+z_index = -4096
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +69,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_88r3n")
+
+[node name="Title" type="Control" parent="." unique_id=1244013941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParallaxTitle" type="Node2D" parent="Title" unique_id=623827015]
+script = ExtResource("5_q0yg5")
+falloff = SubResource("Curve_q0yg5")
+
+[node name="Original" type="Node2D" parent="Title/ParallaxTitle" unique_id=942853812]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+position = Vector2(638, 304)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Title/ParallaxTitle/Original" unique_id=176958207]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Title/ParallaxTitle/Original/VBoxContainer" unique_id=1628180229]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "DEBT RACE"
+label_settings = ExtResource("5_qwqm5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Title/ParallaxTitle/Original/VBoxContainer" unique_id=921261099]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "2  0  7  1"
+label_settings = SubResource("LabelSettings_dc6ug")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MenuContainer" type="MarginContainer" parent="." unique_id=396616752]
 unique_name_in_owner = true
@@ -122,50 +169,61 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -104.0
-offset_right = 64.0
-offset_bottom = 104.0
+offset_left = 37.0
+offset_top = -147.0
+offset_right = 555.0
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
-alignment = 1
 vertical = true
 script = ExtResource("7_q0yg5")
 
 [node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=2044537792]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 9
 text = "New Game"
+alignment = 2
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=2077321160]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_horizontal = 9
 text = "Continue"
+alignment = 2
 
 [node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1742178973]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_horizontal = 9
 text = "Level Select"
+alignment = 2
 
 [node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1486236076]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 9
 text = "Options"
+alignment = 2
 
 [node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=301223169]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_horizontal = 9
 text = "Credits"
+alignment = 2
 
 [node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1750454379]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 9
 text = "Exit"
+alignment = 2
 
 [node name="VersionMargin" type="MarginContainer" parent="." unique_id=1732528471]
 visible = false
@@ -228,42 +286,15 @@ ui_cancel_closes = false
 text = "Really exit the game?"
 title_visible = false
 
-[node name="Title" type="Node2D" parent="." unique_id=623827015]
-script = ExtResource("5_q0yg5")
-falloff = SubResource("Curve_q0yg5")
-
-[node name="Original" type="Node2D" parent="Title" unique_id=942853812]
-modulate = Color(1.353256, 1.353256, 1.353256, 1)
-position = Vector2(640, 256)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Title/Original" unique_id=176958207]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="CRT" type="ColorRect" parent="." unique_id=1553106923]
+material = ExtResource("14_dc6ug")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="Title/Original/VBoxContainer" unique_id=1628180229]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "DEBT RACE"
-label_settings = ExtResource("5_qwqm5")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="Title/Original/VBoxContainer" unique_id=921261099]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "2  0  7  1"
-label_settings = SubResource("LabelSettings_dc6ug")
-horizontal_alignment = 1
-vertical_alignment = 1
+mouse_filter = 2
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]

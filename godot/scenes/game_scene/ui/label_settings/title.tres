@@ -1,10 +1,10 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://bt4wc3ujqwd2g"]
 
-[ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="1_2bkbn"]
+[ext_resource type="FontFile" uid="uid://cmehbrd8aqb81" path="res://assets/fonts/Syncopate/Syncopate-Bold.ttf" id="1_2bkbn"]
 
 [resource]
 font = ExtResource("1_2bkbn")
-font_size = 120
+font_size = 150
 outline_color = Color(1, 1, 1, 0.1764706)
 stacked_outline_count = 3
 stacked_outline_0/size = 4
