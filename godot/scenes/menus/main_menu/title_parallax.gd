@@ -13,12 +13,12 @@ var effect_idx = -1 :
 	set(value):
 		effect_idx = value
 		for i in duplicates.size():
+			var orig_modulate = original.modulate
 			var new_modulate = Color.BLACK
 			if i % effect_cycle_point == effect_idx:
-				var effect_intensity = i / float(duplicate_count)
-				new_modulate = Color.WHITE #* 1.0 - effect_intensity
-			var falloff_level = falloff.sample(inverse_lerp(0, duplicate_count - 1, i))
-			duplicates[i].modulate = new_modulate.darkened(falloff_level)
+				var falloff_level = falloff.sample(inverse_lerp(0, duplicate_count - 1, i))
+				new_modulate = orig_modulate.darkened(falloff_level)
+			duplicates[i].modulate = new_modulate
 
 func _ready() -> void:
 	for i in duplicate_count:

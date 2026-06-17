@@ -16,17 +16,17 @@ gradient = SubResource("Gradient_a8kcw")
 [node name="LoadingScreen" unique_id=1575938086 instance=ExtResource("1_a8kcw")]
 script = ExtResource("2_53rj4")
 
-[node name="BackgroundTextureRect" parent="Control" parent_id_path=PackedInt32Array(1999015458) index="2" unique_id=630614432]
+[node name="BackgroundTextureRect" parent="Content" parent_id_path=PackedInt32Array(1999015458) index="2" unique_id=630614432]
 texture = SubResource("GradientTexture2D_53rj4")
 stretch_mode = 0
 
-[node name="VBoxContainer" parent="Control/MarginContainer" parent_id_path=PackedInt32Array(307755958) index="0" unique_id=10456653]
+[node name="VBoxContainer" parent="Content/MarginContainer" parent_id_path=PackedInt32Array(307755958) index="0" unique_id=10456653]
 theme_override_constants/separation = 24
 
-[node name="ProgressLabel" parent="Control/MarginContainer/VBoxContainer" index="0" unique_id=1503629466]
+[node name="ProgressLabel" parent="Content/MarginContainer/VBoxContainer" index="0" unique_id=1503629466]
 label_settings = ExtResource("3_uidx2")
 
-[node name="ProgressBar" parent="Control/MarginContainer/VBoxContainer" index="1" unique_id=1483901811]
+[node name="ProgressBar" parent="Content/MarginContainer/VBoxContainer" index="1" unique_id=1483901811]
 theme = ExtResource("4_uidx2")
 value = 0.5
 

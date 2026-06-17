@@ -6,6 +6,7 @@ signal scene_loaded
 
 ## Path to the loading screen to display to players while loading a scene.
 @export_file("*.tscn") var loading_screen_path : String : set = set_loading_screen
+@export_file("*.tscn") var transition_path : String : set = set_transition_path
 
 @export_group("Debug")
 ## If true, enable debug mode.
@@ -16,6 +17,7 @@ signal scene_loaded
 @export_range(0, 1) var debug_lock_progress : float = 0.0
 
 var _loading_screen : PackedScene
+var _transition : PackedScene
 var _scene_path : String
 var _loaded_resource : Resource
 var _background_loading : bool
@@ -76,11 +78,21 @@ func set_loading_screen(value : String) -> void:
 		return
 	_loading_screen = load(loading_screen_path)
 
+func set_transition_path(value : String) -> void:
+	transition_path = value
+	if transition_path == "":
+		push_warning("transition path is empty")
+		return
+	_transition = load(transition_path)
+
 func is_loading_scene(check_scene_path) -> bool:
 	return check_scene_path == _scene_path
 
 func has_loading_screen() -> bool:
 	return _loading_screen != null
+
+func has_transition() -> bool:
+	return _transition != null
 
 func _check_loading_screen() -> bool:
 	if not has_loading_screen():
@@ -88,13 +100,23 @@ func _check_loading_screen() -> bool:
 		return false
 	return true
 
+func _check_transition() -> bool:
+	if not has_transition():
+		push_error("transition is not set")
+		return false
+	return true
+
 func reload_current_scene() -> void:
+	# this method doesn't work for some reason
+	#load_scene(get_tree().current_scene.scene_file_path)
 	get_tree().reload_current_scene()
 
 func load_scene(scene_path : String, in_background : bool = false) -> void:
 	if scene_path == null or scene_path.is_empty():
 		push_error("no path given to load")
 		return
+	if _transition:
+		await show_transition()
 	_scene_path = scene_path
 	_background_loading = in_background
 	if ResourceLoader.has_cached(_scene_path):
@@ -106,6 +128,13 @@ func load_scene(scene_path : String, in_background : bool = false) -> void:
 	set_process(true)
 	if _check_loading_screen() and not _background_loading:
 		change_scene_to_loading_screen()
+
+func show_transition() -> void:
+	var transition_scene = _transition.instantiate() as TransitionOverlay
+	call_deferred("add_child", transition_scene)
+	await transition_scene.ready
+	await transition_scene.transition_in()
+	scene_loaded.connect(transition_scene.transition_out)
 
 func _unhandled_key_input(event : InputEvent) -> void:
 	if event.is_action_pressed(&"ui_paste"):
