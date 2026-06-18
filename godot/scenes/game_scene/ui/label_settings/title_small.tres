@@ -1,0 +1,15 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://hglug7xsa7pp"]
+
+[ext_resource type="FontFile" uid="uid://cmehbrd8aqb81" path="res://assets/fonts/Syncopate/Syncopate-Bold.ttf" id="1_52ceo"]
+
+[resource]
+font = ExtResource("1_52ceo")
+font_size = 80
+outline_color = Color(1, 1, 1, 0.1764706)
+stacked_outline_count = 3
+stacked_outline_0/size = 4
+stacked_outline_0/color = Color(1, 1, 1, 0.1882353)
+stacked_outline_1/size = 8
+stacked_outline_1/color = Color(1, 1, 1, 0.06666667)
+stacked_outline_2/size = 4
+stacked_outline_2/color = Color(1, 1, 1, 0.02745098)

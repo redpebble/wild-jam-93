@@ -28,7 +28,6 @@ label_settings = ExtResource("3_uidx2")
 
 [node name="ProgressBar" parent="Content/MarginContainer/VBoxContainer" index="1" unique_id=1483901811]
 theme = ExtResource("4_uidx2")
-value = 0.5
 
 [node name="CRT" type="ColorRect" parent="." index="2" unique_id=1588042916]
 material = ExtResource("5_u2jrd")

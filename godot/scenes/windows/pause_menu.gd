@@ -5,14 +5,11 @@ extends OverlaidWindow
 ## Path to a main menu scene.
 ## Will attempt to read from AppConfig if left empty.
 @export_file("*.tscn") var main_menu_scene_path : String
-@export_node_path(&"ConfirmationOverlaidWindow") var restart_confirmation_node_path : NodePath
-@export_node_path(&"ConfirmationOverlaidWindow") var main_menu_confirmation_node_path : NodePath
-@export_node_path(&"ConfirmationOverlaidWindow") var exit_confirmation_node_path : NodePath
 @export var menu_container_node_path : NodePath = ^".."
 
-@onready var restart_confirmation : ConfirmationOverlaidWindow = get_node(restart_confirmation_node_path)
-@onready var main_menu_confirmation : ConfirmationOverlaidWindow = get_node(main_menu_confirmation_node_path)
-@onready var exit_confirmation : ConfirmationOverlaidWindow = get_node(exit_confirmation_node_path)
+@onready var restart_confirmation : ConfirmationOverlaidWindow = %RestartConfirmation
+@onready var main_menu_confirmation : ConfirmationOverlaidWindow = %MainMenuConfirmation
+@onready var exit_confirmation : ConfirmationOverlaidWindow = %ExitConfirmation
 @onready var menu_container : Node = get_node(menu_container_node_path)
 @onready var options_button = %OptionsButton
 @onready var main_menu_button = %MainMenuButton

@@ -1,15 +1,56 @@
 [gd_scene format=3 uid="uid://cwt4p3bufkke5"]
 
 [ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_vfkm2"]
+[ext_resource type="Theme" uid="uid://cp2br2pdrwcyq" path="res://scenes/game_scene/ui/themes/overlay_theme.tres" id="2_2adal"]
 [ext_resource type="Script" uid="uid://bgthh72eu0du" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.gd" id="2_sw7p1"]
+[ext_resource type="StyleBox" uid="uid://b8emwak5pqk3c" path="res://scenes/game_scene/ui/styles/overlay/panel.tres" id="2_ttsn6"]
+[ext_resource type="Theme" uid="uid://bdoi1ks2ps8iu" path="res://scenes/game_scene/ui/themes/menu_theme.tres" id="4_ttsn6"]
+[ext_resource type="FontFile" uid="uid://cmehbrd8aqb81" path="res://assets/fonts/Syncopate/Syncopate-Bold.ttf" id="5_2adal"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehmwf"]
+font = ExtResource("5_2adal")
+font_size = 60
+outline_color = Color(1, 1, 1, 0.1764706)
+stacked_outline_count = 3
+stacked_outline_0/size = 4
+stacked_outline_0/color = Color(1, 1, 1, 0.1882353)
+stacked_outline_1/size = 8
+stacked_outline_1/color = Color(1, 1, 1, 0.06666667)
+stacked_outline_2/size = 4
+stacked_outline_2/color = Color(1, 1, 1, 0.02745098)
 
 [node name="ConfirmationOverlaidWindow" unique_id=1482267070 instance=ExtResource("1_vfkm2")]
+theme = ExtResource("2_2adal")
+theme_override_styles/panel = ExtResource("2_ttsn6")
 script = ExtResource("2_sw7p1")
 confirm_button_text = "Confirm"
 update_content = true
+text = "Description"
 close_button_text = "Cancel"
 
-[node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" parent_id_path=PackedInt32Array(1413292752) index="0" unique_id=1371114575]
+[node name="ContentContainer" parent="." index="0" unique_id=1755486830]
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="TitleMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(394030069) index="0" unique_id=1262022916]
+theme_override_constants/margin_top = 10
+
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="0" unique_id=1049966061]
+label_settings = SubResource("LabelSettings_ehmwf")
+
+[node name="HSeparator" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="1" unique_id=33373596]
+visible = false
+
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="0" unique_id=707321702]
+text = "Description"
+
+[node name="MenuButtonsMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(394030069) index="2" unique_id=1413292752]
+theme_override_constants/margin_top = 20
+
+[node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" index="0" unique_id=1371114575]
+theme = ExtResource("4_ttsn6")
 vertical = false
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0" unique_id=314526102]

@@ -14,6 +14,7 @@ signal opened
 		text = value
 		if update_content and is_inside_tree():
 			description_label.text = text
+			description_label.visible = (text != "")
 
 @export var close_button_text : String = "Close" :
 	set(value):
@@ -43,7 +44,7 @@ signal opened
 @onready var content_container : Container = %ContentContainer
 @onready var title_label : Label = %TitleLabel
 @onready var title_margin : MarginContainer = %TitleMargin
-@onready var description_label : RichTextLabel = %DescriptionLabel
+@onready var description_label : Label = %DescriptionLabel
 @onready var close_button : Button = %CloseButton
 @onready var menu_buttons : BoxContainer = %MenuButtons
 

@@ -49,7 +49,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_88r3n")
 script = ExtResource("2_x31ro")
 game_scene_path = "uid://clxs5gwisal5m"
 options_packed_scene = ExtResource("3_0jpat")
@@ -125,6 +124,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_88r3n")
 
 [node name="TitleMargin" type="MarginContainer" parent="MenuContainer" unique_id=2112060331]
 visible = false
