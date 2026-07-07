@@ -4,14 +4,18 @@ extends OverlaidWindow
 signal continue_pressed
 signal main_menu_pressed
 
+@onready var original_stylebox = get_theme_stylebox("panel")
+
 func _ready():
 	if OS.has_feature("web"):
 		%ExitButton.hide()
 
 func _on_exit_button_pressed():
+	set_content_visible(false)
 	%ExitConfirmation.show()
 
 func _on_main_menu_button_pressed():
+	set_content_visible(false)
 	%MainMenuConfirmation.show()
 
 func _on_close_button_pressed():
@@ -24,3 +28,14 @@ func _on_main_menu_confirmation_confirmed():
 
 func _on_exit_confirmation_confirmed():
 	get_tree().quit()
+
+func _on_main_menu_confirmation_canceled() -> void:
+	set_content_visible(true)
+
+func _on_exit_confirmation_canceled() -> void:
+	set_content_visible(true)
+
+func set_content_visible(state : bool) -> void:
+	var panel = original_stylebox if state else StyleBoxEmpty.new()
+	add_theme_stylebox_override("panel", panel)
+	%ContentContainer.visible = state

@@ -16,5 +16,5 @@ func confirm():
 	confirmed.emit()
 	close()
 
-func _on_confirm_button_pressed():
+func _on_confirm_button_pressed() -> void:
 	confirm()

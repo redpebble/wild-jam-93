@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_yn032"]
 [ext_resource type="Script" uid="uid://dr4iktfflpdxh" path="res://scenes/windows/pause_menu.gd" id="2_00o4m"]
-[ext_resource type="Theme" uid="uid://cp2br2pdrwcyq" path="res://scenes/game_scene/ui/themes/overlay_theme.tres" id="2_6lma4"]
 [ext_resource type="PackedScene" uid="uid://bh3sehmvmyc7n" path="res://scenes/windows/pause_menu_options_window.tscn" id="3_mdvg7"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="4_6lma4"]
 [ext_resource type="LabelSettings" uid="uid://hglug7xsa7pp" path="res://scenes/game_scene/ui/label_settings/title_small.tres" id="4_mdvg7"]
 [ext_resource type="Shader" uid="uid://bc47ambnalbbi" path="res://scenes/game_scene/ui/shaders/blur.gdshader" id="5_3t83t"]
 [ext_resource type="Texture2D" uid="uid://cbmivdqdsrvih" path="res://assets/textures/map/grid.png" id="6_rj0l4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttsn6"]
+bg_color = Color(0, 0, 0, 0.4509804)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yxvt7"]
 shader = ExtResource("5_3t83t")
@@ -27,7 +29,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = ExtResource("2_6lma4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttsn6")
 script = ExtResource("2_00o4m")
 options_menu_scene = ExtResource("3_mdvg7")
 main_menu_scene_path = "uid://conoq2gmylqvr"
@@ -65,6 +67,9 @@ visible = false
 
 [node name="BodyMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(394030069) index="1" unique_id=590613964]
 visible = false
+
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0" unique_id=707321702]
+text = ""
 
 [node name="MenuButtonsMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(394030069) index="2" unique_id=1413292752]
 size_flags_vertical = 3

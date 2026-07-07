@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dy6335vs6k0df" path="res://assets/audio/music/navigator_loop.wav" id="4_8qp3c"]
 [ext_resource type="PackedScene" uid="uid://byspbrtfwpg6n" path="res://scenes/game_scene/ui/dashboard.tscn" id="5_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://ba11po12cvait" path="res://scenes/windows/game_won_window.tscn" id="6_ukb12"]
+[ext_resource type="PackedScene" uid="uid://btg5dr4e03a5o" path="res://scenes/debug/debug_overlay.tscn" id="7_bmy5n"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="7_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bx7s80d8smic4" path="res://scenes/windows/level_lost_window.tscn" id="7_i7m4m"]
 [ext_resource type="Script" uid="uid://bll85ag2um7hl" path="res://scenes/game_scene/tutorial_manager.gd" id="10_onvsj"]
@@ -49,6 +50,9 @@ script = ExtResource("11_ulq3g")
 
 [node name="Dashboard" parent="ViewportContainer/ConfigurableSubViewport" unique_id=60803867 instance=ExtResource("5_bqcs8")]
 metadata/_edit_lock_ = true
+
+[node name="DebugOverlay" parent="ViewportContainer/ConfigurableSubViewport" unique_id=1442185390 instance=ExtResource("7_bmy5n")]
+visible = false
 
 [node name="GameTimer" type="Node" parent="." unique_id=885493004]
 script = ExtResource("12_gpor5")
