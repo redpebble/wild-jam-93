@@ -206,6 +206,7 @@ alignment = 2
 
 [node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1486236076]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 9
 text = "Options"
