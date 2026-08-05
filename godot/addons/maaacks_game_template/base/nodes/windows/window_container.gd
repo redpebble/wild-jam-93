@@ -4,6 +4,7 @@ extends PanelContainer
 
 signal closed
 signal opened
+signal canceled
 
 @export var ui_cancel_closes : bool = true
 
@@ -70,6 +71,7 @@ func _unhandled_input(event : InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _on_close_button_pressed() -> void:
+	canceled.emit()
 	close()
 
 func show() -> void:
