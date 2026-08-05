@@ -84,6 +84,7 @@ alignment = 0
 
 [node name="OptionsButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2" unique_id=1774519262]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Options"
 alignment = 0
@@ -106,6 +107,7 @@ visible = false
 layout_mode = 2
 text = "Restart the game?"
 title = "Confirm Restart"
+title_visible = false
 
 [node name="MainMenuConfirmation" parent="." index="3" unique_id=1974060733 instance=ExtResource("4_6lma4")]
 unique_name_in_owner = true
@@ -114,6 +116,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Exit to the main menu?"
 title = "Confirm Exit"
+title_visible = false
 
 [node name="ExitConfirmation" parent="." index="4" unique_id=1672855184 instance=ExtResource("4_6lma4")]
 unique_name_in_owner = true
@@ -121,6 +124,7 @@ visible = false
 layout_mode = 2
 text = "Exit the game?"
 title = "Confirm Exit"
+title_visible = false
 
 [connection signal="pressed" from="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]

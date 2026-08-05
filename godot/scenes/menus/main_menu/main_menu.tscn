@@ -206,6 +206,7 @@ alignment = 2
 
 [node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1486236076]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 9
 text = "Options"
@@ -284,7 +285,7 @@ offset_top = -80.0
 offset_right = 150.0
 offset_bottom = 80.0
 ui_cancel_closes = false
-text = "Really exit the game?"
+text = "Exit the game?"
 title_visible = false
 
 [node name="CRT" type="ColorRect" parent="." unique_id=1553106923]

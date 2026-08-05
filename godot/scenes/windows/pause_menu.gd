@@ -78,7 +78,9 @@ func _refresh_exit_button() -> void:
 	exit_button.visible = !OS.has_feature("web")
 
 func _refresh_options_button() -> void:
-	options_button.visible = options_menu_scene != null
+	# Only refresh if not hidden in editor
+	if options_button.visible:
+		options_button.visible = options_menu_scene != null
 
 func _refresh_main_menu_button() -> void:
 	main_menu_button.visible = !get_main_menu_scene_path().is_empty()
