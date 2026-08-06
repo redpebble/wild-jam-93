@@ -6,4 +6,4 @@
 script = ExtResource("1_o0k5w")
 main_menu_scene_path = "uid://conoq2gmylqvr"
 game_scene_path = "uid://clxs5gwisal5m"
-ending_scene_path = "uid://cegpeogqhswj3"
+ending_scene_path = "uid://conoq2gmylqvr"

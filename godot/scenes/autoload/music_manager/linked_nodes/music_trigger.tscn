@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b6tbl8hfcsr7g"]
+
+[ext_resource type="Script" uid="uid://cpvpwn5vga7kq" path="res://scenes/autoload/music_manager/linked_nodes/music_trigger.gd" id="1_dv4sh"]
+
+[node name="MusicTrigger" type="Node" unique_id=1238629108]
+script = ExtResource("1_dv4sh")

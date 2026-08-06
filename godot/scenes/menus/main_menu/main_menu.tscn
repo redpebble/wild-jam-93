@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://mhk7ai1jtttm" path="res://scenes/windows/main_menu_options_window.tscn" id="3_0jpat"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="4_627ab"]
 [ext_resource type="PackedScene" uid="uid://dnaejbfe1nvn1" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_m0ubd"]
-[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="5_7j6ce"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_627ab"]
+[ext_resource type="Script" uid="uid://cpvpwn5vga7kq" path="res://scenes/autoload/music_manager/linked_nodes/music_trigger.gd" id="5_dc6ug"]
 [ext_resource type="Script" uid="uid://b8m4b12rlp2s0" path="res://scenes/menus/main_menu/title_parallax.gd" id="5_q0yg5"]
 [ext_resource type="LabelSettings" uid="uid://bt4wc3ujqwd2g" path="res://scenes/game_scene/ui/label_settings/title.tres" id="5_qwqm5"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="6_qwqm5"]
@@ -57,7 +57,10 @@ credits_packed_scene = ExtResource("4_m0ubd")
 [node name="UISoundController" type="Node" parent="." unique_id=1619985599]
 script = ExtResource("4_627ab")
 
-[node name="BackgroundMusicPlayer" parent="." unique_id=1141822549 instance=ExtResource("5_7j6ce")]
+[node name="MusicTrigger" type="Node" parent="." unique_id=410503108]
+script = ExtResource("5_dc6ug")
+music_name = "main_menu"
+metadata/_custom_type_script = "uid://cpvpwn5vga7kq"
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1940176448]
 z_index = -4096

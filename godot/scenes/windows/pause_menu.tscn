@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bh3sehmvmyc7n" path="res://scenes/windows/pause_menu_options_window.tscn" id="3_mdvg7"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="4_6lma4"]
 [ext_resource type="LabelSettings" uid="uid://hglug7xsa7pp" path="res://scenes/game_scene/ui/label_settings/title_small.tres" id="4_mdvg7"]
+[ext_resource type="Script" uid="uid://cxmdia3nljri3" path="res://scenes/autoload/music_manager/linked_nodes/audio_dampen_trigger.gd" id="4_tuq0i"]
 [ext_resource type="Shader" uid="uid://bc47ambnalbbi" path="res://scenes/game_scene/ui/shaders/blur.gdshader" id="5_3t83t"]
 [ext_resource type="Texture2D" uid="uid://cbmivdqdsrvih" path="res://assets/textures/map/grid.png" id="6_rj0l4"]
 
@@ -37,7 +38,12 @@ menu_container_node_path = NodePath("..")
 pauses_game = true
 exclusive_background_color = Color(0, 0, 0, 0.27058825)
 
-[node name="BackgroundBlur" type="ColorRect" parent="." index="0" unique_id=396305598]
+[node name="AudioDampenTrigger" type="Control" parent="." index="0" unique_id=1659488541]
+layout_mode = 2
+script = ExtResource("4_tuq0i")
+metadata/_custom_type_script = "uid://cxmdia3nljri3"
+
+[node name="BackgroundBlur" type="ColorRect" parent="." index="1" unique_id=396305598]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_yxvt7")
 layout_mode = 2
@@ -51,7 +57,7 @@ offset_bottom = 720.0
 texture = ExtResource("6_rj0l4")
 stretch_mode = 1
 
-[node name="ContentContainer" parent="." index="1" unique_id=1755486830]
+[node name="ContentContainer" parent="." index="2" unique_id=1755486830]
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 80
@@ -106,7 +112,7 @@ layout_mode = 2
 text = "Exit Game"
 alignment = 0
 
-[node name="RestartConfirmation" parent="." index="2" unique_id=1129557320 instance=ExtResource("4_6lma4")]
+[node name="RestartConfirmation" parent="." index="3" unique_id=1129557320 instance=ExtResource("4_6lma4")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -114,7 +120,7 @@ text = "Restart the game?"
 title = "Confirm Restart"
 title_visible = false
 
-[node name="MainMenuConfirmation" parent="." index="3" unique_id=1974060733 instance=ExtResource("4_6lma4")]
+[node name="MainMenuConfirmation" parent="." index="4" unique_id=1974060733 instance=ExtResource("4_6lma4")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -123,7 +129,7 @@ text = "Exit to the main menu?"
 title = "Confirm Exit"
 title_visible = false
 
-[node name="ExitConfirmation" parent="." index="4" unique_id=1672855184 instance=ExtResource("4_6lma4")]
+[node name="ExitConfirmation" parent="." index="5" unique_id=1672855184 instance=ExtResource("4_6lma4")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

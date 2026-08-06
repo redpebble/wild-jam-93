@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bf0aix4f5bo2o"]
+
+[ext_resource type="Script" uid="uid://iewskqfa8yew" path="res://scenes/autoload/music_manager/music_manager.gd" id="1_il5cj"]
+[ext_resource type="Script" uid="uid://q2cmudv63145" path="res://scenes/autoload/music_looper.gd" id="2_4h680"]
+[ext_resource type="Script" uid="uid://d2og3joahctlf" path="res://scenes/autoload/music_manager/resources/music_loop.gd" id="2_qheps"]
+[ext_resource type="Resource" uid="uid://crnw0w34a38br" path="res://scenes/autoload/music_manager/resources/music_loops/menu_loop.tres" id="3_30p1j"]
+[ext_resource type="Resource" uid="uid://o8iqkh1if0eq" path="res://scenes/autoload/music_manager/resources/music_loops/game_loop.tres" id="4_30p1j"]
+
+[node name="MusicManager" type="Node" unique_id=199755584]
+process_mode = 3
+script = ExtResource("1_il5cj")
+music_loops = Dictionary[String, ExtResource("2_qheps")]({
+"game": ExtResource("4_30p1j"),
+"main_menu": ExtResource("3_30p1j")
+})
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1815656740]
+unique_name_in_owner = true
+bus = &"Music"
+playback_type = 1
+script = ExtResource("2_4h680")
+metadata/_custom_type_script = "uid://q2cmudv63145"

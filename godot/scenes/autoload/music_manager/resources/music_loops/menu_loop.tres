@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MusicLoop" format=3 uid="uid://crnw0w34a38br"]
+
+[ext_resource type="Script" uid="uid://d2og3joahctlf" path="res://scenes/autoload/music_manager/resources/music_loop.gd" id="1_2g086"]
+[ext_resource type="AudioStream" uid="uid://c6gc2qlicxuir" path="res://assets/audio/music/systems_check_loop/systems_check-03.wav" id="1_qhwnu"]
+[ext_resource type="AudioStream" uid="uid://b4ghpmv8n3ntg" path="res://assets/audio/music/systems_check_loop/systems_check-02.wav" id="2_agr0l"]
+[ext_resource type="AudioStream" uid="uid://dejsm5vni4r1i" path="res://assets/audio/music/systems_check_loop/systems_check-01.wav" id="4_t2ju3"]
+
+[resource]
+script = ExtResource("1_2g086")
+start = ExtResource("4_t2ju3")
+loop = ExtResource("2_agr0l")
+end = ExtResource("1_qhwnu")
+metadata/_custom_type_script = "uid://d2og3joahctlf"

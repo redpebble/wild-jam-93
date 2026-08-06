@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dusore764a3dy"]
 
 [ext_resource type="Script" uid="uid://wgmcjhl1heyh" path="res://addons/maaacks_game_template/base/nodes/autoloads/scene_loader/transition_overlay.gd" id="1_4xnp5"]
+[ext_resource type="Script" uid="uid://c5vfu80i0ffp7" path="res://scenes/autoload/music_manager/linked_nodes/music_fade_trigger.gd" id="2_73jw2"]
 
 [node name="TransitionOverlay" type="CanvasLayer" unique_id=814422859]
 process_mode = 3
@@ -14,3 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="MusicFadeTrigger" type="Node" parent="." unique_id=1356663470]
+script = ExtResource("2_73jw2")
+metadata/_custom_type_script = "uid://c5vfu80i0ffp7"
