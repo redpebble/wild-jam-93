@@ -1,8 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://c6uvkb4855aiv"]
 
-[ext_resource type="StyleBox" uid="uid://cj28ahplex5ta" path="res://scenes/game_scene/ui/styles/dashboard/button/button_disabled.tres" id="1_ebewj"]
-[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/dashboard/button/button_normal.tres" id="2_bwsk7"]
-[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/dashboard/button/button_pressed.tres" id="3_lvysm"]
+[ext_resource type="StyleBox" uid="uid://cj28ahplex5ta" path="res://scenes/game_scene/ui/styles/dashboard/button_bright/button_disabled.tres" id="1_ebewj"]
+[ext_resource type="StyleBox" uid="uid://b15qnpwvg5u35" path="res://scenes/game_scene/ui/styles/dashboard/button_bright/button_normal.tres" id="2_bwsk7"]
+[ext_resource type="StyleBox" uid="uid://1o1dji74lydf" path="res://scenes/game_scene/ui/styles/dashboard/button_bright/button_pressed.tres" id="3_lvysm"]
 [ext_resource type="FontFile" uid="uid://he22gyigfxdn" path="res://assets/fonts/Electrolize/Electrolize-Regular.ttf" id="3_osu2k"]
 [ext_resource type="StyleBox" uid="uid://ct47y2xjqa13o" path="res://scenes/game_scene/ui/styles/dashboard/panel_container/angular_wide_margin.tres" id="4_ebewj"]
 

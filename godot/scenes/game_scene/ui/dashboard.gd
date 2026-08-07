@@ -1,6 +1,7 @@
 extends Control
 
 @onready var travel_button: Button = %TravelButton
+@onready var pause_button: Button = %PauseButton
 @onready var map_display: MapDisplay = %MapDisplay
 @onready var player_contracts: ContractPanel = %PlayerContracts
 @onready var location_contracts: ContractPanel = %LocationContracts
@@ -36,6 +37,7 @@ func connect_signals() -> void:
 	PlayerData.moves_updated.connect(_on_moves_updated)
 	PlayerData.debt_updated.connect(_on_debt_updated)
 	travel_button.pressed.connect(_on_travel_button_pressed)
+	pause_button.pressed.connect(_on_pause_button_pressed)
 	map_display.selected_vertex_changed.connect(_on_selected_vertex_changed)
 	# Camera control signals
 	location_contracts.contract_show_destination_button_down.connect(set_temporary_camera_vertex)
@@ -108,6 +110,12 @@ func _on_moves_updated(moves) -> void:
 
 func _on_debt_updated(debt) -> void:
 	set_debt_display(debt)
+
+func _on_pause_button_pressed() -> void:
+	var pause_event := InputEventAction.new()
+	pause_event.action = "ui_cancel"
+	pause_event.pressed = true
+	Input.parse_input_event(pause_event)
 
 
 # MANAGER SIGNALS --------------------------------------------------------------

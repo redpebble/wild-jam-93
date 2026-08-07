@@ -63,6 +63,9 @@ theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 120
 
+[node name="BoxContainer" parent="ContentContainer" index="0" unique_id=394030069]
+size_flags_vertical = 4
+
 [node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="0" unique_id=1049966061]
 text = "Paused"
 label_settings = ExtResource("4_mdvg7")
@@ -71,13 +74,13 @@ horizontal_alignment = 0
 [node name="HSeparator" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="1" unique_id=33373596]
 visible = false
 
-[node name="BodyMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(394030069) index="1" unique_id=590613964]
+[node name="BodyMargin" parent="ContentContainer/BoxContainer" index="1" unique_id=590613964]
 visible = false
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" index="0" unique_id=707321702]
 text = ""
 
-[node name="MenuButtonsMargin" parent="ContentContainer/BoxContainer" parent_id_path=PackedInt32Array(394030069) index="2" unique_id=1413292752]
+[node name="MenuButtonsMargin" parent="ContentContainer/BoxContainer" index="2" unique_id=1413292752]
 size_flags_vertical = 3
 
 [node name="MenuButtons" parent="ContentContainer/BoxContainer/MenuButtonsMargin" index="0" unique_id=1371114575]

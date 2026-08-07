@@ -21,7 +21,7 @@ func pause() -> void:
 		_initial_focus_control.grab_focus()
 
 # If pause menu should take precedence, override _input() instead.
-func _unhandled_input(event : InputEvent) -> void:
+func _input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		pause()
 
