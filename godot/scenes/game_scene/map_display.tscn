@@ -4,27 +4,23 @@
 [ext_resource type="Script" uid="uid://ddk5th5tdk3s1" path="res://scenes/game_scene/map_display.gd" id="1_7huig"]
 [ext_resource type="PackedScene" uid="uid://ctdaaw614pvqm" path="res://scenes/game_scene/map/network_map.tscn" id="1_li7a7"]
 [ext_resource type="PackedScene" uid="uid://bvql2oicp8lhq" path="res://scenes/game_scene/map/network_vertex.tscn" id="3_7huig"]
-[ext_resource type="Script" uid="uid://d1sokpg2lbf5n" path="res://scenes/game_scene/ui/map_stuff/grid_effect.gd" id="3_wr28i"]
 [ext_resource type="Script" uid="uid://fc6xqx7dd1ey" path="res://scenes/game_scene/map/network_edge.gd" id="4_24htp"]
 [ext_resource type="PackedScene" uid="uid://73gedtqicwms" path="res://scenes/game_scene/ui/map_stuff/map_controls.tscn" id="6_0v10e"]
 [ext_resource type="Texture2D" uid="uid://cbmivdqdsrvih" path="res://assets/textures/map/grid.png" id="6_5lsv4"]
 [ext_resource type="PackedScene" uid="uid://bsfahm2x7lyj7" path="res://scenes/game_scene/ui/map_stuff/location_label.tscn" id="6_6csd5"]
 [ext_resource type="Shader" uid="uid://dxdnnby2s2ycl" path="res://scenes/game_scene/ui/shaders/crt_shader.gdshader" id="7_4evev"]
-[ext_resource type="Shader" uid="uid://bsvjn63378frv" path="res://scenes/game_scene/ui/shaders/vignette.gdshader" id="7_24htp"]
+[ext_resource type="Script" uid="uid://dwkldraljkgq7" path="res://scenes/game_scene/show_on_run.gd" id="12_n4wcw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lsv4"]
-shader = ExtResource("7_24htp")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.5
-shader_parameter/outer_radius = 1.0
+[sub_resource type="Gradient" id="Gradient_n4wcw"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.2748691, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6csd5"]
-shader = ExtResource("7_24htp")
-shader_parameter/color = Color(0.002299998, 0.173075, 0.23, 1)
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.245
-shader_parameter/outer_radius = 1.42
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_37yhw"]
+gradient = SubResource("Gradient_n4wcw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.25213677)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_24htp"]
 shader = ExtResource("7_4evev")
@@ -40,16 +36,16 @@ shader_parameter/blur = 0.0
 [node name="MapDisplay" type="Node2D" unique_id=2062216081]
 script = ExtResource("1_7huig")
 
-[node name="GridEffect" type="ColorRect" parent="." unique_id=1761634996]
-material = SubResource("ShaderMaterial_5lsv4")
+[node name="GridVignette" type="TextureRect" parent="." unique_id=222241267]
+self_modulate = Color(0, 0, 0, 1)
 offset_left = -659.4917
 offset_top = -596.0
 offset_right = 1351.5269
 offset_bottom = 475.0
 mouse_filter = 2
-script = ExtResource("3_wr28i")
+texture = SubResource("GradientTexture2D_37yhw")
 
-[node name="GridSprite" type="Sprite2D" parent="GridEffect" unique_id=2018574728]
+[node name="GridSprite" type="Sprite2D" parent="GridVignette" unique_id=2018574728]
 modulate = Color(1, 1, 1, 0.05)
 z_index = -10
 texture_filter = 1
@@ -223,17 +219,19 @@ location_name = "Titan"
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=302390962]
 
-[node name="Vignette" type="ColorRect" parent="Overlay" unique_id=1328709202]
-material = SubResource("ShaderMaterial_6csd5")
+[node name="MapVignette" type="TextureRect" parent="Overlay" unique_id=1977722635]
+modulate = Color(0.004599996, 0.16989334, 0.23, 0.6862745)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+texture = SubResource("GradientTexture2D_37yhw")
+expand_mode = 1
 
 [node name="LocationLabel" parent="Overlay" unique_id=790729705 instance=ExtResource("6_6csd5")]
 unique_name_in_owner = true
+visible = false
 
 [node name="MapControls" parent="Overlay" unique_id=534068729 instance=ExtResource("6_0v10e")]
 anchors_preset = 15
@@ -243,6 +241,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CRT" type="ColorRect" parent="Overlay" unique_id=1723688187]
+visible = false
 material = SubResource("ShaderMaterial_24htp")
 anchors_preset = 15
 anchor_right = 1.0
@@ -250,5 +249,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("12_n4wcw")
 
 [editable path="NetworkMap"]

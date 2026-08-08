@@ -58,6 +58,15 @@ shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.39
 shader_parameter/outer_radius = 2.63
 
+[sub_resource type="Gradient" id="Gradient_udiho"]
+offsets = PackedFloat32Array(0.70418847, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bvnae"]
+gradient = SubResource("Gradient_udiho")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Dashboard" type="Control" unique_id=60803867]
 layout_mode = 3
 anchors_preset = 15
@@ -94,24 +103,24 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1047580673]
+[node name="LeftHalf" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1047580673]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="MapPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1647062348]
+[node name="MapPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf" unique_id=1647062348]
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_fr7j0")
 
-[node name="MapContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel" unique_id=61518280]
+[node name="MapContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MapPanel" unique_id=61518280]
 material = SubResource("ShaderMaterial_jf6ts")
 layout_mode = 2
 stretch = true
 mouse_target = true
 
-[node name="MapViewport" type="SubViewport" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer" unique_id=2085686328]
+[node name="MapViewport" type="SubViewport" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MapPanel/MapContainer" unique_id=2085686328]
 transparent_bg = true
 handle_input_locally = false
 physics_object_picking = true
@@ -119,17 +128,21 @@ gui_embed_subwindows = true
 size = Vector2i(700, 552)
 render_target_update_mode = 4
 
-[node name="MapDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MapPanel/MapContainer/MapViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]
+[node name="MapDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MapPanel/MapContainer/MapViewport" unique_id=2062216081 instance=ExtResource("5_lmmc3")]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=414806147]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf" unique_id=116160773]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MarginContainer" unique_id=414806147]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PauseButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=140986552]
+[node name="PauseButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MarginContainer/HBoxContainer" unique_id=140986552]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
@@ -140,29 +153,29 @@ theme_override_styles/disabled = ExtResource("8_yujup")
 theme_override_styles/focus = ExtResource("6_udiho")
 text = "Pause"
 
-[node name="LocationDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=850055861 instance=ExtResource("6_jf6ts")]
+[node name="LocationDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MarginContainer/HBoxContainer" unique_id=850055861 instance=ExtResource("6_jf6ts")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_udiho")
 descriptor = "Location"
 value = "XXXXXXXXXX"
 
-[node name="TravelButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2065730614]
+[node name="TravelButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/LeftHalf/MarginContainer/HBoxContainer" unique_id=2065730614]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Travel"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1882094780]
+[node name="RightHalf" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1882094780]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=702416547]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/RightHalf" unique_id=702416547]
 layout_mode = 2
 theme_override_constants/separation = -10
 
-[node name="DebtDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1363687823 instance=ExtResource("6_jf6ts")]
+[node name="DebtDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/RightHalf/HBoxContainer" unique_id=1363687823 instance=ExtResource("6_jf6ts")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_jf6ts")
@@ -171,7 +184,7 @@ value = "000000"
 value_prefix = "$$ "
 label_settings = ExtResource("8_jf6ts")
 
-[node name="DayDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
+[node name="DayDisplay" parent="PanelContainer/MarginContainer/HBoxContainer/RightHalf/HBoxContainer" unique_id=840754121 instance=ExtResource("6_jf6ts")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -181,12 +194,12 @@ descriptor = "Days"
 value = "00"
 label_settings = ExtResource("8_jf6ts")
 
-[node name="PlayerContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1744448250 instance=ExtResource("8_m5vbi")]
+[node name="PlayerContracts" parent="PanelContainer/MarginContainer/HBoxContainer/RightHalf" unique_id=1744448250 instance=ExtResource("8_m5vbi")]
 unique_name_in_owner = true
 layout_mode = 2
 header_text = "Cargo Hold"
 
-[node name="LocationContracts" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1172378884 instance=ExtResource("8_m5vbi")]
+[node name="LocationContracts" parent="PanelContainer/MarginContainer/HBoxContainer/RightHalf" unique_id=1172378884 instance=ExtResource("8_m5vbi")]
 unique_name_in_owner = true
 layout_mode = 2
 header_text = "Contracts"
@@ -194,6 +207,7 @@ header_text = "Contracts"
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=688017819]
 
 [node name="Vignette" type="ColorRect" parent="Overlay" unique_id=167252739]
+visible = false
 material = SubResource("ShaderMaterial_0l5no")
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,3 +215,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Overlay" unique_id=1492157461]
+modulate = Color(1, 1, 1, 0.34901962)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_bvnae")
