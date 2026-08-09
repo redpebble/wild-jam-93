@@ -16,6 +16,7 @@ var zoom_toward_mouse : bool = false : set = set_zoom_toward_mouse
 var zoom_tween : Tween = null
 var move_tween : Tween = null
 var move_duration : float = 0.6
+var recall_position := Vector2.ZERO
 
 @onready var zoom_marker: Node2D = $ZoomMarker
 @onready var mouse_proxy: Node2D = %MouseProxy
@@ -28,29 +29,51 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if drag_enabled:
-		global_position -= drag_vector
+		move_by(-drag_vector)
 	if is_moving() or drag_enabled:
-			set_zoom_toward_mouse(false)
+		set_zoom_toward_mouse(false)
 
 func _unhandled_input(event: InputEvent) -> void:
 	poll_drag_inputs(event)
 	poll_zoom_inputs(event)
 
 
-# TWEEN MOVEMENT -----------------------------------------------------------------------------------
-func move_to(new_position : Vector2, duration := move_duration) -> void:
+# MOVEMENT -----------------------------------------------------------------------------------------
+## Tweens to [code]new_position[/code]. [br]
+## If [code]temporary[/code] is true, the recall position 
+## is projected to the new position.
+func move_to(new_position: Vector2, temporary: bool = false) -> void:
 	cancel_move()
 	move_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	move_tween.tween_property(self, "global_position", new_position, duration)
+	move_tween.tween_property(self, "global_position", new_position, move_duration)
+	if not temporary:
+		project_recall_position(new_position)
 
-func move_by(amount : Vector2, duration := move_duration) -> void:
-	move_to(global_position + amount, duration)
+## Moves instantly to a relative vector. [br][br]
+## Note: Updates [code]recall_position[/code].
+func move_by(vector : Vector2) -> void:
+	global_position += vector
+	update_recall_position()
 
+## Tweens to the recall position.
+func move_to_recall_position() -> void:
+	move_to(recall_position)
+
+## Kills the current move tween.
 func cancel_move() -> void:
 	if move_tween: move_tween.kill()
 
+## Checks if a move tween is active and running.
 func is_moving() -> bool:
 	return move_tween and move_tween.is_running()
+
+func update_recall_position() -> void:
+	recall_position = global_position
+
+## Set the position that should be recalled to,
+## even if that position has not yet been reached.
+func project_recall_position(projection: Vector2) -> void:
+	recall_position = projection
 
 
 # DRAGGING------------------------------------------------------------------------------------------
@@ -88,7 +111,7 @@ func update_zoom(new_zoom : Vector2) -> void:
 		var zoom_start_position = zoom_marker.get_global_transform_with_canvas().origin
 		var displacement = zoom_start_position - mouse_proxy.global_position
 		# makeup for displacement with respect to zoom amount
-		global_position += displacement / zoom
+		move_by(displacement / zoom)
 
 func set_zoom_toward_mouse(state : bool) -> void:
 	zoom_toward_mouse = state

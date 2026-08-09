@@ -10,8 +10,6 @@ extends Control
 @onready var day_display: InfoPanel = %DayDisplay
 @onready var debt_display: InfoPanel = %DebtDisplay
 
-var camera_recall_position := Vector2.ZERO
-
 
 func _ready() -> void:
 	PlayerData.reset()
@@ -49,11 +47,10 @@ func connect_signals() -> void:
 # MAP CONTROL ------------------------------------------------------------------
 func set_temporary_camera_vertex(vertex : NetworkVertex = null) -> void:
 	if vertex != null:
-		camera_recall_position = map_display.camera.global_position
-		map_display.move_camera_to_vertex(vertex)
+		map_display.move_camera_to_vertex(vertex, true)
 		map_display.network_map.highlighted_vertex = vertex
 	else:
-		map_display.move_camera_to_position(camera_recall_position)
+		map_display.move_camera_to_recall_position()
 		map_display.network_map.highlighted_vertex = vertex
 
 func map_move_to_selection() -> void:

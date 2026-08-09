@@ -27,15 +27,15 @@ func _process(_delta: float) -> void:
 func refocus_camera() -> void:
 	camera.move_to(network_map.start_vertex.global_position)
 
-func move_camera_to_vertex(vertex : NetworkVertex) -> void:
-	camera.move_to(vertex.global_position)
-
-func move_camera_to_position(pos : Vector2) -> void:
-	camera.move_to(pos)
+func move_camera_to_vertex(vertex : NetworkVertex, temporary := false) -> void:
+	camera.move_to(vertex.global_position, temporary)
 
 func set_camera_zoom_percent(percent : float) -> void:
 	camera.set_zoom_toward_mouse(false)
 	camera.zoom_percent = percent
+
+func move_camera_to_recall_position() -> void:
+	camera.move_to_recall_position()
 
 
 # SIGNALS ----------------------------------------------------------------------
